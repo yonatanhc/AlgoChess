@@ -4,7 +4,8 @@ import excepciones.JugadorPerdioElJuegoExcepcion;
 import excepciones.PuntosNoDisponibleDelJugador;
 import model.Jinete;
 import model.Jugador;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
+//import org.testng.annotations.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
