@@ -6,11 +6,14 @@ public class Jinete extends Unidad {
 
     public Jinete(){
         super(100,3);
-        //this.movilidad = new Movilidad();
+       // this.movilidad = new Movilidad();
     }
-	/*
-	public void moverUnidadA(int x, int y) {
 
+    /*
+	public void moverUnidadA(int x, int y) {
+	    Casillero desde = getUbicacion();
+	    Casillero hasta = getJugador().getTablero().getCasillero(x,y);
+        this.movilidad.moverUnidadA(this,desde,hasta);
 	}
 
 

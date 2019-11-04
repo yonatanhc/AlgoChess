@@ -24,6 +24,10 @@ public abstract class Unidad {
         return this.costo;
     }
 
+    public Jugador getJugador(){
+        return this.jugador;
+    }
+
     public void setUbicacion(Casillero ubicacion) {
         this.ubicacion = ubicacion;
     }

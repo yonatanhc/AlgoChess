@@ -2,7 +2,7 @@ package fiuba.algo3.AlgoChess;
 
 import java.util.ArrayList;
 
-public abstract class Tablero {
+public class Tablero {
     private ArrayList<Casillero> tablero;
 
     public Tablero() {
@@ -18,15 +18,12 @@ public abstract class Tablero {
     }
 
     public  void ubicarUnidadEn(Unidad unidad,int x, int y){
-        Casillero casillero = getCasillero(x,y);
-
-        if(casilleroValido(x,y)) {
-            unidad.setUbicacion(casillero);
-            casillero.ingresarUnidad(unidad);
-        }
+       Casillero casillero = getCasillero(x,y);
+       if(casillero.casilleroEstaLibre() && unidad.getJugador().casilleroAliado(casillero)) {
+           unidad.setUbicacion(casillero);
+           casillero.ingresarUnidad(unidad);
+       }
     }
-
-    public abstract boolean EsCasilleroAliado(int x, int y);
 
     public Casillero getCasillero(int x, int y) {
         for(int i = 0; i < this.tablero.size(); i++) {
@@ -35,16 +32,9 @@ public abstract class Tablero {
                 return casillero;
             }
         }
-
         throw new CasilleroNoExisteExcepcion();
     }
 
-    private boolean casilleroValido(int x, int y) {
-        Casillero casillero = getCasillero(x,y);
-        if(EsCasilleroAliado(x,y) && casillero.casilleroEstaLibre()) {
-            return true;
-        }
 
-        return false;
-    }
+
 }

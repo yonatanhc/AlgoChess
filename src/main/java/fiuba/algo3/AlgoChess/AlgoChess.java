@@ -2,13 +2,17 @@ package fiuba.algo3.AlgoChess;
 
 import java.util.ArrayList;
 
-public abstract class AlgoChess {
+public class AlgoChess {
     private ArrayList<Jugador> jugadores;
+    private Tablero tablero;
 
     public  AlgoChess() {
         this.jugadores = new ArrayList<Jugador>();
     }
 
+    public void agregarTablero(Tablero tablero){
+        this.tablero = tablero;
+    }
     public void agregarJugador(Jugador jugador) {
         if(this.jugadores.size() == 0) {
             jugador.asignarTablero(new TableroAliado());

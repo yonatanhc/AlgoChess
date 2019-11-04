@@ -10,7 +10,7 @@ public class PruebasJugadorTest {
     @Test
     public void test01JugadorNoPuedeTomarMasUnidadesDeLoQueSusPuntosLoPermite(){
         //el jugador tiene 20 puntos
-        Jugador jugador  = new Jugador("jorge");
+        Jugador jugador  = new Jugador("mario");
 
         //cada jinete tine 3 puntos de costo
         for (int i = 0 ; i < 6 ; i++){
