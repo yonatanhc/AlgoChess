@@ -1,4 +1,4 @@
 package fiuba.algo3.AlgoChess;
 
-public class CasilleroNoExisteExcepcion {
+public class CasilleroNoExisteExcepcion extends RuntimeException {
 }
