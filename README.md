@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.org/yonatanhc/AlgoChess.svg?branch=master)](https://travis-ci.org/yonatanhc/AlgoChess)
-[![codecov](https://codecov.io/gh/yonatanhc/AlgoChess/branch/master/graph/badge.svg)](https://codecov.io/gh/yonatanhc/AlgoChess)
+[![Build Status](https://travis-ci.org/yonatanhc/AlgoChess.svg?branch=master)](https://travis-ci.org/yonatanhc/AlgoChess)[![codecov](https://codecov.io/gh/yonatanhc/AlgoChess/branch/master/graph/badge.svg)](https://codecov.io/gh/yonatanhc/AlgoChess)
 
 
 ## Instalación previa
