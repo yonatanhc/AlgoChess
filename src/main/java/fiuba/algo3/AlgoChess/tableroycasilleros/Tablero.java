@@ -1,4 +1,8 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.AlgoChess.tableroycasilleros;
+
+import fiuba.algo3.AlgoChess.entidades.Unidad;
+import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
+import fiuba.algo3.AlgoChess.tableroycasilleros.CasilleroNoExisteExcepcion;
 
 import java.util.ArrayList;
 
@@ -17,7 +21,7 @@ public class Tablero {
         }
     }
 
-    public  void ubicarUnidadEn(Unidad unidad,int x, int y){
+    public  void ubicarUnidadEn(Unidad unidad, int x, int y){
        Casillero casillero = getCasillero(x,y);
        if(casillero.casilleroEstaLibre() && unidad.getJugador().casilleroAliado(casillero)) { //
            unidad.setUbicacion(casillero);

@@ -1,8 +1,11 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.AlgoChess.acciones;
+
+import fiuba.algo3.AlgoChess.entidades.Unidad;
+import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
 
 public class Movilidad {
 
-    public void moverUnidadA(Unidad unidad,Casillero origen,Casillero destino){
+    public void moverUnidadA(Unidad unidad, Casillero origen, Casillero destino){
         if(destino.casilleroEstaLibre()){ //&& casilleroDestinoEsValido(desde,destino)
             unidad.setUbicacion(destino);
             destino.ingresarUnidad(unidad);

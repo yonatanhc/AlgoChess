@@ -1,4 +1,6 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.AlgoChess.tableroycasilleros;
+
+import fiuba.algo3.AlgoChess.entidades.Unidad;
 
 public class Casillero {
     private int x;

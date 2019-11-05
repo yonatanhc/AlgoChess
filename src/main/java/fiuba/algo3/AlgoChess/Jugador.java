@@ -1,5 +1,9 @@
 package fiuba.algo3.AlgoChess;
 
+import fiuba.algo3.AlgoChess.entidades.Unidad;
+import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
+import fiuba.algo3.AlgoChess.tableroycasilleros.TipoDeTablero;
+
 import java.util.ArrayList;
 
 public class Jugador {

@@ -1,4 +1,6 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.AlgoChess.acciones;
+
+import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
 
 public abstract class TipoDeAtaque {
     private int danioCuerpoAcuerpo;

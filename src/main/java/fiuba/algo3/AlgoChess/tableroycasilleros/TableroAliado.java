@@ -1,13 +1,12 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.AlgoChess.tableroycasilleros;
 
-public class TableroEnemigo implements TipoDeTablero {
-
+public class TableroAliado implements TipoDeTablero {
     private int ubicacionMinima;
     private int ubicacionMaxima;
 
-    public TableroEnemigo() {
-        this.ubicacionMinima = 5;
-        this.ubicacionMaxima = 8;
+    public TableroAliado() {
+        this.ubicacionMinima = 1;
+        this.ubicacionMaxima = 4;
     }
 
     public boolean esCasilleroAliado(int x, int y) {
@@ -17,5 +16,6 @@ public class TableroEnemigo implements TipoDeTablero {
         }
         throw new CasilleroEnemigoExcepcion();
     }
+
 
 }

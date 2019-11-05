@@ -1,5 +1,9 @@
 package fiuba.algo3.AlgoChess;
 
+import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
+import fiuba.algo3.AlgoChess.tableroycasilleros.TableroAliado;
+import fiuba.algo3.AlgoChess.tableroycasilleros.TableroEnemigo;
+
 import java.util.ArrayList;
 
 public class AlgoChess {

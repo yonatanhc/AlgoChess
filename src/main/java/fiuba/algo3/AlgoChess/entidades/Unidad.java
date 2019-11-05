@@ -1,4 +1,7 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.AlgoChess.entidades;
+
+import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
+import fiuba.algo3.AlgoChess.Jugador;
 
 public abstract class Unidad {
     private int vida;

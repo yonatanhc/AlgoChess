@@ -1,4 +1,10 @@
-package fiuba.algo3.AlgoChess;
+package fiuba.algo3.AlgoChess.entidades;
+
+import fiuba.algo3.AlgoChess.acciones.AtaqueACortaDistancia;
+import fiuba.algo3.AlgoChess.acciones.Movilidad;
+import fiuba.algo3.AlgoChess.acciones.TipoDeAtaque;
+import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
+import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 
 public class Jinete extends Unidad {
     private TipoDeAtaque tipoDeAtaque;
@@ -9,7 +15,7 @@ public class Jinete extends Unidad {
         this.movilidad = new Movilidad();
     }
 
-	public void moverUnidadA(int x, int y,Tablero tablero) {
+	public void moverUnidadA(int x, int y, Tablero tablero) {
     	this.movilidad.moverUnidadA(this,getUbicacion(),tablero.getCasillero(x,y));
 	}
 

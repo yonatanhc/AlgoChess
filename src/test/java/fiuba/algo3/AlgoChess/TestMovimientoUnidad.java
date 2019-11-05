@@ -1,5 +1,8 @@
 package fiuba.algo3.AlgoChess;
 
+import fiuba.algo3.AlgoChess.entidades.Jinete;
+import fiuba.algo3.AlgoChess.tableroycasilleros.CasilleroNoEstaLibreExcepcion;
+import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
