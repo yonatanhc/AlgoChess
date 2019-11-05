@@ -15,8 +15,7 @@ public class Jugador {
         this.puntos = 20;
         this.unidades = new ArrayList<Unidad>();
     }
-
-
+    
     public void agregarUnidad(Unidad unidad){
         if(unidad.getCosto() > this.puntos) throw new PuntosNoDisponibleDelJugador();
         this.puntos -= unidad.getCosto();
