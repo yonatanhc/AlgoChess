@@ -5,25 +5,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
-public class PruebaTableroTest {
+public class TestTablero {
 
     /*
         el Tablero es de 8x5
         el Tablero esta 'dividido' en TableroAliado (que va desde (1,1) hasta el (4,5)) y el TableroEnemigo (es desde (5,1) hasta (8,5))
     */
 
-    @Test
-    public void test01NoSePuedeUbicarUnidadEnUnCasilleroOcupado(){
-        Tablero tablero = new Tablero(); // todos los casilleros estan libre
-        Jinete jinete = new Jinete();
-        tablero.ubicarUnidadEn(jinete,3,4); // el casillero(3,4) esta ocupado
-
-        Jinete otroJinete = new Jinete();
-        assertThrows(CasilleroNoEstaLibreExcepcion.class,
-                ()->{
-                    tablero.ubicarUnidadEn(otroJinete, 3, 4);
-                });
-    }
     /*
 	@Test
 	public void test01UbicarUnidadAliadaEnCasilleroAliadoConExito() {

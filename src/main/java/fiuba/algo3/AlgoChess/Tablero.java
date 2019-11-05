@@ -19,10 +19,18 @@ public class Tablero {
 
     public  void ubicarUnidadEn(Unidad unidad,int x, int y){
        Casillero casillero = getCasillero(x,y);
-       if(casillero.casilleroEstaLibre() && unidad.getJugador().casilleroAliado(casillero)) {
+       if(casillero.casilleroEstaLibre() && unidad.getJugador().casilleroAliado(casillero)) { //
            unidad.setUbicacion(casillero);
            casillero.ingresarUnidad(unidad);
        }
+    }
+    //esta class solo se usa para pasar las pruebas de movilidad
+    public  void ubicarUnidad(Unidad unidad,int x, int y){
+        Casillero casillero = getCasillero(x,y);
+        if(casillero.casilleroEstaLibre() ) { //&& unidad.getJugador().casilleroAliado(casillero)
+            unidad.setUbicacion(casillero);
+            casillero.ingresarUnidad(unidad);
+        }
     }
 
     public Casillero getCasillero(int x, int y) {

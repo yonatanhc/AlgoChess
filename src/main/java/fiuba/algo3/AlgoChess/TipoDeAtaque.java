@@ -1,19 +1,21 @@
 package fiuba.algo3.AlgoChess;
 
 public abstract class TipoDeAtaque {
-    private TipoDeDanio tipoDeDanio;
+    private int danioCuerpoAcuerpo;
+    private int danioADistancia;
 
     public TipoDeAtaque(int danioCuerpoACuerpo, int danioADistancia) {
-        this.tipoDeDanio = new TipoDeDanio(danioCuerpoACuerpo,danioADistancia);
+        this.danioCuerpoAcuerpo = danioCuerpoACuerpo;
+        this.danioADistancia = danioADistancia;
     }
 
     public abstract void activarAtaque(Casillero origenDelAtaque);
 
     public void realizarDanioCuerpoAcuerpo(Casillero origenDelAtaque,int distanciaDelAtaque) {
-        tipoDeDanio.realizarDanioCuerpoACuerpo(origenDelAtaque, distanciaDelAtaque);
+
     }
 
     public void realizarDanioADistancia(Casillero origenDelAtaque,int distanciaDelAtaque) {
-        tipoDeDanio.realizarDanioADistancia(origenDelAtaque, distanciaDelAtaque);
+
     }
 }

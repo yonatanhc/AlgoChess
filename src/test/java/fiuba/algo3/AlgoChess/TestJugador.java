@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
-public class PruebasJugadorTest {
+public class TestJugador {
 
     @Test
     public void test01JugadorNoPuedeTomarMasUnidadesDeLoQueSusPuntosLoPermite(){
