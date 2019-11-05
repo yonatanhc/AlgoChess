@@ -1,52 +1,62 @@
 package fiuba.algo3.AlgoChess.tableroycasilleros;
 
 import fiuba.algo3.AlgoChess.entidades.Unidad;
-import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
-import fiuba.algo3.AlgoChess.tableroycasilleros.CasilleroNoExisteExcepcion;
 
 import java.util.ArrayList;
 
-public class Tablero {
-    private ArrayList<Casillero> tablero;
+public abstract class Tablero {
 
-    public Tablero() {
-        this.tablero = new ArrayList<Casillero>();
-        inicializarTablero();
+    private ArrayList<Casillero> tableroDelJuego;
+    private int tamanioHorizontal;
+    protected int tamanioVertical;
+
+
+    public Tablero(){
+        this.tableroDelJuego = new ArrayList<Casillero>();
+        this.tamanioVertical = 5;
+        this.tamanioHorizontal = 8;
+        this.inicializarTablero();
     }
-    private void inicializarTablero() {
-        for(int i = 1; i <= 8 ; i++) {
-            for(int j = 1 ; j <= 5 ; j++) {
-                this.tablero.add(new Casillero(i,j));
+
+    public void inicializarTablero() {
+        if(this.tableroDelJuego.isEmpty()) {
+            for(int i = 1; i <= this.tamanioHorizontal; i++){
+                for (int j = 1; j <= this.tamanioVertical; j++) {
+                    this.tableroDelJuego.add(new Casillero(i,j));
+                }
             }
         }
     }
 
-    public  void ubicarUnidadEn(Unidad unidad, int x, int y){
-       Casillero casillero = getCasillero(x,y);
-       if(casillero.casilleroEstaLibre() && unidad.getJugador().casilleroAliado(casillero)) { //
-           unidad.setUbicacion(casillero);
-           casillero.ingresarUnidad(unidad);
-       }
-    }
-    //esta class solo se usa para pasar las pruebas de movilidad
-    public  void ubicarUnidad(Unidad unidad,int x, int y){
-        Casillero casillero = getCasillero(x,y);
-        if(casillero.casilleroEstaLibre() ) { //&& unidad.getJugador().casilleroAliado(casillero)
-            unidad.setUbicacion(casillero);
-            casillero.ingresarUnidad(unidad);
-        }
+    public abstract void ingresarUnidad(Unidad nuevaUnidad,int posicionX,int posicionY);
+
+    public abstract boolean verificarValidezDelCasillero(Casillero casillero);
+
+    protected boolean verificarPosicionValida(int posicionX, int posicionY){
+        return (posicionX<= this.tamanioHorizontal)&&(posicionY<= this.tamanioVertical);
     }
 
-    public Casillero getCasillero(int x, int y) {
-        for(int i = 0; i < this.tablero.size(); i++) {
-            Casillero casillero = this.tablero.get(i);
-            if(casillero.getX() == x && casillero.getY() == y) {
-                return casillero;
+    protected  Casillero obtenerCasillero(int posicionX, int posicionY) {
+        Casillero casilleroADevolver;
+        if (verificarPosicionValida(posicionX, posicionY)) {
+            for (int i = 0; i < this.tableroDelJuego.size(); i++) {
+                casilleroADevolver = this.tableroDelJuego.get(i);
+                if ((casilleroADevolver.getX() == posicionX) && (casilleroADevolver.getY() == posicionY)) {
+                    return casilleroADevolver;
+                }
             }
-        }
-        throw new CasilleroNoExisteExcepcion();
+        }throw new ErrorDePosicionException();
     }
 
+    public Unidad obtenerUnidadDePosicion(int posicionX, int posicionY){
+        return this.obtenerCasillero(posicionX,posicionY).obtenerUnidad();
+    }
 
+    public abstract int cantidadDeCasilleros();
 
+    public abstract void asignarCampo(int inicioCampo,int finalCampo);
+
+    public int cantidadDeCasillerosTotales() {
+        return this.tableroDelJuego.size();
+    }
 }

@@ -20,4 +20,5 @@ public abstract class TipoDeAtaque {
     public void realizarDanioADistancia(Casillero origenDelAtaque,int distanciaDelAtaque) {
 
     }
+
 }

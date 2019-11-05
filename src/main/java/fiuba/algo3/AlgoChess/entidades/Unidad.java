@@ -46,4 +46,7 @@ public abstract class Unidad {
             jugador.removerUnidad(this);
         }
     }
+    protected void sanarDanio(int devolverPuntosDeAtaque) {
+        this.vida += devolverPuntosDeAtaque;
+    }
 }

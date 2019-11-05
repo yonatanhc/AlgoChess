@@ -5,29 +5,33 @@ import fiuba.algo3.AlgoChess.entidades.Unidad;
 public class Casillero {
     private int x;
     private int y;
-    private EstadoDelCasillero estadoDelCasillero;
+    private boolean estaOcupado;
+    private Unidad unidadAGuardar;
 
     public Casillero(int x, int y) {
         this.x = x;
         this.y = y;
-        this.estadoDelCasillero = new CasilleroLibre();
+        this.unidadAGuardar = null;
     }
 
-    public void ingresarUnidad(Unidad unidad) {
-        estadoDelCasillero = new CasilleroOcupado(unidad);
+    public void ocuparCasilleroConUnidad(Unidad unidadAOcuparCasillero){
+        if(!estaOcupado) {
+            this.unidadAGuardar = unidadAOcuparCasillero;
+            this.estaOcupado= true;
+        }else{
+            throw new CasilleroOcupadoException();
+        }
     }
 
-    public void cambiarEstadoALibre() {
-        estadoDelCasillero = new CasilleroLibre();
+    public boolean casilleroOcupado() {
+        return estaOcupado;
     }
 
-    public boolean casilleroEstaLibre() {
-        return estadoDelCasillero.estaLibre();
+
+    public Unidad obtenerUnidad() {
+        return unidadAGuardar;
     }
 
-    public Unidad getUnidad() {
-        return this.estadoDelCasillero.getUnidad();
-    }
 
     public int getX() {
         return this.x;

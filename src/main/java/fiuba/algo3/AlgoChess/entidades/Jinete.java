@@ -15,8 +15,8 @@ public class Jinete extends Unidad {
         this.movilidad = new Movilidad();
     }
 
-	public void moverUnidadA(int x, int y, Tablero tablero) {
-    	this.movilidad.moverUnidadA(this,getUbicacion(),tablero.getCasillero(x,y));
+	public void moverUnidadA(int x, int y, Casillero casillero) {
+    	this.movilidad.moverUnidadA(this,getUbicacion(),casillero);
 	}
 
 	public void atacar() {
@@ -25,14 +25,5 @@ public class Jinete extends Unidad {
 
 		tipoDeAtaque.activarAtaque(origenDelAtaque);
 	}
-	/*
-	public TipoDeAtaque tipoDeAtaqueAUsar(Casillero origenDelAtaque) {
-		if(//soldado cerca o ningun enemigo cerca) {
-			return new AtaqueAMedianaDistancia(5,15);
-		}
 
-			return new AtaqueACortaDistancia(5,15);
-
-
-	}*/
 }
