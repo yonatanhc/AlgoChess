@@ -32,6 +32,7 @@ public abstract class Unidad {
     }
 
     public void setUbicacion(Casillero ubicacion) {
+        ubicacion.ocuparCasilleroConUnidad(this);
         this.ubicacion = ubicacion;
     }
 

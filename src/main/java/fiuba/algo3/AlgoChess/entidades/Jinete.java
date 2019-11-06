@@ -15,8 +15,9 @@ public class Jinete extends Unidad {
         this.movilidad = new Movilidad();
     }
 
-	public void moverUnidadA(int x, int y, Casillero casillero) {
-    	this.movilidad.moverUnidadA(this,getUbicacion(),casillero);
+	public void moverUnidadA(int x, int y,Tablero tablero) {
+    	Casillero destino = tablero.obtenerCasillero(x,y);
+    	this.movilidad.moverUnidadA(this,getUbicacion(),destino);
 	}
 
 	public void atacar() {

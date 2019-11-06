@@ -28,6 +28,9 @@ public class Casillero {
         return estaLibre;
     }
 
+    public void cambiarEstadoDelCasilleroALibre(){
+        this.estaLibre = true;
+    }
 
     public Unidad obtenerUnidad() {
         return unidadAGuardar;

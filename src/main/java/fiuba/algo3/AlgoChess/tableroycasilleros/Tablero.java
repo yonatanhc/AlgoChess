@@ -55,7 +55,7 @@ public class Tablero {
     private void ingresarUnidadEn(Unidad nuevaUnidad,int posicionX,int posicionY,Jugador jugador){
         Casillero casilleroALlenar = this.obtenerCasillero(posicionX,posicionY);
         if(casilleroALlenar.casilleroLibre()){
-            casilleroALlenar.ocuparCasilleroConUnidad(nuevaUnidad);
+            nuevaUnidad.setUbicacion(casilleroALlenar);
             jugador.agregarUnidad(nuevaUnidad);
         }
         else {throw new CasilleroOcupadoException();}
