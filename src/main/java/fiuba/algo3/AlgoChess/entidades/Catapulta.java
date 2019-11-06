@@ -11,9 +11,8 @@ public class Catapulta extends Unidad {
         this.ataqueDeLaCatapulta = new AtaqueALejanaDistancia(0, 20);
     }
 
-  /*  @Override
     public void atacarUnidad(Unidad unidadAAtacar){
-        unidadAAtacar.recibirDanio(ataqueDeLaCatapulta.devolverPuntosDeAtaque());
+        unidadAAtacar.recibirDanio(ataqueDeLaCatapulta.devolverPuntosDeAtaqueADistancia());
     }
-*/
+
 }
