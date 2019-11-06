@@ -21,4 +21,8 @@ public abstract class TipoDeAtaque {
 
     }
 
+    public int devolverPuntosDeAtaqueADistancia() {
+        return this.danioADistancia;
+    }
+
 }
