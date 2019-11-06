@@ -25,4 +25,8 @@ public abstract class TipoDeAtaque {
         return this.danioADistancia;
     }
 
+    public int devolverPuntosDeAtaqueCuerpoACuerpo() {
+        return this.danioCuerpoAcuerpo;
+    }
+
 }

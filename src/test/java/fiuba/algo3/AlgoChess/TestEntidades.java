@@ -1,12 +1,10 @@
 package fiuba.algo3.AlgoChess;
 
 import fiuba.algo3.AlgoChess.entidades.Catapulta;
-import fiuba.algo3.AlgoChess.entidades.Jinete;
 import fiuba.algo3.AlgoChess.entidades.Soldado;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TestEntidades {
 
@@ -22,12 +20,16 @@ public class TestEntidades {
         assertEquals(80,soldadoEnemigo.getPuntosDeVida());
     }
 
+    //Un Soldado de infantería aliado ataca a una pieza enemiga y se verifica que se resta
+    //la vida correspondiente.
     @Test
     public void test02SoldadoAliadoAtacaAEnemigoEstePierdeVida(){
         Soldado soldadoAliado = new Soldado();
         Soldado soldadoEnemigo = new Soldado();
 
-        assertEquals(80,80);
+        soldadoAliado.atacarUnidad(soldadoEnemigo);
+
+        assertEquals(90,soldadoEnemigo.getPuntosDeVida());
 
     }
 
