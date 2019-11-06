@@ -5,26 +5,27 @@ import fiuba.algo3.AlgoChess.entidades.Unidad;
 public class Casillero {
     private int x;
     private int y;
-    private boolean estaOcupado;
+    private boolean estaLibre;
     private Unidad unidadAGuardar;
 
     public Casillero(int x, int y) {
         this.x = x;
         this.y = y;
         this.unidadAGuardar = null;
+        this.estaLibre = true;
     }
 
     public void ocuparCasilleroConUnidad(Unidad unidadAOcuparCasillero){
-        if(!estaOcupado) {
+        if(estaLibre) {
             this.unidadAGuardar = unidadAOcuparCasillero;
-            this.estaOcupado= true;
+            this.estaLibre= false;
         }else{
             throw new CasilleroOcupadoException();
         }
     }
 
-    public boolean casilleroOcupado() {
-        return estaOcupado;
+    public boolean casilleroLibre() {
+        return estaLibre;
     }
 
 

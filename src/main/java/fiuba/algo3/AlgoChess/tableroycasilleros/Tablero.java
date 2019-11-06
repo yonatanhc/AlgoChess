@@ -1,14 +1,18 @@
 package fiuba.algo3.AlgoChess.tableroycasilleros;
 
+import fiuba.algo3.AlgoChess.Jugador;
 import fiuba.algo3.AlgoChess.entidades.Unidad;
 
 import java.util.ArrayList;
 
-public abstract class Tablero {
+public class Tablero {
 
     private ArrayList<Casillero> tableroDelJuego;
     private int tamanioHorizontal;
-    protected int tamanioVertical;
+    private int tamanioVertical;
+    private CampoAliado campoAliado;
+    private CampoEnemigo campoEnemigo;
+
 
 
     public Tablero(){
@@ -28,35 +32,53 @@ public abstract class Tablero {
         }
     }
 
-    public abstract void ingresarUnidad(Unidad nuevaUnidad,int posicionX,int posicionY);
-
-    public abstract boolean verificarValidezDelCasillero(Casillero casillero);
-
-    protected boolean verificarPosicionValida(int posicionX, int posicionY){
-        return (posicionX<= this.tamanioHorizontal)&&(posicionY<= this.tamanioVertical);
+    public void asignarCampoAliadoAJugador(Jugador jugador){
+        this.campoAliado = new CampoAliado(jugador);
     }
 
-    protected  Casillero obtenerCasillero(int posicionX, int posicionY) {
+    public void asignarCampoEnemigoAJugador(Jugador jugador){
+        this.campoEnemigo = new CampoEnemigo(jugador);
+    }
+
+    public  void ingresarUnidadEnCampoAliado(Unidad nuevaUnidad,int posicionX,int posicionY){
+        if (esCasilleroValido(posicionX,posicionY) && this.campoAliado.esCasilleroAliado(posicionX, posicionY)) {
+            ingresarUnidadEn(nuevaUnidad,posicionX,posicionY,this.campoAliado.getJugador());
+        }
+    }
+
+    public  void ingresarUnidadEnCampoEnemigo(Unidad nuevaUnidad,int posicionX,int posicionY){
+        if (esCasilleroValido(posicionX,posicionY) && this.campoEnemigo.esCasilleroEnemigo(posicionX, posicionY)) {
+            ingresarUnidadEn(nuevaUnidad,posicionX,posicionY,this.campoEnemigo.getJugador());
+        }
+    }
+
+    private void ingresarUnidadEn(Unidad nuevaUnidad,int posicionX,int posicionY,Jugador jugador){
+        Casillero casilleroALlenar = this.obtenerCasillero(posicionX,posicionY);
+        if(casilleroALlenar.casilleroLibre()){
+            casilleroALlenar.ocuparCasilleroConUnidad(nuevaUnidad);
+            jugador.agregarUnidad(nuevaUnidad);
+        }
+        else {throw new CasilleroOcupadoException();}
+    }
+
+    public  Casillero obtenerCasillero(int posicionX, int posicionY) {
         Casillero casilleroADevolver;
-        if (verificarPosicionValida(posicionX, posicionY)) {
             for (int i = 0; i < this.tableroDelJuego.size(); i++) {
                 casilleroADevolver = this.tableroDelJuego.get(i);
                 if ((casilleroADevolver.getX() == posicionX) && (casilleroADevolver.getY() == posicionY)) {
                     return casilleroADevolver;
                 }
-            }
-        }throw new ErrorDePosicionException();
+            }throw new ErrorDePosicionException();
     }
 
     public Unidad obtenerUnidadDePosicion(int posicionX, int posicionY){
         return this.obtenerCasillero(posicionX,posicionY).obtenerUnidad();
     }
 
-    public abstract int cantidadDeCasilleros();
-
-    public abstract void asignarCampo(int inicioCampo,int finalCampo);
-
-    public int cantidadDeCasillerosTotales() {
-        return this.tableroDelJuego.size();
+    private boolean esCasilleroValido(int x, int y){
+        if(x >= 1 && x <= 8 && y >= 1 && y <= 5){
+            return true;
+        }
+        throw new ErrorDePosicionException();
     }
 }

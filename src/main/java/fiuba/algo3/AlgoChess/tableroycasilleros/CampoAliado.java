@@ -6,53 +6,27 @@ import fiuba.algo3.AlgoChess.entidades.Unidad;
 
 import java.util.ArrayList;
 
-public class CampoAliado extends Tablero {
+public class CampoAliado {
 
     private Jugador jugador;
-    protected Jugador jugadorEnemigo;
     private int maximoHorizontal;
     private int minimoHorizontal;
-    private ArrayList<Casillero> campo;
 
-    public CampoAliado(Jugador jugadorAAsignarLado, Jugador enemigo) {
+    public CampoAliado(Jugador jugadorAAsignarLado) {
         this.jugador = jugadorAAsignarLado;
-        this.jugadorEnemigo = enemigo;
         this.maximoHorizontal = 4;
         this.minimoHorizontal = 1;
-        this.campo = new ArrayList<Casillero>();
-        this.asignarCampo(minimoHorizontal, maximoHorizontal);
-        //this.jugadorEnTurno = new Turno(jugadorAAsignarLado,enemigo);
     }
 
-    @Override
-    public void asignarCampo(int inicioCampo, int finalCampo) {
-        while (inicioCampo <= finalCampo) {
-            for (int j = 1; j <= this.tamanioVertical; j++) {
-                campo.add(this.obtenerCasillero(inicioCampo, j));
-            }
-            inicioCampo++;
-        }
+    public Jugador getJugador(){
+        return this.jugador;
     }
 
-    @Override
-    public int cantidadDeCasilleros() {
-        return this.campo.size();
-    }
-
-    @Override
-    public boolean verificarValidezDelCasillero(Casillero casillero) {
-        if (this.campo.contains(casillero)) {
+    public boolean esCasilleroAliado(int x, int y) {
+        if(x >= minimoHorizontal && x <= maximoHorizontal && y >= 1 && y <= 5){
             return true;
-        }throw new CampoContrarioException();
-    }
-
-    @Override
-    public void ingresarUnidad(Unidad nuevaUnidad,int posicionX,int posicionY){
-        Casillero casilleroALlenar = this.obtenerCasillero(posicionX,posicionY);
-        if(verificarValidezDelCasillero(casilleroALlenar)){
-            casilleroALlenar.ocuparCasilleroConUnidad(nuevaUnidad);
-            this.jugador.agregarUnidad(nuevaUnidad);
         }
+        throw new CampoContrarioException();
     }
 
 }

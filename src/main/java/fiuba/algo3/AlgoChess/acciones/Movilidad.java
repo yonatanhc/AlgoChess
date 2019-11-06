@@ -6,7 +6,7 @@ import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
 public class Movilidad {
 
     public void moverUnidadA(Unidad unidad, Casillero origen, Casillero destino){
-        if(destino.casilleroOcupado()){
+        if(destino.casilleroLibre()){
             unidad.setUbicacion(destino);
             destino.ocuparCasilleroConUnidad(unidad);
         }
