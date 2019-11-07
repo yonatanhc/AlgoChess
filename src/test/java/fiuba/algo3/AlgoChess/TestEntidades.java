@@ -22,15 +22,12 @@ public class TestEntidades {
 
     //Un Soldado de infantería aliado ataca a una pieza enemiga y se verifica que se resta
     //la vida correspondiente.
-    /*@Test
+    @Test
     public void test02SoldadoAliadoAtacaAEnemigoEstePierdeVida(){
         Soldado soldadoAliado = new Soldado();
         Soldado soldadoEnemigo = new Soldado();
-
         soldadoAliado.atacarUnidad(soldadoEnemigo);
-
         assertEquals(90,soldadoEnemigo.getPuntosDeVida());
-
-    }*/
+    }
 
 }

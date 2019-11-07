@@ -3,12 +3,10 @@ package fiuba.algo3.AlgoChess.acciones;
 import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
 
 public abstract class TipoDeAtaque {
-    private int danioCuerpoAcuerpo;
-    private int danioADistancia;
+    private int puntosDeAtaque;
 
-    public TipoDeAtaque(int danioCuerpoACuerpo, int danioADistancia) {
-        this.danioCuerpoAcuerpo = danioCuerpoACuerpo;
-        this.danioADistancia = danioADistancia;
+    public TipoDeAtaque(int puntos) {
+        this.puntosDeAtaque = puntos;
     }
 
     public abstract void activarAtaque(Casillero origenDelAtaque);
@@ -21,12 +19,8 @@ public abstract class TipoDeAtaque {
 
     }
 
-    public int devolverPuntosDeAtaqueADistancia() {
-        return this.danioADistancia;
-    }
-
-    public int devolverPuntosDeAtaqueCuerpoACuerpo() {
-        return this.danioCuerpoAcuerpo;
+    public int devolverPuntosDeAtaque(){
+        return this.puntosDeAtaque;
     }
 
 }

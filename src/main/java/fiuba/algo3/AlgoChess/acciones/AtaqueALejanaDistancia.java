@@ -6,8 +6,8 @@ public class AtaqueALejanaDistancia extends TipoDeAtaque {
     private int distanciaMinima;
     private int distanciaMaxima;
 
-    public AtaqueALejanaDistancia(int danioCuerpoACuerpo, int danioADistancia) {
-        super(danioCuerpoACuerpo,danioADistancia);
+    public AtaqueALejanaDistancia(int puntos) {
+        super(puntos);
         this.distanciaMinima = 6;
         this.distanciaMaxima = 40; //Puede atacar a cualquier distancia
     }
