@@ -16,7 +16,7 @@ public class Jinete extends Unidad {
         super(100,3);
         this.movilidad = new Movilidad();
         this.tipoDeAtaque = new AtaqueACortaDistancia(5);
-        this.ataqueLejano = new AtaqueALejanaDistancia(15);
+        this.ataqueDeUnidad = new AtaqueACortaDistancia(15);
     }
 
 	public void moverUnidadA(int x, int y,Tablero tablero) {
@@ -26,7 +26,7 @@ public class Jinete extends Unidad {
 
 	@Override
     public void atacarUnidad (Unidad unidadAAtacar){
-        unidadAAtacar.recibirDanio(this.ataqueLejano.devolverPuntosDeAtaque());
+        unidadAAtacar.recibirDanio(this.ataqueDeUnidad.devolverPuntosDeAtaque());
     }
 
 	public void atacar() {
