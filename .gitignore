@@ -37,3 +37,9 @@ libs
 *.log
 *.swp
 *.bak
+
+_windows
+colors.scheme.xml
+ide-features-trainer.xml
+scala.xml
+vcs.xml
