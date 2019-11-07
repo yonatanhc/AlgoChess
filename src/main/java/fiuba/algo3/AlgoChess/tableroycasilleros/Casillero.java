@@ -20,13 +20,12 @@ public class Casillero {
     public void ocuparCasilleroConUnidad(Unidad unidadAOcuparCasillero){
         if(estaLibre) {
             this.unidadAGuardar = unidadAOcuparCasillero;
-            this.estaLibre= false;
-        }else{
-            throw new CasilleroOcupadoException();
+            this.estaLibre = false;
         }
     }
 
     public boolean casilleroLibre() {
+        if(!estaLibre) throw new CasilleroOcupadoException();
         return estaLibre;
     }
 
