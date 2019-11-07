@@ -16,14 +16,12 @@ public class Soldado extends Unidad {
         this.movilidad = new Movilidad();
     }
 
-<<<<<<< HEAD
     public void moverUnidadA(int x, int y, Tablero tablero) {
-        Casillero destino = tablero.obtenerCasillero(x,y);
-        this.movilidad.moverUnidadA(this,getUbicacion(),destino);
-=======
+        Casillero destino = tablero.obtenerCasillero(x, y);
+        this.movilidad.moverUnidadA(this, getUbicacion(), destino);
+    }
     public void atacarUnidad(Unidad unidadAAtacar){
-        unidadAAtacar.recibirDanio(ataqueDelSoldado.devolverPuntosDeAtaqueCuerpoACuerpo());
->>>>>>> 99de79411e69be6259e0bbc0318832a510c9892e
+        unidadAAtacar.recibirDanio(tipoDeAtaque.devolverPuntosDeAtaqueCuerpoACuerpo());
     }
 
 }

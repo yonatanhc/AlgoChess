@@ -6,6 +6,7 @@ public class Casillero {
     private int x;
     private int y;
     private boolean estaLibre;
+    private boolean esEnemigo;
     private Unidad unidadAGuardar;
 
     public Casillero(int x, int y) {
@@ -13,18 +14,18 @@ public class Casillero {
         this.y = y;
         this.unidadAGuardar = null;
         this.estaLibre = true;
+        this.esEnemigo = true;
     }
 
     public void ocuparCasilleroConUnidad(Unidad unidadAOcuparCasillero){
         if(estaLibre) {
             this.unidadAGuardar = unidadAOcuparCasillero;
-            this.estaLibre= false;
-        }else{
-            throw new CasilleroOcupadoException();
+            this.estaLibre = false;
         }
     }
 
     public boolean casilleroLibre() {
+        if(!estaLibre) throw new CasilleroOcupadoException();
         return estaLibre;
     }
 
@@ -36,6 +37,11 @@ public class Casillero {
         return unidadAGuardar;
     }
 
+
+    public void setEsEnemigo(boolean esEnemigoTrue)
+    {
+        this.esEnemigo = esEnemigoTrue;
+    }
 
     public int getX() {
         return this.x;

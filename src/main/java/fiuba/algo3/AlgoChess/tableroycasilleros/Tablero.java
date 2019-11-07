@@ -10,8 +10,8 @@ public class Tablero {
     private ArrayList<Casillero> tableroDelJuego;
     private int tamanioHorizontal;
     private int tamanioVertical;
-    private CampoAliado campoAliado;
-    private CampoEnemigo campoEnemigo;
+    //private CampoAliado campoAliado;
+    //private CampoEnemigo campoEnemigo;
 
 
 
@@ -26,12 +26,20 @@ public class Tablero {
         if(this.tableroDelJuego.isEmpty()) {
             for(int i = 1; i <= this.tamanioHorizontal; i++){
                 for (int j = 1; j <= this.tamanioVertical; j++) {
-                    this.tableroDelJuego.add(new Casillero(i,j));
+
+                    Casillero casillero = new Casillero(i,j);
+                    if(i<this.tamanioHorizontal/2)
+                        casillero.setEsEnemigo(true);
+                    else
+                        casillero.setEsEnemigo(false);
+
+                    this.tableroDelJuego.add(casillero);
                 }
             }
         }
     }
 
+    /*
     public void asignarCampoAliadoAJugador(Jugador jugador){
         this.campoAliado = new CampoAliado(jugador);
     }
@@ -50,15 +58,14 @@ public class Tablero {
         if (esCasilleroValido(posicionX,posicionY) && this.campoEnemigo.esCasilleroEnemigo(posicionX, posicionY)) {
             ingresarUnidadEn(nuevaUnidad,posicionX,posicionY,this.campoEnemigo.getJugador());
         }
-    }
-
-    private void ingresarUnidadEn(Unidad nuevaUnidad,int posicionX,int posicionY,Jugador jugador){
+    }*/
+    
+    public void ingresarUnidadEn(Unidad nuevaUnidad,int posicionX,int posicionY,Jugador jugador){
         Casillero casilleroALlenar = this.obtenerCasillero(posicionX,posicionY);
         if(casilleroALlenar.casilleroLibre()){
             nuevaUnidad.setUbicacion(casilleroALlenar);
             jugador.agregarUnidad(nuevaUnidad);
         }
-        else {throw new CasilleroOcupadoException();}
     }
 
     public  Casillero obtenerCasillero(int posicionX, int posicionY) {
@@ -70,7 +77,7 @@ public class Tablero {
                 }
             }throw new ErrorDePosicionException();
     }
-
+    /*
     public Unidad obtenerUnidadDePosicion(int posicionX, int posicionY){
         return this.obtenerCasillero(posicionX,posicionY).obtenerUnidad();
     }
@@ -80,5 +87,5 @@ public class Tablero {
             return true;
         }
         throw new ErrorDePosicionException();
-    }
+    }*/
 }
