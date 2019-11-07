@@ -17,7 +17,7 @@ class TestTablero {
         assertEquals(nuevoCampo.cantidadDeCasillerosTotales(),40);
         assertEquals(otroCampo.cantidadDeCasillerosTotales(),40);
     }*/
-
+/*
     @Test
     void test02UnidadSeIngresaExitosamenteEnElTableroEnLaPosicionX1Y2(){
         Tablero tablero = new Tablero();

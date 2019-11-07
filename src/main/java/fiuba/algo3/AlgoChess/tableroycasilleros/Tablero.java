@@ -10,8 +10,7 @@ public class Tablero {
     private ArrayList<Casillero> tableroDelJuego;
     private int tamanioHorizontal;
     private int tamanioVertical;
-    private CampoAliado campoAliado;
-    private CampoEnemigo campoEnemigo;
+
 
 
 
@@ -29,26 +28,6 @@ public class Tablero {
                     this.tableroDelJuego.add(new Casillero(i, j));
                 }
             }
-        }
-    }
-
-    public void asignarCampoAliadoAJugador(Jugador jugador){
-        this.campoAliado = new CampoAliado(jugador);
-    }
-
-    public void asignarCampoEnemigoAJugador(Jugador jugador){
-        this.campoEnemigo = new CampoEnemigo(jugador);
-    }
-
-    public  void ingresarUnidadEnCampoAliado(Unidad nuevaUnidad,int posicionX,int posicionY){
-        if (esCasilleroValido(posicionX,posicionY) && this.campoAliado.esCasilleroAliado(posicionX, posicionY)) {
-            ingresarUnidadEn(nuevaUnidad,posicionX,posicionY,this.campoAliado.getJugador());
-        }
-    }
-
-    public  void ingresarUnidadEnCampoEnemigo(Unidad nuevaUnidad,int posicionX,int posicionY){
-        if (esCasilleroValido(posicionX,posicionY) && this.campoEnemigo.esCasilleroEnemigo(posicionX, posicionY)) {
-            ingresarUnidadEn(nuevaUnidad,posicionX,posicionY,this.campoEnemigo.getJugador());
         }
     }
 
