@@ -1,5 +1,6 @@
 package fiuba.algo3.AlgoChess.entidades;
 
+import fiuba.algo3.AlgoChess.acciones.TipoDeAtaque;
 import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
 import fiuba.algo3.AlgoChess.Jugador;
 
@@ -8,11 +9,11 @@ public abstract class Unidad {
     private int costo;
     private Casillero ubicacion;
     private Jugador jugador;
+    protected TipoDeAtaque ataqueDeUnidad;
 
     public Unidad(int vida, int costo) {
         this.vida = vida;
         this.costo = costo;
-
     }
 
     public void perteneceAlJugador(Jugador jugador) {
@@ -47,6 +48,9 @@ public abstract class Unidad {
             jugador.removerUnidad(this);
         }
     }
+
+    public abstract void atacarUnidad(Unidad unidadAAtacar);
+
     protected void sanarDanio(int devolverPuntosDeAtaque) {
         this.vida += devolverPuntosDeAtaque;
     }
