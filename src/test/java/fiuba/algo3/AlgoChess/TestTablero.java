@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class TestTablero {
-
+/*
     @Test
     void test01CorrectaCreacionEInicializacionDelTablero(){
         Tablero tablero = new Tablero();
@@ -64,5 +64,5 @@ class TestTablero {
         assertThrows(CampoContrarioException.class,()->{
             tablero.ingresarUnidadEnCampoEnemigo(nuevoSoldado,5,2);
         });
-    }
+    }*/
 }
