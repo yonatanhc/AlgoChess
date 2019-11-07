@@ -15,6 +15,9 @@ public class TestEntidades {
         Catapulta catapultaAliada = new Catapulta();
         Soldado soldadoEnemigo = new Soldado();
 
+        Jugador jugador = new Jugador("anonimo");
+        catapultaAliada.perteneceAlJugador(jugador);
+
         catapultaAliada.atacarUnidad(soldadoEnemigo);
 
         assertEquals(80,soldadoEnemigo.getPuntosDeVida());
@@ -26,6 +29,10 @@ public class TestEntidades {
     public void test02SoldadoAliadoAtacaAEnemigoEstePierdeVida(){
         Soldado soldadoAliado = new Soldado();
         Soldado soldadoEnemigo = new Soldado();
+
+        Jugador jugador = new Jugador("anonimo");
+        soldadoAliado.perteneceAlJugador(jugador);
+
         soldadoAliado.atacarUnidad(soldadoEnemigo);
         assertEquals(90,soldadoEnemigo.getPuntosDeVida());
     }

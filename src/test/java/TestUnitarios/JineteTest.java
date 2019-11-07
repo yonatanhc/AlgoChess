@@ -1,5 +1,6 @@
 package TestUnitarios;
 
+import fiuba.algo3.AlgoChess.Jugador;
 import fiuba.algo3.AlgoChess.entidades.Catapulta;
 import fiuba.algo3.AlgoChess.entidades.Curandero;
 import fiuba.algo3.AlgoChess.entidades.Jinete;
@@ -26,6 +27,10 @@ class JineteTest {
     void testAtacarAUnSoldadoYVerificarDanio(){
         Jinete nuevoJinete = new Jinete();
         Soldado soldadoAAtacar = new Soldado();
+        Jugador jugador = new Jugador("anonimo");
+        nuevoJinete.perteneceAlJugador(jugador);
+
+
         nuevoJinete.atacarUnidad(soldadoAAtacar);
         assertEquals(soldadoAAtacar.getPuntosDeVida(),85);
     }
@@ -34,6 +39,9 @@ class JineteTest {
     void testAtacarAUnCuranderoYVerificarDanio(){
         Jinete nuevoJinete = new Jinete();
         Curandero curandero = new Curandero();
+        Jugador jugador = new Jugador("anonimo");
+        nuevoJinete.perteneceAlJugador(jugador);
+
         nuevoJinete.atacarUnidad(curandero);
         assertEquals(curandero.getPuntosDeVida(),60);
     }
@@ -42,6 +50,10 @@ class JineteTest {
     void testAtacarAUnJineteYVerificarDanio(){
         Jinete nuevoJinete = new Jinete();
         Jinete jinete = new Jinete();
+
+        Jugador jugador = new Jugador("anonimo");
+        nuevoJinete.perteneceAlJugador(jugador);
+
         nuevoJinete.atacarUnidad(jinete);
         assertEquals(jinete.getPuntosDeVida(),85);
     }
@@ -50,6 +62,9 @@ class JineteTest {
     void testAtacarAUnaCatapultaYVerificarDanio(){
         Jinete nuevoJinete = new Jinete();
         Catapulta catapulta = new Catapulta();
+        Jugador jugador = new Jugador("anonimo");
+        nuevoJinete.perteneceAlJugador(jugador);
+
         nuevoJinete.atacarUnidad(catapulta);
         assertEquals(catapulta.getPuntosDeVida(),35);
     }
