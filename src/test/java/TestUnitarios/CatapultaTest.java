@@ -29,7 +29,6 @@ class CatapultaTest {
         Soldado soldadoAAtacar = new Soldado();
         Jugador jugador = new Jugador("anonimo");
         nuevoCatapulta.perteneceAlJugador(jugador);
-
         nuevoCatapulta.atacarUnidad(soldadoAAtacar);
         assertEquals(soldadoAAtacar.getPuntosDeVida(),80);
     }
@@ -40,7 +39,6 @@ class CatapultaTest {
         Curandero curandero = new Curandero();
         Jugador jugador = new Jugador("anonimo");
         nuevoCatapulta.perteneceAlJugador(jugador);
-
         nuevoCatapulta.atacarUnidad(curandero);
         assertEquals(curandero.getPuntosDeVida(),55);
     }
@@ -51,7 +49,6 @@ class CatapultaTest {
         Jinete jinete = new Jinete();
         Jugador jugador = new Jugador("anonimo");
         nuevoCatapulta.perteneceAlJugador(jugador);
-
         nuevoCatapulta.atacarUnidad(jinete);
         assertEquals(jinete.getPuntosDeVida(),80);
     }
@@ -62,7 +59,6 @@ class CatapultaTest {
         Catapulta catapulta = new Catapulta();
         Jugador jugador = new Jugador("anonimo");
         nuevoCatapulta.perteneceAlJugador(jugador);
-
         nuevoCatapulta.atacarUnidad(catapulta);
         assertEquals(catapulta.getPuntosDeVida(),30);
     }

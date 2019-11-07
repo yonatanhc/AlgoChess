@@ -29,8 +29,6 @@ class SoldadoTest {
         Soldado soldadoAAtacar = new Soldado();
         Jugador jugador = new Jugador("anonimo");
         nuevoSoldado.perteneceAlJugador(jugador);
-
-
         nuevoSoldado.atacarUnidad(soldadoAAtacar);
         assertEquals(soldadoAAtacar.getPuntosDeVida(),90);
     }
@@ -40,7 +38,6 @@ class SoldadoTest {
         Curandero curandero = new Curandero();
         Jugador jugador = new Jugador("anonimo");
         nuevoSoldado.perteneceAlJugador(jugador);
-
         nuevoSoldado.atacarUnidad(curandero);
         assertEquals(curandero.getPuntosDeVida(),65);
     }
@@ -51,7 +48,6 @@ class SoldadoTest {
         Jinete jinete = new Jinete();
         Jugador jugador = new Jugador("anonimo");
         nuevoSoldado.perteneceAlJugador(jugador);
-
         nuevoSoldado.atacarUnidad(jinete);
         assertEquals(jinete.getPuntosDeVida(),90);
     }
@@ -62,7 +58,6 @@ class SoldadoTest {
         Catapulta catapulta = new Catapulta();
         Jugador jugador = new Jugador("anonimo");
         nuevoSoldado.perteneceAlJugador(jugador);
-
         nuevoSoldado.atacarUnidad(catapulta);
         assertEquals(catapulta.getPuntosDeVida(),40);
     }

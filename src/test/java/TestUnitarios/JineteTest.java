@@ -29,8 +29,6 @@ class JineteTest {
         Soldado soldadoAAtacar = new Soldado();
         Jugador jugador = new Jugador("anonimo");
         nuevoJinete.perteneceAlJugador(jugador);
-
-
         nuevoJinete.atacarUnidad(soldadoAAtacar);
         assertEquals(soldadoAAtacar.getPuntosDeVida(),85);
     }
@@ -41,7 +39,6 @@ class JineteTest {
         Curandero curandero = new Curandero();
         Jugador jugador = new Jugador("anonimo");
         nuevoJinete.perteneceAlJugador(jugador);
-
         nuevoJinete.atacarUnidad(curandero);
         assertEquals(curandero.getPuntosDeVida(),60);
     }
@@ -50,10 +47,8 @@ class JineteTest {
     void testAtacarAUnJineteYVerificarDanio(){
         Jinete nuevoJinete = new Jinete();
         Jinete jinete = new Jinete();
-
         Jugador jugador = new Jugador("anonimo");
         nuevoJinete.perteneceAlJugador(jugador);
-
         nuevoJinete.atacarUnidad(jinete);
         assertEquals(jinete.getPuntosDeVida(),85);
     }
@@ -64,7 +59,6 @@ class JineteTest {
         Catapulta catapulta = new Catapulta();
         Jugador jugador = new Jugador("anonimo");
         nuevoJinete.perteneceAlJugador(jugador);
-
         nuevoJinete.atacarUnidad(catapulta);
         assertEquals(catapulta.getPuntosDeVida(),35);
     }
