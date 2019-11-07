@@ -25,10 +25,6 @@ public class Jinete extends Unidad {
     	this.movilidad.moverUnidadA(this,getUbicacion(),destino);
 	}
 
-	@Override
-    public void atacarUnidad (Unidad unidadAAtacar){
-        unidadAAtacar.recibirDanio(this.ataqueDeUnidad.devolverPuntosDeAtaque());
-    }
 
 	public void atacar() {
 		Casillero origenDelAtaque = getUbicacion();

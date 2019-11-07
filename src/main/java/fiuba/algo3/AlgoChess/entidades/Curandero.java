@@ -21,10 +21,6 @@ public class Curandero extends Unidad {
         this.movilidad.moverUnidadA(this,getUbicacion(),destino);
     }
 
-    @Override
-    public void atacarUnidad (Unidad unidadAAtacar){
-        unidadAAtacar.recibirDanio(0);
-    }
 
     public void curarUnidad(Unidad unidadASanar) {
         if(!(unidadASanar.getNombreDeUnidad() == "Catapulta")) {

@@ -11,8 +11,6 @@ public class Catapulta extends Unidad {
         this.nombreDeUnidad = "Catapulta";
     }
 
-    public void atacarUnidad(Unidad unidadAAtacar){
-        unidadAAtacar.recibirDanio(ataqueDeUnidad.devolverPuntosDeAtaque());
-    }
+
 
 }

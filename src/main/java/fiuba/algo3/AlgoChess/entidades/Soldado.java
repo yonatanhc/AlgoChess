@@ -21,7 +21,5 @@ public class Soldado extends Unidad {
         this.movilidad.moverUnidadA(this, getUbicacion(), destino);
     }
 
-    public void atacarUnidad(Unidad unidadAAtacar){
-        unidadAAtacar.recibirDanio(ataqueDeUnidad.devolverPuntosDeAtaque());
-    }
+
 }

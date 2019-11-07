@@ -50,7 +50,11 @@ public abstract class Unidad {
         }
     }
 
-    public abstract void atacarUnidad(Unidad unidadAAtacar);
+    public void atacarUnidad(Unidad unidadAAtacar){
+        if( this.getJugador() != unidadAAtacar.getJugador()){
+            unidadAAtacar.recibirDanio(ataqueDeUnidad.devolverPuntosDeAtaque());
+        }
+    }
 
     protected void sanarDanio(int devolverPuntosDeAtaque) {
         this.vida += devolverPuntosDeAtaque;
