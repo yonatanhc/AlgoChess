@@ -37,7 +37,6 @@ public class Tablero {
             nuevaUnidad.setUbicacion(casilleroALlenar);
             jugador.agregarUnidad(nuevaUnidad);
         }
-        else {throw new CasilleroOcupadoException();}
     }
 
     public  Casillero obtenerCasillero(int posicionX, int posicionY) {
@@ -49,7 +48,7 @@ public class Tablero {
                 }
             }throw new ErrorDePosicionException();
     }
-
+    /*
     public Unidad obtenerUnidadDePosicion(int posicionX, int posicionY){
         return this.obtenerCasillero(posicionX,posicionY).obtenerUnidad();
     }
@@ -59,5 +58,5 @@ public class Tablero {
             return true;
         }
         throw new ErrorDePosicionException();
-    }
+    }*/
 }

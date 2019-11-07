@@ -11,6 +11,7 @@
 
 # Idea
 src/.idea
+.idea/
 *.iml
 *.iws
 *.ipr
