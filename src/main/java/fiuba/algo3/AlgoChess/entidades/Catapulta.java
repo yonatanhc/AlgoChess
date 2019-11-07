@@ -9,6 +9,7 @@ public class Catapulta extends Unidad {
     public Catapulta(){
         super(50,5);
         this.ataqueDeLaCatapulta = new AtaqueALejanaDistancia(20);
+        this.nombreDeUnidad = "Catapulta";
     }
 
     public void atacarUnidad(Unidad unidadAAtacar){

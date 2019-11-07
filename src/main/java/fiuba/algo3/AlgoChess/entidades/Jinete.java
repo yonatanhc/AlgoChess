@@ -15,6 +15,7 @@ public class Jinete extends Unidad {
     public Jinete(){
         super(100,3);
         this.movilidad = new Movilidad();
+        this.nombreDeUnidad = "Jinete";
         this.tipoDeAtaque = new AtaqueACortaDistancia(5);
         this.ataqueDeUnidad = new AtaqueACortaDistancia(15);
     }

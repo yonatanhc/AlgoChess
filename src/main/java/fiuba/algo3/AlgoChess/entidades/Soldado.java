@@ -10,6 +10,7 @@ public class Soldado extends Unidad {
 
     public Soldado(){
         super(100,1);
+        this.nombreDeUnidad = "Soldado";
         this.movilidad = new Movilidad();
         this.ataqueDeUnidad = new AtaqueACortaDistancia(10);
     }
