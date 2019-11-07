@@ -12,11 +12,21 @@ public class Curandero extends Unidad {
     public Curandero(){
         super(75,2);
         this.movilidad = new Movilidad();
+        this.ataqueDeUnidad = new AtaqueDeSanacion(15);
     }
 
     public void moverUnidadA(int x, int y, Tablero tablero) {
         Casillero destino = tablero.obtenerCasillero(x,y);
         this.movilidad.moverUnidadA(this,getUbicacion(),destino);
+    }
+
+    @Override
+    public void atacarUnidad (Unidad unidadAAtacar){
+        unidadAAtacar.recibirDanio(0);
+    }
+
+    public void curarUnidad(Unidad unidadAAtacar) {
+        unidadAAtacar.sanarDanio(this.ataqueDeUnidad.devolverPuntosDeAtaque());
     }
 
 }

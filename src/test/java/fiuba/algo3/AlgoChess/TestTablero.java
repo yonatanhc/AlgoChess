@@ -12,8 +12,7 @@ class TestTablero {
         Tablero tablero = new Tablero();
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");
-        tablero.asignarCampoEnemigoAJugador(jugador1);
-        tablero.asignarCampoAliadoAJugador(jugador2);
+
         assertEquals(nuevoCampo.cantidadDeCasillerosTotales(),40);
         assertEquals(otroCampo.cantidadDeCasillerosTotales(),40);
     }*/
@@ -22,18 +21,18 @@ class TestTablero {
     void test02UnidadSeIngresaExitosamenteEnElTableroEnLaPosicionX1Y2(){
         Tablero tablero = new Tablero();
         Jugador jugador = new Jugador("Juan");
-        //tablero.asignarCampoAliadoAJugador(jugador);
+
         Soldado nuevoSoldado = new Soldado();
         tablero.ingresarUnidadEn(nuevoSoldado,1,2,jugador);
-        assertEquals(tablero.obtenerUnidadDePosicion(1,2),nuevoSoldado);
+        assertEquals(tablero.obtenerCasillero(1,2).obtenerUnidad(),nuevoSoldado);
     }
 
     @Test
     void test03NoSePuedeIngresarUnidadEnUnaPosicionInvalida(){
         Tablero tablero = new Tablero();
         Jugador jugador = new Jugador("Juan");
-        //tablero.asignarCampoEnemigoAJugador(jugador);
         Soldado nuevoSoldado = new Soldado();
+
         assertThrows(ErrorDePosicionException.class,()->{
             tablero.ingresarUnidadEn(nuevoSoldado,9,2,jugador);
         });
@@ -44,8 +43,6 @@ class TestTablero {
     void test04UnidadAliadaNoSePuedeIngresarEnUnCasilleroAliadoOcupado(){
         Tablero tablero = new Tablero();
         Jugador jugador = new Jugador("Juan");
-
-        //tablero.asignarCampoAliadoAJugador(jugador);
         Soldado nuevoSoldado = new Soldado();
         tablero.ingresarUnidadEn(nuevoSoldado,1,2,jugador);
         Soldado otroSoldado = new Soldado();
@@ -59,11 +56,11 @@ class TestTablero {
     void test05NoSePuedeIngresarUnidadAliadaEnUnCampoEnemigo(){
         Tablero tablero = new Tablero();
         Jugador jugador = new Jugador("Pedro");
-        tablero.asignarCampoAliadoAJugador(jugador);
         Soldado nuevoSoldado = new Soldado();
         jugador.agregarUnidad(nuevoSoldado);
+
         assertThrows(CampoContrarioException.class,()->{
-            tablero.ingresarUnidadEnCampoEnemigo(nuevoSoldado,5,2);
-        });
-    }*/
+            tablero.ingresarUnidadEn(nuevoSoldado,5,2);
+        });*/
+
 }
