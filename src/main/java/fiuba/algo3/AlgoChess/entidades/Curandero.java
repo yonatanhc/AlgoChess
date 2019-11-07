@@ -11,6 +11,7 @@ public class Curandero extends Unidad {
 
     public Curandero(){
         super(75,2);
+        this.nombreDeUnidad = "Curandero";
         this.movilidad = new Movilidad();
         this.ataqueDeUnidad = new AtaqueDeSanacion(15);
     }
@@ -20,13 +21,11 @@ public class Curandero extends Unidad {
         this.movilidad.moverUnidadA(this,getUbicacion(),destino);
     }
 
-    @Override
-    public void atacarUnidad (Unidad unidadAAtacar){
-        unidadAAtacar.recibirDanio(0);
-    }
 
-    public void curarUnidad(Unidad unidadAAtacar) {
-        unidadAAtacar.sanarDanio(this.ataqueDeUnidad.devolverPuntosDeAtaque());
+    public void curarUnidad(Unidad unidadASanar) {
+        if(!(unidadASanar.getNombreDeUnidad() == "Catapulta")) {
+            unidadASanar.sanarDanio(this.ataqueDeUnidad.devolverPuntosDeAtaque());
+        }
     }
 
 }

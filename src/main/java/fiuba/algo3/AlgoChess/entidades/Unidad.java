@@ -10,6 +10,7 @@ public abstract class Unidad {
     private Casillero ubicacion;
     private Jugador jugador;
     protected TipoDeAtaque ataqueDeUnidad;
+    protected String nombreDeUnidad;
 
     public Unidad(int vida, int costo) {
         this.vida = vida;
@@ -49,9 +50,18 @@ public abstract class Unidad {
         }
     }
 
-    public abstract void atacarUnidad(Unidad unidadAAtacar);
+    public void atacarUnidad(Unidad unidadAAtacar){
+        if( this.getJugador() != unidadAAtacar.getJugador()){
+            unidadAAtacar.recibirDanio(ataqueDeUnidad.devolverPuntosDeAtaque());
+        }
+    }
 
     protected void sanarDanio(int devolverPuntosDeAtaque) {
         this.vida += devolverPuntosDeAtaque;
     }
+
+    public String getNombreDeUnidad(){
+        return this.nombreDeUnidad;
+    }
+
 }

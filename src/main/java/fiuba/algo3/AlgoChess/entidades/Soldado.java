@@ -2,6 +2,7 @@ package fiuba.algo3.AlgoChess.entidades;
 
 import fiuba.algo3.AlgoChess.acciones.AtaqueACortaDistancia;
 import fiuba.algo3.AlgoChess.acciones.Movilidad;
+import fiuba.algo3.AlgoChess.acciones.TipoDeAtaque;
 import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
 import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 
@@ -10,6 +11,7 @@ public class Soldado extends Unidad {
 
     public Soldado(){
         super(100,1);
+        this.nombreDeUnidad = "Soldado";
         this.movilidad = new Movilidad();
         this.ataqueDeUnidad = new AtaqueACortaDistancia(10);
     }
@@ -19,7 +21,5 @@ public class Soldado extends Unidad {
         this.movilidad.moverUnidadA(this, getUbicacion(), destino);
     }
 
-    public void atacarUnidad(Unidad unidadAAtacar){
-        unidadAAtacar.recibirDanio(ataqueDeUnidad.devolverPuntosDeAtaque());
-    }
+
 }

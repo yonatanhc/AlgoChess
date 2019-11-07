@@ -15,8 +15,9 @@ public class Jinete extends Unidad {
     public Jinete(){
         super(100,3);
         this.movilidad = new Movilidad();
+        this.nombreDeUnidad = "Jinete";
         this.tipoDeAtaque = new AtaqueACortaDistancia(5);
-        this.ataqueLejano = new AtaqueALejanaDistancia(15);
+        this.ataqueDeUnidad = new AtaqueACortaDistancia(15);
     }
 
 	public void moverUnidadA(int x, int y,Tablero tablero) {
@@ -24,10 +25,6 @@ public class Jinete extends Unidad {
     	this.movilidad.moverUnidadA(this,getUbicacion(),destino);
 	}
 
-	@Override
-    public void atacarUnidad (Unidad unidadAAtacar){
-        unidadAAtacar.recibirDanio(this.ataqueLejano.devolverPuntosDeAtaque());
-    }
 
 	public void atacar() {
 		Casillero origenDelAtaque = getUbicacion();

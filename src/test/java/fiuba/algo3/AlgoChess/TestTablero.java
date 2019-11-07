@@ -12,7 +12,6 @@ class TestTablero {
         Tablero tablero = new Tablero();
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");
-
         assertEquals(nuevoCampo.cantidadDeCasillerosTotales(),40);
         assertEquals(otroCampo.cantidadDeCasillerosTotales(),40);
     }*/
@@ -21,7 +20,6 @@ class TestTablero {
     void test02UnidadSeIngresaExitosamenteEnElTableroEnLaPosicionX1Y2(){
         Tablero tablero = new Tablero();
         Jugador jugador = new Jugador("Juan");
-
         Soldado nuevoSoldado = new Soldado();
         tablero.ingresarUnidadEn(nuevoSoldado,1,2,jugador);
         assertEquals(tablero.obtenerCasillero(1,2).obtenerUnidad(),nuevoSoldado);
@@ -32,7 +30,6 @@ class TestTablero {
         Tablero tablero = new Tablero();
         Jugador jugador = new Jugador("Juan");
         Soldado nuevoSoldado = new Soldado();
-
         assertThrows(ErrorDePosicionException.class,()->{
             tablero.ingresarUnidadEn(nuevoSoldado,9,2,jugador);
         });
@@ -58,7 +55,6 @@ class TestTablero {
         Jugador jugador = new Jugador("Pedro");
         Soldado nuevoSoldado = new Soldado();
         jugador.agregarUnidad(nuevoSoldado);
-
         assertThrows(CampoContrarioException.class,()->{
             tablero.ingresarUnidadEn(nuevoSoldado,5,2);
         });*/
