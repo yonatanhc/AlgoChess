@@ -26,7 +26,7 @@ public class Jinete extends Unidad {
 
 	@Override
     public void atacarUnidad (Unidad unidadAAtacar){
-        unidadAAtacar.recibirDanio(0);
+        unidadAAtacar.recibirDanio(this.ataqueLejano.devolverPuntosDeAtaque());
     }
 
 	public void atacar() {

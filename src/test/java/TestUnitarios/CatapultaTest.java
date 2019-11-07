@@ -27,7 +27,7 @@ class CatapultaTest {
         Catapulta nuevoCatapulta = new Catapulta();
         Soldado soldadoAAtacar = new Soldado();
         nuevoCatapulta.atacarUnidad(soldadoAAtacar);
-        assertEquals(soldadoAAtacar.getPuntosDeVida(),98);
+        assertEquals(soldadoAAtacar.getPuntosDeVida(),80);
     }
 
     @Test
