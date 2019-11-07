@@ -10,7 +10,8 @@ public class Tablero {
     private ArrayList<Casillero> tableroDelJuego;
     private int tamanioHorizontal;
     private int tamanioVertical;
-
+    //private CampoAliado campoAliado;
+    //private CampoEnemigo campoEnemigo;
 
 
 
@@ -25,13 +26,40 @@ public class Tablero {
         if(this.tableroDelJuego.isEmpty()) {
             for(int i = 1; i <= this.tamanioHorizontal; i++){
                 for (int j = 1; j <= this.tamanioVertical; j++) {
-                    this.tableroDelJuego.add(new Casillero(i, j));
+
+                    Casillero casillero = new Casillero(i,j);
+                    if(i<this.tamanioHorizontal/2)
+                        casillero.setEsEnemigo(true);
+                    else
+                        casillero.setEsEnemigo(false);
+
+                    this.tableroDelJuego.add(casillero);
                 }
             }
         }
     }
 
-    private void ingresarUnidadEn(Unidad nuevaUnidad,int posicionX,int posicionY,Jugador jugador){
+    /*
+    public void asignarCampoAliadoAJugador(Jugador jugador){
+        this.campoAliado = new CampoAliado(jugador);
+    }
+
+    public void asignarCampoEnemigoAJugador(Jugador jugador){
+        this.campoEnemigo = new CampoEnemigo(jugador);
+    }
+
+    public  void ingresarUnidadEnCampoAliado(Unidad nuevaUnidad,int posicionX,int posicionY){
+        if (esCasilleroValido(posicionX,posicionY) && this.campoAliado.esCasilleroAliado(posicionX, posicionY)) {
+            ingresarUnidadEn(nuevaUnidad,posicionX,posicionY,this.campoAliado.getJugador());
+        }
+    }
+
+    public  void ingresarUnidadEnCampoEnemigo(Unidad nuevaUnidad,int posicionX,int posicionY){
+        if (esCasilleroValido(posicionX,posicionY) && this.campoEnemigo.esCasilleroEnemigo(posicionX, posicionY)) {
+            ingresarUnidadEn(nuevaUnidad,posicionX,posicionY,this.campoEnemigo.getJugador());
+        }
+    }*/
+    public void ingresarUnidadEn(Unidad nuevaUnidad,int posicionX,int posicionY,Jugador jugador){
         Casillero casilleroALlenar = this.obtenerCasillero(posicionX,posicionY);
         if(casilleroALlenar.casilleroLibre()){
             nuevaUnidad.setUbicacion(casilleroALlenar);

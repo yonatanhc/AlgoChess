@@ -8,7 +8,7 @@ import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 
 public class Soldado extends Unidad {
     private Movilidad movilidad;
-    AtaqueACortaDistancia ataqueDeLSoldado;
+    private TipoDeAtaque tipoDeAtaque;
 
 
     public Soldado(){
@@ -16,15 +16,12 @@ public class Soldado extends Unidad {
         this.movilidad = new Movilidad();
     }
 
-
     public void moverUnidadA(int x, int y, Tablero tablero) {
         Casillero destino = tablero.obtenerCasillero(x, y);
         this.movilidad.moverUnidadA(this, getUbicacion(), destino);
     }
-
-        public void atacarUnidad (Unidad unidadAAtacar){
-            unidadAAtacar.recibirDanio(ataqueDeLSoldado.devolverPuntosDeAtaqueCuerpoACuerpo());
-        }
-
+    public void atacarUnidad(Unidad unidadAAtacar){
+        unidadAAtacar.recibirDanio(tipoDeAtaque.devolverPuntosDeAtaqueCuerpoACuerpo());
+    }
 
 }
