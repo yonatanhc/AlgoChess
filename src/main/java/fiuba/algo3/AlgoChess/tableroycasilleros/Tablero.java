@@ -26,7 +26,7 @@ public class Tablero {
         if(this.tableroDelJuego.isEmpty()) {
             for(int i = 1; i <= this.tamanioHorizontal; i++){
                 for (int j = 1; j <= this.tamanioVertical; j++) {
-                    this.tableroDelJuego.add(new Casillero(i,j));
+                    this.tableroDelJuego.add(new Casillero(i, j));
                 }
             }
         }

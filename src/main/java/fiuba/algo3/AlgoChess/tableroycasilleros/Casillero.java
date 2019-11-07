@@ -7,10 +7,15 @@ public class Casillero {
     private int y;
     private boolean estaLibre;
     private Unidad unidadAGuardar;
+    private boolean esAliado;
 
     public Casillero(int x, int y) {
         this.x = x;
         this.y = y;
+        if(y>4) {
+            this.esAliado = false;
+        }else { this.esAliado = true; }
+
         this.unidadAGuardar = null;
         this.estaLibre = true;
     }
