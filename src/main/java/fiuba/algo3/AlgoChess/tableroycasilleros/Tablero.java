@@ -59,6 +59,7 @@ public class Tablero {
             ingresarUnidadEn(nuevaUnidad,posicionX,posicionY,this.campoEnemigo.getJugador());
         }
     }*/
+    
     public void ingresarUnidadEn(Unidad nuevaUnidad,int posicionX,int posicionY,Jugador jugador){
         Casillero casilleroALlenar = this.obtenerCasillero(posicionX,posicionY);
         if(casilleroALlenar.casilleroLibre()){
