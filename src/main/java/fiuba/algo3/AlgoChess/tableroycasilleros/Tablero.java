@@ -39,30 +39,13 @@ public class Tablero {
         }
     }
 
-    /*
-    public void asignarCampoAliadoAJugador(Jugador jugador){
-        this.campoAliado = new CampoAliado(jugador);
-    }
 
-    public void asignarCampoEnemigoAJugador(Jugador jugador){
-        this.campoEnemigo = new CampoEnemigo(jugador);
-    }
-
-    public  void ingresarUnidadEnCampoAliado(Unidad nuevaUnidad,int posicionX,int posicionY){
-        if (esCasilleroValido(posicionX,posicionY) && this.campoAliado.esCasilleroAliado(posicionX, posicionY)) {
-            ingresarUnidadEn(nuevaUnidad,posicionX,posicionY,this.campoAliado.getJugador());
-        }
-    }
-
-    public  void ingresarUnidadEnCampoEnemigo(Unidad nuevaUnidad,int posicionX,int posicionY){
-        if (esCasilleroValido(posicionX,posicionY) && this.campoEnemigo.esCasilleroEnemigo(posicionX, posicionY)) {
-            ingresarUnidadEn(nuevaUnidad,posicionX,posicionY,this.campoEnemigo.getJugador());
-        }
-    }*/
     
+
     public void ingresarUnidadEn(Unidad nuevaUnidad,int posicionX,int posicionY,Jugador jugador){
         Casillero casilleroALlenar = this.obtenerCasillero(posicionX,posicionY);
-        if(casilleroALlenar.casilleroLibre()){
+        if(!casilleroALlenar.casilleroLibre()){throw new CasilleroOcupadoException();}
+         else {
             nuevaUnidad.setUbicacion(casilleroALlenar);
             jugador.agregarUnidad(nuevaUnidad);
         }
@@ -77,15 +60,16 @@ public class Tablero {
                 }
             }throw new ErrorDePosicionException();
     }
-    /*
-    public Unidad obtenerUnidadDePosicion(int posicionX, int posicionY){
-        return this.obtenerCasillero(posicionX,posicionY).obtenerUnidad();
+
+    public void moverUnidadA(Unidad unidad, Casillero destino){
+
+        if(destino.casilleroLibre() && unidad.getNombreDeUnidad() != "Catapulta"){ // realizar chequeo de catapulta
+            unidad.setUbicacion(destino);
+            unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
+        }
+        else{
+            throw new CasilleroOcupadoException();
+        }
     }
 
-    private boolean esCasilleroValido(int x, int y){
-        if(x >= 1 && x <= 8 && y >= 1 && y <= 5){
-            return true;
-        }
-        throw new ErrorDePosicionException();
-    }*/
 }

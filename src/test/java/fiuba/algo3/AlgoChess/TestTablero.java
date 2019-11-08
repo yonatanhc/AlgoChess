@@ -48,15 +48,6 @@ class TestTablero {
         });
     }
 
-    /*
-    @Test
-    void test05NoSePuedeIngresarUnidadAliadaEnUnCampoEnemigo(){
-        Tablero tablero = new Tablero();
-        Jugador jugador = new Jugador("Pedro");
-        Soldado nuevoSoldado = new Soldado();
-        jugador.agregarUnidad(nuevoSoldado);
-        assertThrows(CampoContrarioException.class,()->{
-            tablero.ingresarUnidadEn(nuevoSoldado,5,2);
-        });*/
+
 
 }
