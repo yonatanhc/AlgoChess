@@ -2,67 +2,46 @@ package fiuba.algo3.AlgoChess.tableroycasilleros;
 
 import fiuba.algo3.AlgoChess.Jugador;
 import fiuba.algo3.AlgoChess.entidades.Unidad;
-
 import java.util.ArrayList;
 
 public class Tablero {
 
     private ArrayList<Casillero> tableroDelJuego;
-    private int tamanioHorizontal;
-    private int tamanioVertical;
+    //private int tamanioHorizontal;
+    //private int tamanioVertical;
+    private int ladoDelTablero;
     //private CampoAliado campoAliado;
     //private CampoEnemigo campoEnemigo;
 
 
 
     public Tablero(){
+        this.ladoDelTablero = 20;
         this.tableroDelJuego = new ArrayList<Casillero>();
-        this.tamanioVertical = 5;
-        this.tamanioHorizontal = 8;
         this.inicializarTablero();
     }
 
     public void inicializarTablero() {
         if(this.tableroDelJuego.isEmpty()) {
-            for(int i = 1; i <= this.tamanioHorizontal; i++){
-                for (int j = 1; j <= this.tamanioVertical; j++) {
-
+            for(int i = 1; i <= this.ladoDelTablero; i++){
+                for (int j = 1; j <= this.ladoDelTablero; j++) {
                     Casillero casillero = new Casillero(i,j);
-                    if(i<this.tamanioHorizontal/2)
-                        casillero.setEsEnemigo(true);
-                    else
-                        casillero.setEsEnemigo(false);
-
+                    casillero.setEsEnemigo(asignarLadoDelCampo(i));
                     this.tableroDelJuego.add(casillero);
                 }
             }
         }
     }
 
-    /*
-    public void asignarCampoAliadoAJugador(Jugador jugador){
-        this.campoAliado = new CampoAliado(jugador);
+    //Agrego una comparacion de la posicion Horizontal para determinar el campo
+    private boolean asignarLadoDelCampo(int posicion){
+        return posicion<=this.ladoDelTablero/2;
     }
 
-    public void asignarCampoEnemigoAJugador(Jugador jugador){
-        this.campoEnemigo = new CampoEnemigo(jugador);
-    }
-
-    public  void ingresarUnidadEnCampoAliado(Unidad nuevaUnidad,int posicionX,int posicionY){
-        if (esCasilleroValido(posicionX,posicionY) && this.campoAliado.esCasilleroAliado(posicionX, posicionY)) {
-            ingresarUnidadEn(nuevaUnidad,posicionX,posicionY,this.campoAliado.getJugador());
-        }
-    }
-
-    public  void ingresarUnidadEnCampoEnemigo(Unidad nuevaUnidad,int posicionX,int posicionY){
-        if (esCasilleroValido(posicionX,posicionY) && this.campoEnemigo.esCasilleroEnemigo(posicionX, posicionY)) {
-            ingresarUnidadEn(nuevaUnidad,posicionX,posicionY,this.campoEnemigo.getJugador());
-        }
-    }*/
-    
     public void ingresarUnidadEn(Unidad nuevaUnidad,int posicionX,int posicionY,Jugador jugador){
         Casillero casilleroALlenar = this.obtenerCasillero(posicionX,posicionY);
-        if(casilleroALlenar.casilleroLibre()){
+        if(!casilleroALlenar.casilleroLibre()){throw new CasilleroOcupadoException();}
+         else {
             nuevaUnidad.setUbicacion(casilleroALlenar);
             jugador.agregarUnidad(nuevaUnidad);
         }
@@ -77,15 +56,19 @@ public class Tablero {
                 }
             }throw new ErrorDePosicionException();
     }
-    /*
-    public Unidad obtenerUnidadDePosicion(int posicionX, int posicionY){
-        return this.obtenerCasillero(posicionX,posicionY).obtenerUnidad();
+
+    public void moverUnidadA(Unidad unidad, Casillero destino){
+
+        if(destino.casilleroLibre() && unidad.getNombreDeUnidad() != "Catapulta"){ // realizar chequeo de catapulta
+            unidad.setUbicacion(destino);
+            unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
+        }
+        else{
+            throw new CasilleroOcupadoException();
+        }
     }
 
-    private boolean esCasilleroValido(int x, int y){
-        if(x >= 1 && x <= 8 && y >= 1 && y <= 5){
-            return true;
-        }
-        throw new ErrorDePosicionException();
-    }*/
+    public int tamanioDelTablero(){
+        return this.tableroDelJuego.size();
+    }
 }

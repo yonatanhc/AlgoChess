@@ -2,7 +2,6 @@ package fiuba.algo3.AlgoChess;
 
 import fiuba.algo3.AlgoChess.entidades.Jinete;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 

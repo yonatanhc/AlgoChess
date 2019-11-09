@@ -16,15 +16,16 @@ public class TestUnidadMovible {
     @Test
     void test01JineteSePuedeMoverEnTodaDireccion(){
         Tablero tablero = new Tablero();
-        Casillero ubicacion = tablero.obtenerCasillero(3,4);
-
         Jinete jinete = new Jinete();
+        Casillero ubicacion = tablero.obtenerCasillero(3,4);
+        Casillero otraUbicacion = tablero.obtenerCasillero(3,5);
+
         jinete.setUbicacion(ubicacion);//al jinete se le ubica en el casillero (3,4)
 
-        jinete.moverUnidadA(3,5,tablero);// la nueva ubicacion del casillero es (3,5)
+        tablero.moverUnidadA(jinete,otraUbicacion);// la nueva ubicacion del casillero es (3,5)
 
-        assertEquals(true,ubicacion.casilleroLibre());
-        assertEquals(true,jinete.getUbicacion().equals(tablero.obtenerCasillero(3,5)));
+        assertTrue(otraUbicacion.casilleroLibre());
+        assertEquals(jinete.getUbicacion(), tablero.obtenerCasillero(3, 5));
 
     }
 
@@ -38,7 +39,7 @@ public class TestUnidadMovible {
         Curandero curandero = new Curandero();
         curandero.setUbicacion(otraUbicacion);//curandero se ubica en el casillero (6,5)
         assertThrows(CasilleroOcupadoException.class,()->{
-            soldado.moverUnidadA(6,5,tablero);
+            tablero.moverUnidadA(soldado,ubicacion);
         });
     }
 

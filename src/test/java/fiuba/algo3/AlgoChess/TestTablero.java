@@ -6,15 +6,14 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class TestTablero {
-    /*
+
     @Test
     void test01CorrectaCreacionEInicializacionDelTablero(){
         Tablero tablero = new Tablero();
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");
-        assertEquals(nuevoCampo.cantidadDeCasillerosTotales(),40);
-        assertEquals(otroCampo.cantidadDeCasillerosTotales(),40);
-    }*/
+        assertEquals(tablero.tamanioDelTablero(),400);
+    }
 
     @Test
     void test02UnidadSeIngresaExitosamenteEnElTableroEnLaPosicionX1Y2(){
@@ -31,7 +30,7 @@ class TestTablero {
         Jugador jugador = new Jugador("Juan");
         Soldado nuevoSoldado = new Soldado();
         assertThrows(ErrorDePosicionException.class,()->{
-            tablero.ingresarUnidadEn(nuevoSoldado,9,2,jugador);
+            tablero.ingresarUnidadEn(nuevoSoldado,20,21,jugador);
         });
 
     }
@@ -48,15 +47,6 @@ class TestTablero {
         });
     }
 
-    /*
-    @Test
-    void test05NoSePuedeIngresarUnidadAliadaEnUnCampoEnemigo(){
-        Tablero tablero = new Tablero();
-        Jugador jugador = new Jugador("Pedro");
-        Soldado nuevoSoldado = new Soldado();
-        jugador.agregarUnidad(nuevoSoldado);
-        assertThrows(CampoContrarioException.class,()->{
-            tablero.ingresarUnidadEn(nuevoSoldado,5,2);
-        });*/
+
 
 }
