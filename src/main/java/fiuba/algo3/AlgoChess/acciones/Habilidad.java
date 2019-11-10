@@ -1,6 +1,7 @@
 package fiuba.algo3.AlgoChess.acciones;
 
 import fiuba.algo3.AlgoChess.entidades.Unidad;
+<<<<<<< Updated upstream
 import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
 import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 
@@ -18,5 +19,13 @@ public abstract class Habilidad {
     }
 
     public abstract void  activarHabilidad(Unidad unidad);
+
+
+public interface Habilidad {
+
+    public void  atacar();
+
+    public void curar(Unidad unidad);
+
 
 }
