@@ -1,7 +1,5 @@
 package fiuba.algo3.AlgoChess.entidades;
 
-import fiuba.algo3.AlgoChess.acciones.AtaqueALejanaDistancia;
-
 public class Catapulta extends Unidad {
 
 

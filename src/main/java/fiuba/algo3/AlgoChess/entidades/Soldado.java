@@ -1,7 +1,5 @@
 package fiuba.algo3.AlgoChess.entidades;
 
-import fiuba.algo3.AlgoChess.acciones.AtaqueACortaDistancia;
-
 public class Soldado extends Unidad {
 
     public Soldado(){

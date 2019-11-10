@@ -1,7 +1,5 @@
 package fiuba.algo3.AlgoChess.entidades;
 
-import fiuba.algo3.AlgoChess.acciones.AtaqueACortaDistancia;
-import fiuba.algo3.AlgoChess.acciones.AtaqueALejanaDistancia;
 import fiuba.algo3.AlgoChess.acciones.TipoDeAtaque;
 import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
 
