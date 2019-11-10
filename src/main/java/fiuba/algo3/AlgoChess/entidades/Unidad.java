@@ -1,20 +1,41 @@
 package fiuba.algo3.AlgoChess.entidades;
 
-import fiuba.algo3.AlgoChess.acciones.TipoDeAtaque;
+import fiuba.algo3.AlgoChess.acciones.Habilidad;
 import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
 import fiuba.algo3.AlgoChess.Jugador;
+import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 
 public abstract class Unidad {
     private int vida;
     private int costo;
     private Casillero ubicacion;
+    private Tablero tablero;
     private Jugador jugador;
-    protected TipoDeAtaque ataqueDeUnidad;
+    private Habilidad tipoDeHabilidad;
     protected String nombreDeUnidad;
 
     public Unidad(int vida, int costo) {
         this.vida = vida;
         this.costo = costo;
+    }
+
+    protected void asignarTipoDeHabilidad(Habilidad habilidad){
+        this.tipoDeHabilidad = habilidad;
+    }
+
+    public void asignarTablero(Tablero tablero){
+        this.tablero = tablero;
+    }
+
+    protected Habilidad getTipoDeHabilidad(){
+        return this.tipoDeHabilidad;
+    }
+
+    public abstract void asignarHabilidad();
+    public abstract void activarHabilidad();
+
+    protected Tablero getTablero(){
+        return this.tablero;
     }
 
     public void perteneceAlJugador(Jugador jugador) {
@@ -47,12 +68,6 @@ public abstract class Unidad {
         this.vida -= danio;
         if (this.vida <= 0) {
             jugador.removerUnidad(this);
-        }
-    }
-
-    public void atacarUnidad(Unidad unidadAAtacar){
-        if( this.getJugador() != unidadAAtacar.getJugador()){
-            unidadAAtacar.recibirDanio(ataqueDeUnidad.devolverPuntosDeAtaque());
         }
     }
 

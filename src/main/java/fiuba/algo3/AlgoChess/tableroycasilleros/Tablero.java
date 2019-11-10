@@ -44,6 +44,8 @@ public class Tablero {
          else {
             nuevaUnidad.setUbicacion(casilleroALlenar);
             jugador.agregarUnidad(nuevaUnidad);
+            nuevaUnidad.asignarTablero(this);
+            nuevaUnidad.asignarHabilidad();
         }
     }
 
@@ -58,14 +60,10 @@ public class Tablero {
     }
 
     public void moverUnidadA(Unidad unidad, Casillero destino){
-
         if(destino.casilleroLibre() && unidad.getNombreDeUnidad() != "Catapulta"){ // realizar chequeo de catapulta
             unidad.setUbicacion(destino);
             unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
-        }
-        else{
-            throw new CasilleroOcupadoException();
-        }
+        }else{throw new CasilleroOcupadoException();}
     }
 
     public int tamanioDelTablero(){

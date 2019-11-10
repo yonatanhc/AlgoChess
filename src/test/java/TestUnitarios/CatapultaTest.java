@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CatapultaTest {
-
+    /*
     @Test
     void testComprobarPuntosDeVidaA100(){
         Catapulta nuevoCatapulta =new Catapulta();
@@ -61,6 +61,6 @@ class CatapultaTest {
         nuevoCatapulta.perteneceAlJugador(jugador);
         nuevoCatapulta.atacarUnidad(catapulta);
         assertEquals(catapulta.getPuntosDeVida(),30);
-    }
+    }*/
 
 }

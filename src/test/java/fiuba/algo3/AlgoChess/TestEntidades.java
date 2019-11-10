@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestEntidades {
-
+    /*
     //Una catapulta aliada ataca a una pieza enemiga y se verifica que se resta la vida
     //correspondiente.
     @Test
@@ -30,6 +30,6 @@ public class TestEntidades {
         soldadoAliado.perteneceAlJugador(jugador);
         soldadoAliado.atacarUnidad(soldadoEnemigo);
         assertEquals(90,soldadoEnemigo.getPuntosDeVida());
-    }
+    }*/
 
 }
