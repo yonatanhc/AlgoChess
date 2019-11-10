@@ -13,18 +13,18 @@ public class TestAtaqueCatapulta {
     @Test
     void test01AtaqueDeCatapulta(){
         Tablero tablero = new Tablero();
+        Jugador jugador = new Jugador("jorge");
+        Catapulta catapulta = new Catapulta();
+        tablero.ingresarUnidadEn(catapulta,12,10,jugador);
 
-        Catapulta catapulta = new Catapulta(tablero);
-        tablero.ingresarUnidadEn(catapulta,12,10);
+        Soldado soldado = new Soldado();
+        tablero.ingresarUnidadEn(soldado,6,9,jugador);
 
-        Soldado soldado = new Soldado(tablero);
-        tablero.ingresarUnidadEn(soldado,6,9);
+        Jinete jinete = new Jinete();
+        tablero.ingresarUnidadEn(jinete,5,10,jugador);
 
-        Jinete jinete = new Jinete(tablero);
-        tablero.ingresarUnidadEn(jinete,5,10);
-
-        Curandero curandero = new Curandero(tablero);
-        tablero.ingresarUnidadEn(curandero,5,11);
+        Curandero curandero = new Curandero();
+        tablero.ingresarUnidadEn(curandero,5,11,jugador);
 
         catapulta.activarHabilidad();
 

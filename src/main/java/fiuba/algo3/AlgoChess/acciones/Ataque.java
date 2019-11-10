@@ -25,7 +25,7 @@ public class Ataque extends Habilidad {
 
     private void realizarAtaque(ArrayList<Unidad> unidadesEnemigas){
         for (int i = 0; i < unidadesEnemigas.size();i++){
-            unidadesEnemigas.get(i).recibirDanio(danioCuerpoACuerpo);
+            unidadesEnemigas.get(i).recibirDanio(this.danioADistancia);
         }
     }
     /*
