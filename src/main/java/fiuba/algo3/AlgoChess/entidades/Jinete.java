@@ -12,7 +12,7 @@ public class Jinete extends Unidad {
     }
 
     public void asignarHabilidad(){
-        asignarTipoDeHabilidad(new Ataque(new RangoMedio(getTablero()),0,20));
+        asignarTipoDeHabilidad(new Ataque(new RangoMedio(getTablero()),5,15));
     }
 
     public void activarHabilidad(){

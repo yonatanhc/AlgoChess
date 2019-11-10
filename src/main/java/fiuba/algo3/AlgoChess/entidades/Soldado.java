@@ -8,11 +8,10 @@ public class Soldado extends Unidad {
     public Soldado(){
         super(100,1);
         this.nombreDeUnidad = "Soldado";
-
     }
 
     public void asignarHabilidad(){
-        asignarTipoDeHabilidad(new Ataque(new RangoCorto(getTablero()),0,20));
+        asignarTipoDeHabilidad(new Ataque(new RangoCorto(getTablero()),10,0));
     }
 
     public void activarHabilidad(){

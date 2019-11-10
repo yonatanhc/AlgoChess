@@ -11,7 +11,7 @@ public abstract class Unidad {
     private Casillero ubicacion;
     private Tablero tablero;
     private Jugador jugador;
-    private Habilidad tipoDeHabilidad;
+    protected Habilidad tipoDeHabilidad;
     protected String nombreDeUnidad;
 
     public Unidad(int vida, int costo) {
@@ -32,6 +32,7 @@ public abstract class Unidad {
     }
 
     public abstract void asignarHabilidad();
+
     public abstract void activarHabilidad();
 
     protected Tablero getTablero(){
