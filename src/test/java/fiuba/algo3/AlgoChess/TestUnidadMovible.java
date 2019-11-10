@@ -3,6 +3,7 @@ package fiuba.algo3.AlgoChess;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import fiuba.algo3.AlgoChess.entidades.Batallon;
 import fiuba.algo3.AlgoChess.entidades.Curandero;
 import fiuba.algo3.AlgoChess.entidades.Jinete;
 import fiuba.algo3.AlgoChess.entidades.Soldado;
@@ -42,5 +43,34 @@ public class TestUnidadMovible {
             tablero.moverUnidadA(soldado,ubicacion);
         });
     }
+/*
+    @Test
+    void test03PruebaMovimientoBatallon(){
+        Tablero tablero = new Tablero();
+        Soldado soldado1 = new Soldado();
+        Soldado soldado2 = new Soldado();
+        Soldado soldado3 = new Soldado();
+        Batallon batallon;
+
+        Casillero ubicacion;
+
+        ubicacion = tablero.obtenerCasillero(3,4);
+        soldado1.setUbicacion(ubicacion);
+        ubicacion = tablero.obtenerCasillero(2,3);
+        soldado2.setUbicacion(ubicacion);
+        ubicacion = tablero.obtenerCasillero(3,5);
+        soldado3.setUbicacion(ubicacion);
+
+        ubicacion = tablero.obtenerCasillero(2,4);
+
+        batallon = new Batallon(soldado1);
+
+        batallon.moverBatallon(ubicacion);
+
+        assertEquals(soldado1.getUbicacion(), tablero.obtenerCasillero(2, 4));
+        assertEquals(soldado2.getUbicacion(), tablero.obtenerCasillero(1, 3));
+        assertEquals(soldado3.getUbicacion(), tablero.obtenerCasillero(2, 5));
+
+    }*/
 
 }

@@ -8,6 +8,8 @@ public class Ataque extends Habilidad {
     private int danioCuerpoACuerpo;
     private int danioADistancia;
     private Unidad unidad;
+
+
     public Ataque(Rango rango,int danioCuerpoACuerpo, int danioADistancia){
         super(rango);
         this.danioCuerpoACuerpo = danioCuerpoACuerpo;

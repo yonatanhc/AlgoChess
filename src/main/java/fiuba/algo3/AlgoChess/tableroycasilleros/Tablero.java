@@ -69,4 +69,5 @@ public class Tablero {
     public int tamanioDelTablero(){
         return this.tableroDelJuego.size();
     }
+
 }

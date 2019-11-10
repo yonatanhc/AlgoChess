@@ -13,6 +13,7 @@ public abstract class Rango {
         this.tablero = tablero;
     }
 
+
     public abstract ArrayList<Unidad> listaDeUnidadesAfectados(int x, int y);
 
     protected void listaDeUnidades(int x, int y, int rango, ArrayList<Unidad> unidades) {
