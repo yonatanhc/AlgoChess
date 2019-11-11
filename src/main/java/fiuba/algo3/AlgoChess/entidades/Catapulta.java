@@ -1,8 +1,6 @@
 package fiuba.algo3.AlgoChess.entidades;
 
 import fiuba.algo3.AlgoChess.acciones.Ataque;
-import fiuba.algo3.AlgoChess.acciones.RangoLargo;
-import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 
 public class Catapulta extends Unidad {
 

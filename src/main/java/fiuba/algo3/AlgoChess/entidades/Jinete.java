@@ -2,9 +2,6 @@ package fiuba.algo3.AlgoChess.entidades;
 
 import fiuba.algo3.AlgoChess.acciones.Ataque;
 import fiuba.algo3.AlgoChess.acciones.Rango;
-import fiuba.algo3.AlgoChess.acciones.RangoCorto;
-import fiuba.algo3.AlgoChess.acciones.RangoMedio;
-import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
 
 import java.util.ArrayList;
 
