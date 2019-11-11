@@ -1,6 +1,7 @@
 package fiuba.algo3.AlgoChess.acciones;
 
 import fiuba.algo3.AlgoChess.entidades.Unidad;
+import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 
 import java.util.ArrayList;
 
@@ -8,7 +9,8 @@ public class AtaqueDeJinete extends Habilidad {
     private int danioCuerpoACuerpo;
     private int danioADistancia;
 
-    public AtaqueDeJinete(){
+    public AtaqueDeJinete(Tablero tablero){
+        super(new Rango(tablero));
         this.danioCuerpoACuerpo = 5;
         this.danioADistancia = 15;
     }
@@ -38,10 +40,10 @@ public class AtaqueDeJinete extends Habilidad {
     }
 
     public boolean ataqueConArcoFlecha(ArrayList<Unidad> unidades){
-
+        return true;
     }
 
     public boolean ataqueConEspada(ArrayList<Unidad> unidades){
-
+        return false;
     }
 }

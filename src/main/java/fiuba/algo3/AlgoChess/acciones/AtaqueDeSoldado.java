@@ -1,13 +1,15 @@
 package fiuba.algo3.AlgoChess.acciones;
 
 import fiuba.algo3.AlgoChess.entidades.Unidad;
+import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 
 import java.util.ArrayList;
 
 public class AtaqueDeSoldado extends Habilidad {
     private int danioCuerpoACuerpo;
 
-    public AtaqueDeSoldado(){
+    public AtaqueDeSoldado(Tablero tablero){
+        super(new Rango(tablero));
         this.danioCuerpoACuerpo = 10;
     }
 

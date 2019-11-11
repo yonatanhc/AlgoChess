@@ -1,19 +1,23 @@
 package fiuba.algo3.AlgoChess.acciones;
 
 import fiuba.algo3.AlgoChess.entidades.Unidad;
+import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 
 import java.util.ArrayList;
 
 public class AtaqueDeCatapulta extends Habilidad {
     private int danioADistancia;
 
-    public AtaqueDeCatapulta(){
+    public AtaqueDeCatapulta(Tablero tablero){
+        super(new Rango(tablero));
         this.danioADistancia = 20;
     }
 
     public void activarHabilidad(Unidad unidad){
-        ArrayList<Unidad> unidadesAfectados = listaDeUnidadesAfectados(unidad.getUbicacion().getX(),unidad.getUbicacion().getY());
-        //relizar ataque a cada unida de unidadesAfectadas
+        ArrayList<Unidad> unidadesAfectadas = listaDeUnidadesAfectados(unidad.getUbicacion().getX(),unidad.getUbicacion().getY());
+        for (int i = 0; i < unidadesAfectadas.size() ; i++){
+            unidadesAfectadas.get(i).recibirDanio(danioADistancia);
+        }
     }
 
     public ArrayList<Unidad> listaDeUnidadesAfectados(int x, int y) {
