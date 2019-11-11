@@ -6,16 +6,27 @@ import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 
 import java.util.ArrayList;
 
-public abstract class Rango {
+public  class Rango {
     private Tablero tablero;
 
     public  Rango(Tablero tablero){
         this.tablero = tablero;
     }
 
+<<<<<<< HEAD
 
     public abstract ArrayList<Unidad> listaDeUnidadesAfectados(int x, int y);
 
+=======
+    public ArrayList<Unidad> listaDeUnidadesAfectados(int x, int y,int rango,ArrayList<Unidad> unidades){
+        iteradorHorizontal(y - rango, y + rango, x - rango, unidades);
+        iteradorHorizontal(y - rango, y + rango, x + rango, unidades);
+        iteradorVertical(x - rango, x + rango, y - rango, unidades);
+        iteradorVertical(x - rango, x + rango, y + rango, unidades);
+        return unidades;
+    }
+    /*
+>>>>>>> ataque
     protected void listaDeUnidades(int x, int y, int rango, ArrayList<Unidad> unidades) {
 
         iteradorHorizontal(y - rango, y + rango, x - rango, unidades);
@@ -23,7 +34,7 @@ public abstract class Rango {
         iteradorVertical(x - rango, x + rango, y - rango, unidades);
         iteradorVertical(x - rango, x + rango, y + rango, unidades);
 
-    }
+    }*/
 
     private void iteradorHorizontal(int x, int y, int constante, ArrayList<Unidad> unidades) {
         for (int i = x; i <= y; i++) {

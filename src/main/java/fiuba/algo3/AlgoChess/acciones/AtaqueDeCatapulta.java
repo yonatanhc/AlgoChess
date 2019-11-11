@@ -5,47 +5,44 @@ import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 
 import java.util.ArrayList;
 
-public class RangoLargo extends Rango{
-    private int minimo;
+public class AtaqueDeCatapulta extends Habilidad {
+    private int danioADistancia;
 
-    public RangoLargo(Tablero tablero){
-        super(tablero);
-        this.minimo = 6;
+    public AtaqueDeCatapulta(Tablero tablero){
+        super(new Rango(tablero));
+        this.danioADistancia = 20;
     }
 
-    @Override
+    public void activarHabilidad(Unidad unidad){
+        ArrayList<Unidad> unidadesAfectadas = listaDeUnidadesAfectados(unidad.getUbicacion().getX(),unidad.getUbicacion().getY());
+        for (int i = 0; i < unidadesAfectadas.size() ; i++){
+            unidadesAfectadas.get(i).recibirDanio(danioADistancia);
+        }
+    }
+
     public ArrayList<Unidad> listaDeUnidadesAfectados(int x, int y) {
         ArrayList<Unidad> unidades = new  ArrayList<Unidad>();
-        listaDeUnidades(x,y,this.minimo,unidades);//casilleros que estan a 6 de distancia
-        /*
-        int rango = this.minimo;
+        int rango = 6;
         while(unidades.size() == 0){
-            listaDeUnidades(x,y,rango,unidades);
+            listaDeUnidadesAfectados(x,y,rango,unidades);
             rango++;
-        }*/
+        }
         if(unidades.size() > 0){
             Unidad unidadAtacar = unidades.get(0); //primer enemigo alcanzado
-            return iterar(unidadAtacar);
+            return iterador(unidadAtacar,1);
         }
         return unidades;
     }
 
-
-    public ArrayList<Unidad> iterar(Unidad unidad){
+    public ArrayList<Unidad> iterador(Unidad unidad,int cantidad){
         ArrayList<Unidad> unidades = new  ArrayList<Unidad>();
         unidades.add(unidad);
-        iterador(unidades,1);
-
-        return unidades;
-    }
-
-    public void iterador(ArrayList<Unidad> unidades,int cantidad){
-
         while(cantidad <= unidades.size()){
             int x = unidades.get(cantidad -1).getUbicacion().getX();
             int y = unidades.get(cantidad- 1).getUbicacion().getY();
-            listaDeUnidades(x,y,1,unidades);
+            listaDeUnidadesAfectados(x,y,1,unidades);
             cantidad++;
         }
+        return unidades;
     }
 }

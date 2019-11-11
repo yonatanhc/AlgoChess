@@ -5,6 +5,8 @@ import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
 import fiuba.algo3.AlgoChess.Jugador;
 import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 
+import java.util.ArrayList;
+
 public abstract class Unidad {
     private int vida;
     private int costo;
@@ -31,7 +33,10 @@ public abstract class Unidad {
         return this.tipoDeHabilidad;
     }
 
+<<<<<<< HEAD
     public abstract void asignarHabilidad();
+=======
+>>>>>>> ataque
 
     public abstract void activarHabilidad();
 

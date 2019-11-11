@@ -1,8 +1,6 @@
 package fiuba.algo3.AlgoChess.entidades;
 
-import fiuba.algo3.AlgoChess.acciones.Ataque;
-import fiuba.algo3.AlgoChess.acciones.RangoLargo;
-import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
+import fiuba.algo3.AlgoChess.acciones.AtaqueDeCatapulta;
 
 public class Catapulta extends Unidad {
 
@@ -12,12 +10,9 @@ public class Catapulta extends Unidad {
         this.nombreDeUnidad = "Catapulta";
     }
 
-    public void asignarHabilidad(){
-        asignarTipoDeHabilidad(new Ataque(new RangoLargo(getTablero()),0,20));
-    }
-
     public void activarHabilidad(){
-            getTipoDeHabilidad().activarHabilidad(this);
+        asignarTipoDeHabilidad(new AtaqueDeCatapulta(getTablero()));
+        getTipoDeHabilidad().activarHabilidad(this);
     }
 
 }
