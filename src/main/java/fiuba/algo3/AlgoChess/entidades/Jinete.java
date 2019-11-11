@@ -1,6 +1,5 @@
 package fiuba.algo3.AlgoChess.entidades;
 
-import fiuba.algo3.AlgoChess.acciones.Ataque;
 import fiuba.algo3.AlgoChess.acciones.Rango;
 
 import java.util.ArrayList;

@@ -1,7 +1,5 @@
 package fiuba.algo3.AlgoChess.entidades;
 
-import fiuba.algo3.AlgoChess.acciones.Ataque;
-
 public class Curandero extends Unidad {
 
 
