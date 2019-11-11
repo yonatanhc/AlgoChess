@@ -10,7 +10,7 @@ public class RangoContiguo extends Rango {
 
     public RangoContiguo(Tablero tablero){
         super(tablero);
-        this.maximo = 2;
+        this.maximo = 1;
     }
 
     public ArrayList<Unidad> listaDeUnidadesAfectados(int x, int y){
