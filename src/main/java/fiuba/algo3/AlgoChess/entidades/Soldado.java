@@ -11,11 +11,8 @@ public class Soldado extends Unidad {
 
     }
 
-    public void asignarHabilidad(){
-        asignarTipoDeHabilidad(new Ataque(new RangoCorto(getTablero()),0,20));
-    }
-
     public void activarHabilidad(){
+        asignarTipoDeHabilidad(new Ataque(new RangoCorto(getTablero()),0,20));
         getTipoDeHabilidad().activarHabilidad(this);
     }
 

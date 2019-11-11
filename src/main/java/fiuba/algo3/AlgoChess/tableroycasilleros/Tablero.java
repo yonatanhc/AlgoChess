@@ -45,7 +45,6 @@ public class Tablero {
             nuevaUnidad.setUbicacion(casilleroALlenar);
             jugador.agregarUnidad(nuevaUnidad);
             nuevaUnidad.asignarTablero(this);
-            nuevaUnidad.asignarHabilidad();
         }
     }
 

@@ -16,11 +16,10 @@ public class RangoMedio extends Rango{
     }
 
     public ArrayList<Unidad> listaDeUnidadesAfectados(int x, int y){
-        ArrayList<Unidad> unidades;
-        unidades = new  ArrayList<Unidad>();
-        listaDeUnidades(x,y,this.minimo,unidades);
-        listaDeUnidades(x,y,this.minimo+1,unidades);
-        listaDeUnidades(x,y,this.maximo,unidades);
+        ArrayList<Unidad> unidades = new  ArrayList<Unidad>();
+        for (int i = this.minimo; i <= this.maximo ; i++){
+            listaDeUnidades(x,y,i,unidades);
+        }
         return unidades;
     }
 }

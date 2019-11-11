@@ -12,12 +12,9 @@ public class Catapulta extends Unidad {
         this.nombreDeUnidad = "Catapulta";
     }
 
-    public void asignarHabilidad(){
-        asignarTipoDeHabilidad(new Ataque(new RangoLargo(getTablero()),0,20));
-    }
-
     public void activarHabilidad(){
-            getTipoDeHabilidad().activarHabilidad(this);
+        asignarTipoDeHabilidad(new Ataque(new RangoLargo(getTablero()),0,20));
+        getTipoDeHabilidad().activarHabilidad(this);
     }
 
 }
