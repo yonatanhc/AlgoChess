@@ -72,7 +72,7 @@ public abstract class Unidad {
         }
     }
 
-    protected void sanarDanio(int devolverPuntosDeAtaque) {
+    public void sanarDanio(int devolverPuntosDeAtaque) {
         this.vida += devolverPuntosDeAtaque;
     }
 
