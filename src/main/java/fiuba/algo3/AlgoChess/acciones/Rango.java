@@ -25,10 +25,12 @@ public  class Rango {
 
     private void iteradorHorizontal(int x, int y, int constante, ArrayList<Unidad> unidades) {
         for (int i = x; i <= y; i++) {
-            Casillero casillero = this.tablero.obtenerCasillero(constante,i);
-            Unidad unidad = casillero.obtenerUnidad();
-            if(unidad != null && !unidades.contains(unidad)){//casillero aliado o enemigo
-                unidades.add(unidad);
+            if( i >= 1 && i <= 20 && constante >= 1 && constante <= 20){
+                Casillero casillero = this.tablero.obtenerCasillero(constante,i);
+                Unidad unidad = casillero.obtenerUnidad();
+                if(unidad != null && !unidades.contains(unidad)){//casillero aliado o enemigo
+                    unidades.add(unidad);
+                }
             }
 
         }
@@ -36,12 +38,13 @@ public  class Rango {
 
     private void iteradorVertical(int x, int y, int constante, ArrayList<Unidad> unidades) {
         for (int i = x; i <= y; i++) {
-            Casillero casillero = tablero.obtenerCasillero(i,constante);
-            Unidad unidad = casillero.obtenerUnidad();
-            if(unidad != null && !unidades.contains(unidad)){
-                unidades.add(unidad);
+            if( i >= 1 && i <= 20 && constante >= 1 && constante <= 20){
+                Casillero casillero = tablero.obtenerCasillero(i,constante);
+                Unidad unidad = casillero.obtenerUnidad();
+                if(unidad != null && !unidades.contains(unidad)){
+                    unidades.add(unidad);
+                }
             }
-
         }
     }
 }

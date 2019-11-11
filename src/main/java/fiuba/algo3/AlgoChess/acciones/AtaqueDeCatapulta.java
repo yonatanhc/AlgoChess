@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class AtaqueDeCatapulta extends Habilidad {
     private int danioADistancia;
+    private Unidad unidadAtacante;
 
     public AtaqueDeCatapulta(Tablero tablero){
         super(new Rango(tablero));
@@ -14,6 +15,7 @@ public class AtaqueDeCatapulta extends Habilidad {
     }
 
     public void activarHabilidad(Unidad unidad){
+        this.unidadAtacante = unidad;
         ArrayList<Unidad> unidadesAfectadas = listaDeUnidades(unidad.getUbicacion().getX(),unidad.getUbicacion().getY());
         for (int i = 0; i < unidadesAfectadas.size() ; i++){
             unidadesAfectadas.get(i).recibirDanio(danioADistancia);
@@ -25,6 +27,7 @@ public class AtaqueDeCatapulta extends Habilidad {
         int rango = 6;
         while(unidades.size() == 0){
             this.listaDeUnidadesAfectadas(x,y,rango,unidades);
+            filtrarUnidades(unidades);
             rango++;
         }
         if(unidades.size() > 0){
@@ -44,5 +47,13 @@ public class AtaqueDeCatapulta extends Habilidad {
             cantidad++;
         }
         return unidades;
+    }
+
+    public void filtrarUnidades(ArrayList<Unidad> unidades){
+        for(int i = 0; i < unidades.size(); i++){
+            if(unidades.get(i).getJugador().equals(this.unidadAtacante.getJugador())){
+                unidades.remove(i);
+            }
+        }
     }
 }
