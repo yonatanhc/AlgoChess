@@ -2,7 +2,6 @@ package fiuba.algo3.AlgoChess.entidades;
 
 import fiuba.algo3.AlgoChess.acciones.Rango;
 import fiuba.algo3.AlgoChess.acciones.RangoContiguo;
-import fiuba.algo3.AlgoChess.acciones.RangoCorto;
 import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
 import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 

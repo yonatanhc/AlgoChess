@@ -24,17 +24,17 @@ public class AtaqueDeJinete extends Habilidad {
         int x = unidad.getUbicacion().getX();
         int y = unidad.getUbicacion().getY();
         ArrayList<Unidad> unidades = new ArrayList<Unidad>();
-        listaDeUnidadesAfectados(x,y,1,unidades);
+        this.listaDeUnidadesAfectadas(x,y,1,unidades);
 
         ArrayList<Unidad> unidadesAfectadas = new ArrayList<Unidad>();
         if(ataqueConArcoFlecha(unidades)){
-            listaDeUnidadesAfectados(x,y,1,unidadesAfectadas);
-            listaDeUnidadesAfectados(x,y,2,unidadesAfectadas);
+            this.listaDeUnidadesAfectadas(x,y,1,unidadesAfectadas);
+            listaDeUnidadesAfectadas(x,y,2,unidadesAfectadas);
         }
         if(ataqueConEspada(unidades)){
-            listaDeUnidadesAfectados(x,y,3,unidadesAfectadas);
-            listaDeUnidadesAfectados(x,y,4,unidadesAfectadas);
-            listaDeUnidadesAfectados(x,y,5,unidadesAfectadas);
+            this.listaDeUnidadesAfectadas(x,y,3,unidadesAfectadas);
+            this.listaDeUnidadesAfectadas(x,y,4,unidadesAfectadas);
+            this.listaDeUnidadesAfectadas(x,y,5,unidadesAfectadas);
         }
         return unidadesAfectadas;
     }

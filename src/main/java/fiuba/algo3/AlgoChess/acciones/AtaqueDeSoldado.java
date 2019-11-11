@@ -20,8 +20,8 @@ public class AtaqueDeSoldado extends Habilidad {
 
     public ArrayList<Unidad> rangoDelAtaque(int x, int y){
         ArrayList<Unidad> unidadesAfectados = new ArrayList<Unidad>();
-        listaDeUnidadesAfectados(x,y,1,unidadesAfectados);
-        listaDeUnidadesAfectados(x,y,2,unidadesAfectados);
+        this.listaDeUnidadesAfectadas(x,y,1,unidadesAfectados);
+        this.listaDeUnidadesAfectadas(x,y,2,unidadesAfectados);
         return unidadesAfectados;
     }
 }

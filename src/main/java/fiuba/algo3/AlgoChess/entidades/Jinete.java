@@ -12,13 +12,6 @@ public class Jinete extends Unidad {
         this.nombreDeUnidad = "Jinete";
     }
 
-<<<<<<< HEAD
-    public void asignarHabilidad(){
-        asignarTipoDeHabilidad(new Ataque(new RangoMedio(getTablero()),5,15));
-    }
-
-=======
->>>>>>> ataque
     public void activarHabilidad(){
         asignarTipoDeHabilidad(new AtaqueDeJinete(getTablero()));
         getTipoDeHabilidad().activarHabilidad(this);

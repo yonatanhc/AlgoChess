@@ -20,8 +20,8 @@ public class Curar extends Habilidad {
 
     public ArrayList<Unidad> rangoDeLaHabilidad(int x, int y){
         ArrayList<Unidad> unidadesAfectadas = new ArrayList<Unidad>();
-        listaDeUnidadesAfectados(x,y,1,unidadesAfectadas);
-        listaDeUnidadesAfectados(x,y,2,unidadesAfectadas);
+        this.listaDeUnidadesAfectadas(x,y,1,unidadesAfectadas);
+        this.listaDeUnidadesAfectadas(x,y,2,unidadesAfectadas);
         return unidadesAfectadas;
     }
 }

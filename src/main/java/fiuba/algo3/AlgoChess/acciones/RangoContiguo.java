@@ -16,7 +16,7 @@ public class RangoContiguo extends Rango {
     public ArrayList<Unidad> listaDeUnidadesAfectados(int x, int y){
         ArrayList<Unidad> unidades;
         unidades = new  ArrayList<Unidad>();
-        listaDeUnidades(x,y,this.maximo,unidades);
+        this.listaDeUnidadesAfectados(x,y,this.maximo,unidades);
         return unidades;
     }
 

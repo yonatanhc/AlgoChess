@@ -33,11 +33,6 @@ public abstract class Unidad {
         return this.tipoDeHabilidad;
     }
 
-<<<<<<< HEAD
-    public abstract void asignarHabilidad();
-=======
->>>>>>> ataque
-
     public abstract void activarHabilidad();
 
     protected Tablero getTablero(){

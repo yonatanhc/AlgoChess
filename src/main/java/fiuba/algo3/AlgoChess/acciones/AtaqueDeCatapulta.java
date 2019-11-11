@@ -14,17 +14,17 @@ public class AtaqueDeCatapulta extends Habilidad {
     }
 
     public void activarHabilidad(Unidad unidad){
-        ArrayList<Unidad> unidadesAfectadas = listaDeUnidadesAfectados(unidad.getUbicacion().getX(),unidad.getUbicacion().getY());
+        ArrayList<Unidad> unidadesAfectadas = listaDeUnidades(unidad.getUbicacion().getX(),unidad.getUbicacion().getY());
         for (int i = 0; i < unidadesAfectadas.size() ; i++){
             unidadesAfectadas.get(i).recibirDanio(danioADistancia);
         }
     }
 
-    public ArrayList<Unidad> listaDeUnidadesAfectados(int x, int y) {
+    public ArrayList<Unidad> listaDeUnidades(int x, int y) {
         ArrayList<Unidad> unidades = new  ArrayList<Unidad>();
         int rango = 6;
         while(unidades.size() == 0){
-            listaDeUnidadesAfectados(x,y,rango,unidades);
+            this.listaDeUnidadesAfectadas(x,y,rango,unidades);
             rango++;
         }
         if(unidades.size() > 0){
@@ -40,7 +40,7 @@ public class AtaqueDeCatapulta extends Habilidad {
         while(cantidad <= unidades.size()){
             int x = unidades.get(cantidad -1).getUbicacion().getX();
             int y = unidades.get(cantidad- 1).getUbicacion().getY();
-            listaDeUnidadesAfectados(x,y,1,unidades);
+            this.listaDeUnidadesAfectadas(x,y,1,unidades);
             cantidad++;
         }
         return unidades;
