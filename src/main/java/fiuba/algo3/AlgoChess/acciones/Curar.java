@@ -26,15 +26,9 @@ public class Curar extends Habilidad {
         ArrayList<Unidad> unidadesAfectadas = new ArrayList<Unidad>();
         this.listaDeUnidadesAfectadas(x,y,1,unidadesAfectadas);
         this.listaDeUnidadesAfectadas(x,y,2,unidadesAfectadas);
-        filtrarUnidades(unidadesAfectadas);
+        filtrarUnidades(unidad,unidadesAfectadas,false);
         return unidadesAfectadas;
     }
 
-    public void filtrarUnidades(ArrayList<Unidad> unidades){
-        for(int i = 0; i < unidades.size(); i++){
-            if(!unidades.get(i).getJugador().equals(this.unidad.getJugador()) || unidades.get(i).getNombreDeUnidad() == "Catapulta"){
-                unidades.remove(i);
-            }
-        }
-    }
+
 }

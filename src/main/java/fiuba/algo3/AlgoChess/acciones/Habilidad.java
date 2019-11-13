@@ -16,6 +16,10 @@ public abstract class Habilidad {
         return this.rango.listaDeUnidadesAfectados(x,y,rango,unidades);
     }
 
+    protected ArrayList<Unidad> filtrarUnidades(Unidad unidad,ArrayList<Unidad> unidades,boolean enemigas ){
+       return rango.filtrarUnidades(unidad,unidades,enemigas);
+    }
+
     public abstract void activarHabilidad(Unidad unidad);
 }
 

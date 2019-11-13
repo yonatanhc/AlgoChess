@@ -22,38 +22,37 @@ public class AtaqueDeCatapulta extends Habilidad {
         }
     }
 
-    public ArrayList<Unidad> listaDeUnidades(int x, int y) {
-        ArrayList<Unidad> unidades = new  ArrayList<Unidad>();
-        int rango = 6;
-        while(unidades.size() == 0){
-            this.listaDeUnidadesAfectadas(x,y,rango,unidades);
-            filtrarUnidades(unidades);
-            rango++;
-        }
-        if(unidades.size() > 0){
-            Unidad unidadAtacar = unidades.get(0); //primer enemigo alcanzado
-            return iterador(unidadAtacar,1);
-        }
-        return unidades;
+    private ArrayList<Unidad> listaDeUnidades(int x, int y) {
+        Unidad unidadEnemiga = primeraUnidadEnemiga(x,y);
+
+        return iterador(unidadEnemiga,1);
+        /*
+        if(unidadEnemiga != null){
+            return iterador(unidadEnemiga,1);
+        }*/
+
     }
 
-    public ArrayList<Unidad> iterador(Unidad unidad,int cantidad){
+    //devuelve una lista con todas las  unidades adayacentes contiguas
+    private ArrayList<Unidad> iterador(Unidad unidad,int cantidad){
         ArrayList<Unidad> unidades = new  ArrayList<Unidad>();
         unidades.add(unidad);
         while(cantidad <= unidades.size()){
-            int x = unidades.get(cantidad -1).getUbicacion().getX();
-            int y = unidades.get(cantidad- 1).getUbicacion().getY();
-            this.listaDeUnidadesAfectadas(x,y,1,unidades);
+            this.listaDeUnidadesAfectadas(unidades.get(cantidad -1).getUbicacion().getX(),unidades.get(cantidad- 1).getUbicacion().getY(),1,unidades);
             cantidad++;
         }
         return unidades;
     }
 
-    public void filtrarUnidades(ArrayList<Unidad> unidades){
-        for(int i = 0; i < unidades.size(); i++){
-            if(unidades.get(i).getJugador().equals(this.unidadAtacante.getJugador())){
-                unidades.remove(i);
-            }
+    private Unidad primeraUnidadEnemiga(int x, int y){
+        ArrayList<Unidad> unidades = new  ArrayList<Unidad>();
+        int rango = 6; //rango inicial
+        while(unidades.size() == 0 && rango <= 20){
+            this.listaDeUnidadesAfectadas(x,y,rango,unidades);
+            filtrarUnidades(this.unidadAtacante,unidades,true);//remove las unidades aliadas
+            rango++;
         }
+        return unidades.get(0);
     }
+
 }

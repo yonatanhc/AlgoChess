@@ -35,23 +35,19 @@ public  class Rango {
                     unidades.add(unidad);
                 }
             }
-
         }
     }
-    /*
-    private void iteradorVertical(int x, int y, int constante, ArrayList<Unidad> unidades) {
-        for (int i = x; i <= y; i++) {
-            if( i >= 1 && i <= 20 && constante >= 1 && constante <= 20){
-                Casillero casillero = tablero.obtenerCasillero(i,constante);
-                Unidad unidad = casillero.obtenerUnidad();
-                if(unidad != null && !unidades.contains(unidad)){
-                    unidades.add(unidad);
-                }
-            }
-        }
-    }*/
 
     private boolean ubicacionValida(int i,int constante){
         return ( i >= 1 && i <= 20 && constante >= 1 && constante <= 20);
+    }
+
+    public ArrayList<Unidad> filtrarUnidades(Unidad unidad,ArrayList<Unidad> unidades,boolean enemigas){
+        for(int i = 0; i < unidades.size(); i++){
+            boolean unidadAliada = unidades.get(i).getJugador().equals(unidad.getJugador());
+            if(enemigas && unidadAliada) unidades.remove(i);
+            if(!enemigas && !unidadAliada) unidades.remove(i);
+        }
+        return unidades;
     }
 }
