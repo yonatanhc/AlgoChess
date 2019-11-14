@@ -14,12 +14,12 @@ public class TestCuracionDelCurandero {
     @Test
     void test01CuracionCatapulta() {
         Tablero tablero = new Tablero();
-        Curandero curandero = new Curandero();// vida de soldado 100
+        Curandero curandero = new Curandero();// vida de curandero 75
         Jugador jugador = new Jugador("marisol");
         tablero.ingresarUnidadEn(curandero, 4, 3,jugador);
 
         Jinete jinete1 = new Jinete(); // vida de jinete 100
-        tablero.ingresarUnidadEn(jinete1, 2, 2,jugador);
+        tablero.ingresarUnidadEn(jinete1, 4, 2,jugador);
 
         Jugador jugador2 = new Jugador("manuel");
         Jinete jinete2 = new Jinete();
