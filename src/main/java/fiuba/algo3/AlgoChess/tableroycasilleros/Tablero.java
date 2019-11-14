@@ -59,9 +59,9 @@ public class Tablero {
     }
 
     public void moverUnidadA(Unidad unidad, Casillero destino){
-        if(destino.casilleroLibre() && unidad.getNombreDeUnidad() != "Catapulta"){ // realizar chequeo de catapulta
-            unidad.setUbicacion(destino);
+        if(destino.casilleroLibre()){//&& unidad.getNombreDeUnidad() != "Catapulta"){ // realizar chequeo de catapulta
             unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
+            unidad.setUbicacion(destino);
         }else{throw new CasilleroOcupadoException();}
     }
 

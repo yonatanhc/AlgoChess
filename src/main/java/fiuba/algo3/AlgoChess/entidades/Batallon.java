@@ -34,6 +34,7 @@ public class Batallon {
         this.miembrosBatallon.add(liderBatallon); //Me queda una lista con el soldado seleccionado y 2 contiguos
     }
 
+
     public void moverBatallon(Casillero casilleroDestino) {
 
         int xOrigen = this.liderBatallon.getUbicacion().getX();
@@ -52,6 +53,8 @@ public class Batallon {
             }
             catch (ErrorDePosicionException e){}
             catch (CasilleroOcupadoException e){}
+
+
 
         }
 
