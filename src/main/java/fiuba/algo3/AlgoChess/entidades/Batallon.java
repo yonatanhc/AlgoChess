@@ -7,6 +7,7 @@ import fiuba.algo3.AlgoChess.tableroycasilleros.CasilleroOcupadoException;
 import fiuba.algo3.AlgoChess.tableroycasilleros.ErrorDePosicionException;
 import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,8 +30,9 @@ public class Batallon {
 
         //Elimino si no es soldado y es el mismo soldado seleccionado
         unidadesCercanas.removeIf(n -> n.getClass() != liderBatallon.getClass() || n == liderBatallon || n.getJugador() != liderBatallon.getJugador());
+
         this.miembrosBatallon = unidadesCercanas;
-       //this.miembrosBatallon = unidadesCercanas.subList(1,3);
+        if(this.miembrosBatallon.size()>maxCantMiembros-1){ this.miembrosBatallon = unidadesCercanas.subList(0,maxCantMiembros-1);}
         this.miembrosBatallon.add(liderBatallon); //Me queda una lista con el soldado seleccionado y 2 contiguos
     }
 
@@ -57,11 +59,6 @@ public class Batallon {
 
 
         }
-
-
-
-
-        
     }
 
 }
