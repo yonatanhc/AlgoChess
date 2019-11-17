@@ -7,13 +7,7 @@ import java.util.ArrayList;
 public class Tablero {
 
     private ArrayList<Casillero> tableroDelJuego;
-    //private int tamanioHorizontal;
-    //private int tamanioVertical;
     private int ladoDelTablero;
-    //private CampoAliado campoAliado;
-    //private CampoEnemigo campoEnemigo;
-
-
 
     public Tablero(){
         this.ladoDelTablero = 20;
