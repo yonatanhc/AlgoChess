@@ -17,8 +17,9 @@ public class TestAtaqueCatapulta {
         Catapulta catapulta = new Catapulta();
         tablero.ingresarUnidadEn(catapulta,12,10,jugador);
 
-        Soldado soldado = new Soldado();
-        tablero.ingresarUnidadEn(soldado,6,9,jugador);
+        Jugador jugador2 = new Jugador("manuel");
+        Soldado soldado = new Soldado();//unidad enemiga
+        tablero.ingresarUnidadEn(soldado,6,9,jugador2);
 
         Jinete jinete = new Jinete();
         tablero.ingresarUnidadEn(jinete,5,10,jugador);
@@ -29,6 +30,30 @@ public class TestAtaqueCatapulta {
         catapulta.activarHabilidad();
 
         assertEquals(80,soldado.getPuntosDeVida());
+        assertEquals(80,jinete.getPuntosDeVida());
+        assertEquals(55,curandero.getPuntosDeVida());
+    }
+
+    @Test
+    void test02AtaqueDeCatapulta(){
+        Tablero tablero = new Tablero();
+        Jugador jugador = new Jugador("maria");
+        Catapulta catapulta = new Catapulta();
+        tablero.ingresarUnidadEn(catapulta,8,8,jugador);
+
+        Jugador jugador2 = new Jugador("fredy");
+        Soldado soldado = new Soldado();//unidad enemiga
+        tablero.ingresarUnidadEn(soldado,6,8,jugador2);
+
+        Jinete jinete = new Jinete();
+        tablero.ingresarUnidadEn(jinete,1,10,jugador2);
+
+        Curandero curandero = new Curandero();
+        tablero.ingresarUnidadEn(curandero,1,11,jugador2);
+
+        catapulta.activarHabilidad();
+
+        assertEquals(100,soldado.getPuntosDeVida());
         assertEquals(80,jinete.getPuntosDeVida());
         assertEquals(55,curandero.getPuntosDeVida());
     }

@@ -8,31 +8,26 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class TestAtaqueSoldado {
-    /*
+
     @Test
     void ataqueSoldado() {
         Tablero tablero = new Tablero();
-        Soldado soldado = new Soldado(tablero);// vida de soldado 100
-        tablero.ingresarUnidadEn(soldado, 4, 3);
+        Soldado soldado = new Soldado();// vida de soldado 100
+        Jugador jugador = new Jugador("marisol");
+        tablero.ingresarUnidadEn(soldado, 4, 3,jugador);
+
+        Jugador jugador2 = new Jugador("manuel");
+        Jinete jinete1 = new Jinete(); // vida de jinete 100
+        tablero.ingresarUnidadEn(jinete1, 3, 2,jugador2);
 
 
-        Jinete jinete1 = new Jinete(tablero); // vida de jinete 100
-        tablero.ingresarUnidadEn(jinete1, 3, 2);
+        Jinete jinete2 = new Jinete();
+        tablero.ingresarUnidadEn(jinete2, 2, 4,jugador2);
 
-
-        Jinete jinete2 = new Jinete(tablero);
-        tablero.ingresarUnidadEn(jinete2, 2, 4);
-
-
-        Jinete jinete3 = new Jinete(tablero);
-        tablero.ingresarUnidadEn(jinete3, 6, 2);
-
-
-
-        soldado.activarHabilidad();//realiza daño de 10
+        soldado.activarHabilidad();
 
         assertEquals(90, jinete1.getPuntosDeVida());
-        assertEquals(90, jinete2.getPuntosDeVida());
-        assertEquals(90, jinete3.getPuntosDeVida());
-    }*/
+        assertEquals(100, jinete2.getPuntosDeVida());
+
+    }
 }

@@ -45,7 +45,6 @@ public class Tablero {
             nuevaUnidad.setUbicacion(casilleroALlenar);
             jugador.agregarUnidad(nuevaUnidad);
             nuevaUnidad.asignarTablero(this);
-            nuevaUnidad.asignarHabilidad();
         }
     }
 
@@ -60,13 +59,14 @@ public class Tablero {
     }
 
     public void moverUnidadA(Unidad unidad, Casillero destino){
-        if(destino.casilleroLibre() && unidad.getNombreDeUnidad() != "Catapulta"){ // realizar chequeo de catapulta
-            unidad.setUbicacion(destino);
+        if(destino.casilleroLibre()){//&& unidad.getNombreDeUnidad() != "Catapulta"){ // realizar chequeo de catapulta
             unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
+            unidad.setUbicacion(destino);
         }else{throw new CasilleroOcupadoException();}
     }
 
     public int tamanioDelTablero(){
         return this.tableroDelJuego.size();
     }
+
 }

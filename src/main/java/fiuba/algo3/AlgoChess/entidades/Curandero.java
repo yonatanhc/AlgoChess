@@ -1,11 +1,9 @@
 package fiuba.algo3.AlgoChess.entidades;
 
-import fiuba.algo3.AlgoChess.acciones.Ataque;
-import fiuba.algo3.AlgoChess.acciones.RangoCorto;
-import fiuba.algo3.AlgoChess.acciones.RangoMedio;
+import fiuba.algo3.AlgoChess.acciones.Curar;
+
 
 public class Curandero extends Unidad {
-
 
     public Curandero(){
         super(75,2);
@@ -13,15 +11,9 @@ public class Curandero extends Unidad {
 
     }
 
-    public void asignarHabilidad(){
-        asignarTipoDeHabilidad(new Ataque(new RangoCorto(getTablero()),0,20));
-    }
-
-    public void activarHabilidad(){
+    public void activarHabilidad() {
+        asignarTipoDeHabilidad(new Curar(getTablero()));
         getTipoDeHabilidad().activarHabilidad(this);
     }
-
-
-
 
 }
