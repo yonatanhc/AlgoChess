@@ -16,7 +16,9 @@ public class TestUnidadMovible {
 
     @Test
     void test01JineteSePuedeMoverEnTodaDireccion(){
-        Tablero tablero = new Tablero();
+        Jugador jugador = new Jugador("juan");
+        Jugador jugador2 = new Jugador("Pedro");
+        Tablero tablero = new Tablero(jugador,jugador2);
         Jinete jinete = new Jinete();
         Casillero ubicacion = tablero.obtenerCasillero(3,4);
         Casillero otraUbicacion = tablero.obtenerCasillero(3,5);
@@ -32,7 +34,9 @@ public class TestUnidadMovible {
 
     @Test
     void test02SoldadoNoSePuedeMoverAUnCasilleroOcupado(){
-        Tablero tablero = new Tablero();
+        Jugador jugador = new Jugador("juan");
+        Jugador jugador2 = new Jugador("Pedro");
+        Tablero tablero = new Tablero(jugador,jugador2);
         Casillero ubicacion = tablero.obtenerCasillero(7,5);
         Soldado soldado = new Soldado();
         soldado.setUbicacion(ubicacion);//soldado se ubica en el casillero (7,5)
@@ -46,11 +50,12 @@ public class TestUnidadMovible {
 
     @Test
     void test03PruebaMovimientoBatallon(){
-        Tablero tablero = new Tablero();
         Soldado soldado1 = new Soldado();
         Soldado soldado2 = new Soldado();
         Soldado soldado3 = new Soldado();
         Jugador jugador = new Jugador("jugador");
+        Jugador jugador2 = new Jugador("Pedro");
+        Tablero tablero = new Tablero(jugador,jugador2);
         Batallon batallon;
 
         Casillero ubicacion;
@@ -73,12 +78,13 @@ public class TestUnidadMovible {
 
     @Test
     void test04BatallonUnoSeQuedaQuietoPorObstaculoDePosicionFueraDelTablero(){
-        Tablero tablero = new Tablero();
         Soldado soldado1 = new Soldado();
         Soldado soldado2 = new Soldado();
         Soldado soldado3 = new Soldado();
 
         Jugador jugador = new Jugador("jugador");
+        Jugador jugador2 = new Jugador("Pedro");
+        Tablero tablero = new Tablero(jugador,jugador2);
         Batallon batallon;
 
         Casillero ubicacion;
@@ -102,13 +108,14 @@ public class TestUnidadMovible {
 
     @Test
     void test05BatallonUnoSeQuedaQuietoPorObstaculoDeCasilleroOcupado(){
-        Tablero tablero = new Tablero();
         Soldado soldado1 = new Soldado();
         Soldado soldado2 = new Soldado();
         Soldado soldado3 = new Soldado();
         Jinete jineteObstaculo = new Jinete();
 
         Jugador jugador = new Jugador("jugador");
+        Jugador jugador2 = new Jugador("Pedro");
+        Tablero tablero = new Tablero(jugador,jugador2);
         Batallon batallon;
 
         Casillero ubicacion;
@@ -135,11 +142,13 @@ public class TestUnidadMovible {
 
     @Test
     void test06PruebaBatallonSeDisuelveCuandoUnSoldadoSeAleja(){
-        Tablero tablero = new Tablero();
+
         Soldado soldado1 = new Soldado();
         Soldado soldado2 = new Soldado();
         Soldado soldado3 = new Soldado();
         Jugador jugador = new Jugador("jugador");
+        Jugador jugador2 = new Jugador("Pedro");
+        Tablero tablero = new Tablero(jugador,jugador2);
         Batallon batallon;
 
 
@@ -176,12 +185,13 @@ public class TestUnidadMovible {
 
     @Test
     void test07PruebaBatallonSoloTomaHasta3SoldadosAliados() {
-        Tablero tablero = new Tablero();
         Soldado soldado1 = new Soldado();
         Soldado soldado2 = new Soldado();
         Soldado soldado3 = new Soldado();
         Soldado soldado4 = new Soldado();
         Jugador jugador = new Jugador("jugador");
+        Jugador jugador2 = new Jugador("Pedro");
+        Tablero tablero = new Tablero(jugador,jugador2);
         Batallon batallon;
 
 
@@ -209,9 +219,9 @@ public class TestUnidadMovible {
 
     @Test
     void moverUnidadAdelante(){
-        Tablero tablero = new Tablero();
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");
+        Tablero tablero = new Tablero(jugador1,jugador2);
         Soldado soldadoAMover = new Soldado();
         tablero.ingresarUnidadEn(soldadoAMover, 2,2,jugador1);
         tablero.moverUnidadAPosicion(2,2,2,3);
@@ -220,9 +230,9 @@ public class TestUnidadMovible {
 
     @Test
     void moverUnidadAtras(){
-        Tablero tablero = new Tablero();
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");
+        Tablero tablero = new Tablero(jugador1,jugador2);
         Soldado soldadoAMover = new Soldado();
         tablero.ingresarUnidadEn(soldadoAMover, 2,2,jugador1);
         tablero.moverUnidadAPosicion(2,2,2,1);
@@ -231,9 +241,9 @@ public class TestUnidadMovible {
 
     @Test
     void moverUnidadDerecha(){
-        Tablero tablero = new Tablero();
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");
+        Tablero tablero = new Tablero(jugador1,jugador2);
         Soldado soldadoAMover = new Soldado();
         tablero.ingresarUnidadEn(soldadoAMover, 2,2,jugador1);
         tablero.moverUnidadAPosicion(2,2,3,2);
@@ -242,9 +252,9 @@ public class TestUnidadMovible {
 
     @Test
     void moverUnidadIzquierda(){
-        Tablero tablero = new Tablero();
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");
+        Tablero tablero = new Tablero(jugador1,jugador2);
         Soldado soldadoAMover = new Soldado();
         tablero.ingresarUnidadEn(soldadoAMover, 2,2,jugador1);
         tablero.moverUnidadAPosicion(2,2,1,2);
@@ -253,9 +263,9 @@ public class TestUnidadMovible {
 
     @Test
     void moverUnidadDiagonalSuperiorDerecha(){
-        Tablero tablero = new Tablero();
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");
+        Tablero tablero = new Tablero(jugador1,jugador2);
         Soldado soldadoAMover = new Soldado();
         tablero.ingresarUnidadEn(soldadoAMover, 2,2,jugador1);
         tablero.moverUnidadAPosicion(2,2,3,3);
@@ -264,9 +274,9 @@ public class TestUnidadMovible {
 
     @Test
     void moverUnidadDiagonalSuperiorIzquierda(){
-        Tablero tablero = new Tablero();
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");
+        Tablero tablero = new Tablero(jugador1,jugador2);
         Soldado soldadoAMover = new Soldado();
         tablero.ingresarUnidadEn(soldadoAMover, 2,2,jugador1);
         tablero.moverUnidadAPosicion(2,2,1,3);
@@ -275,9 +285,9 @@ public class TestUnidadMovible {
 
     @Test
     void moverUnidadDiagonalInferiorIzquierda(){
-        Tablero tablero = new Tablero();
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");
+        Tablero tablero = new Tablero(jugador1,jugador2);
         Soldado soldadoAMover = new Soldado();
         tablero.ingresarUnidadEn(soldadoAMover, 2,2,jugador1);
         tablero.moverUnidadAPosicion(2,2,1,1);
@@ -286,9 +296,9 @@ public class TestUnidadMovible {
 
     @Test
     void moverUnidadDiagonalInferiorDerecha(){
-        Tablero tablero = new Tablero();
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");
+        Tablero tablero = new Tablero(jugador1,jugador2);
         Soldado soldadoAMover = new Soldado();
         tablero.ingresarUnidadEn(soldadoAMover, 2,2,jugador1);
         tablero.moverUnidadAPosicion(2,2,3,1);

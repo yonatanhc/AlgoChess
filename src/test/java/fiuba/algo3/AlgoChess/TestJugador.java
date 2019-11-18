@@ -1,7 +1,9 @@
 package fiuba.algo3.AlgoChess;
 
 import fiuba.algo3.AlgoChess.entidades.Jinete;
+import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
@@ -16,7 +18,7 @@ public class TestJugador {
             jugador.agregarUnidad(new Jinete());
         }
         //despues de agregar 6 jinetes al jugador, puntos disponibles del jugador es 2
-        assertThrows(PuntosNoDisponibleDelJugador.class,
+        assertThrows(PuntosNoDisponibleDelJugadorException.class,
                 ()->{
                     jugador.agregarUnidad(new Jinete());
                 });
@@ -37,6 +39,15 @@ public class TestJugador {
                 ()->{
                     unJinete.recibirDanio(20); // jinete tiene 0 puntos de vida
                 });
+    }
+
+    @Test
+    void test03VerificarCampoAsignadoAJugadores(){
+        Jugador jugadorAliado = new Jugador("Pedro");
+        Jugador jugadorEnemigo = new Jugador("Juan");
+        Tablero tablero = new Tablero(jugadorAliado,jugadorEnemigo);
+        assertEquals(jugadorAliado.tamanioCampo(),200);
+        assertEquals(jugadorEnemigo.tamanioCampo(),200);
     }
 }
 
