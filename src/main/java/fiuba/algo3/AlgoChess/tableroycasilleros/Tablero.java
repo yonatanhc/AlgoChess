@@ -63,4 +63,10 @@ public class Tablero {
         return this.tableroDelJuego.size();
     }
 
+    public void moverUnidadAPosicion(int xInicial, int yInicial, int xFinal, int yFinal){
+        Casillero casilleroOrigen = this.obtenerCasillero(xInicial,yInicial);
+        Unidad unidadAMover = casilleroOrigen.obtenerUnidad();
+        Casillero casilleroDestino = this.obtenerCasillero(xFinal,yFinal);
+        moverUnidadA(unidadAMover,casilleroDestino);
+    }
 }

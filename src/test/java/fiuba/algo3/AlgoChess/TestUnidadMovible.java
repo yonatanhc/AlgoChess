@@ -204,4 +204,95 @@ public class TestUnidadMovible {
         assertEquals(tablero.obtenerCasillero(2, 1), soldado4.getUbicacion());
 
     }
+
+    //Movimiento de una Unidad en todas las direcciones
+
+    @Test
+    void moverUnidadAdelante(){
+        Tablero tablero = new Tablero();
+        Jugador jugador1 = new Jugador("Pedro");
+        Jugador jugador2 = new Jugador("Juan");
+        Soldado soldadoAMover = new Soldado();
+        tablero.ingresarUnidadEn(soldadoAMover, 2,2,jugador1);
+        tablero.moverUnidadAPosicion(2,2,2,3);
+        assertEquals(tablero.obtenerCasillero(2,3).obtenerUnidad(),soldadoAMover);
+    }
+
+    @Test
+    void moverUnidadAtras(){
+        Tablero tablero = new Tablero();
+        Jugador jugador1 = new Jugador("Pedro");
+        Jugador jugador2 = new Jugador("Juan");
+        Soldado soldadoAMover = new Soldado();
+        tablero.ingresarUnidadEn(soldadoAMover, 2,2,jugador1);
+        tablero.moverUnidadAPosicion(2,2,2,1);
+        assertEquals(tablero.obtenerCasillero(2,1).obtenerUnidad(),soldadoAMover);
+    }
+
+    @Test
+    void moverUnidadDerecha(){
+        Tablero tablero = new Tablero();
+        Jugador jugador1 = new Jugador("Pedro");
+        Jugador jugador2 = new Jugador("Juan");
+        Soldado soldadoAMover = new Soldado();
+        tablero.ingresarUnidadEn(soldadoAMover, 2,2,jugador1);
+        tablero.moverUnidadAPosicion(2,2,3,2);
+        assertEquals(tablero.obtenerCasillero(3,2).obtenerUnidad(),soldadoAMover);
+    }
+
+    @Test
+    void moverUnidadIzquierda(){
+        Tablero tablero = new Tablero();
+        Jugador jugador1 = new Jugador("Pedro");
+        Jugador jugador2 = new Jugador("Juan");
+        Soldado soldadoAMover = new Soldado();
+        tablero.ingresarUnidadEn(soldadoAMover, 2,2,jugador1);
+        tablero.moverUnidadAPosicion(2,2,1,2);
+        assertEquals(tablero.obtenerCasillero(1,2).obtenerUnidad(),soldadoAMover);
+    }
+
+    @Test
+    void moverUnidadDiagonalSuperiorDerecha(){
+        Tablero tablero = new Tablero();
+        Jugador jugador1 = new Jugador("Pedro");
+        Jugador jugador2 = new Jugador("Juan");
+        Soldado soldadoAMover = new Soldado();
+        tablero.ingresarUnidadEn(soldadoAMover, 2,2,jugador1);
+        tablero.moverUnidadAPosicion(2,2,3,3);
+        assertEquals(tablero.obtenerCasillero(3,3).obtenerUnidad(),soldadoAMover);
+    }
+
+    @Test
+    void moverUnidadDiagonalSuperiorIzquierda(){
+        Tablero tablero = new Tablero();
+        Jugador jugador1 = new Jugador("Pedro");
+        Jugador jugador2 = new Jugador("Juan");
+        Soldado soldadoAMover = new Soldado();
+        tablero.ingresarUnidadEn(soldadoAMover, 2,2,jugador1);
+        tablero.moverUnidadAPosicion(2,2,1,3);
+        assertEquals(tablero.obtenerCasillero(1,3).obtenerUnidad(),soldadoAMover);
+    }
+
+    @Test
+    void moverUnidadDiagonalInferiorIzquierda(){
+        Tablero tablero = new Tablero();
+        Jugador jugador1 = new Jugador("Pedro");
+        Jugador jugador2 = new Jugador("Juan");
+        Soldado soldadoAMover = new Soldado();
+        tablero.ingresarUnidadEn(soldadoAMover, 2,2,jugador1);
+        tablero.moverUnidadAPosicion(2,2,1,1);
+        assertEquals(tablero.obtenerCasillero(1,1).obtenerUnidad(),soldadoAMover);
+    }
+
+    @Test
+    void moverUnidadDiagonalInferiorDerecha(){
+        Tablero tablero = new Tablero();
+        Jugador jugador1 = new Jugador("Pedro");
+        Jugador jugador2 = new Jugador("Juan");
+        Soldado soldadoAMover = new Soldado();
+        tablero.ingresarUnidadEn(soldadoAMover, 2,2,jugador1);
+        tablero.moverUnidadAPosicion(2,2,3,1);
+        assertEquals(tablero.obtenerCasillero(3,1).obtenerUnidad(),soldadoAMover);
+    }
+
 }
