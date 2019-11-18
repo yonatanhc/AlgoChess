@@ -1,6 +1,7 @@
 package fiuba.algo3.AlgoChess.tableroycasilleros;
 
 import fiuba.algo3.AlgoChess.Jugador;
+import fiuba.algo3.AlgoChess.MoverCatapultaError;
 import fiuba.algo3.AlgoChess.entidades.Unidad;
 import java.util.ArrayList;
 
@@ -69,10 +70,15 @@ public class Tablero {
     }
 
     public void moverUnidadA(Unidad unidad, Casillero destino){
-        if(destino.casilleroLibre()){//&& unidad.getNombreDeUnidad() != "Catapulta"){ // realizar chequeo de catapulta
-            unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
-            unidad.setUbicacion(destino);
-        }else{throw new CasilleroOcupadoException();}
+        if(destino.casilleroLibre()){
+            if(unidad.getNombreDeUnidad() != "Catapulta") { // realizar chequeo de catapulta
+                unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
+                unidad.setUbicacion(destino);
+            }else{
+                throw new MoverCatapultaError();
+            }
+        }else{
+            throw new CasilleroOcupadoException();}
     }
 
     public int tamanioDelTablero(){
@@ -84,5 +90,6 @@ public class Tablero {
         Unidad unidadAMover = casilleroOrigen.obtenerUnidad();
         Casillero casilleroDestino = this.obtenerCasillero(xFinal,yFinal);
         moverUnidadA(unidadAMover,casilleroDestino);
+        unidadAMover.activarHabilidad();
     }
 }

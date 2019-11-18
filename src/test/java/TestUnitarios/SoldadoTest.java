@@ -5,12 +5,13 @@ import fiuba.algo3.AlgoChess.entidades.Catapulta;
 import fiuba.algo3.AlgoChess.entidades.Curandero;
 import fiuba.algo3.AlgoChess.entidades.Jinete;
 import fiuba.algo3.AlgoChess.entidades.Soldado;
+import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class SoldadoTest {
-    /*
+
     @Test
     void testComprobarPuntosDeVidaA100(){
         Soldado nuevoSoldado =new Soldado();
@@ -24,42 +25,16 @@ class SoldadoTest {
     }
 
     @Test
-    void testAtacarAUnSoldadoYVerificarDanio(){
+    void atacarAUnaUnidadYVerificarDanio(){
+        Jugador jugador1 = new Jugador("Pedro");
+        Jugador jugador2 = new Jugador("Juan");
+        Tablero tablero = new Tablero(jugador1,jugador2);
         Soldado nuevoSoldado = new Soldado();
         Soldado soldadoAAtacar = new Soldado();
-        Jugador jugador = new Jugador("anonimo");
-        nuevoSoldado.perteneceAlJugador(jugador);
-        nuevoSoldado.atacarUnidad(soldadoAAtacar);
+        tablero.ingresarUnidadEn(nuevoSoldado,10,9,jugador1);
+        tablero.ingresarUnidadEn(soldadoAAtacar,11,9,jugador2);
+        nuevoSoldado.activarHabilidad();
         assertEquals(soldadoAAtacar.getPuntosDeVida(),90);
     }
-    @Test
-    void testAtacarAUnCuranderoYVerificarDanio(){
-        Soldado nuevoSoldado = new Soldado();
-        Curandero curandero = new Curandero();
-        Jugador jugador = new Jugador("anonimo");
-        nuevoSoldado.perteneceAlJugador(jugador);
-        nuevoSoldado.atacarUnidad(curandero);
-        assertEquals(curandero.getPuntosDeVida(),65);
-    }
-
-    @Test
-    void testAtacarAUnJineteYVerificarDanio(){
-        Soldado nuevoSoldado = new Soldado();
-        Jinete jinete = new Jinete();
-        Jugador jugador = new Jugador("anonimo");
-        nuevoSoldado.perteneceAlJugador(jugador);
-        nuevoSoldado.atacarUnidad(jinete);
-        assertEquals(jinete.getPuntosDeVida(),90);
-    }
-
-    @Test
-    void testAtacarAUnaCatapultaYVerificarDanio(){
-        Soldado nuevoSoldado = new Soldado();
-        Catapulta catapulta = new Catapulta();
-        Jugador jugador = new Jugador("anonimo");
-        nuevoSoldado.perteneceAlJugador(jugador);
-        nuevoSoldado.atacarUnidad(catapulta);
-        assertEquals(catapulta.getPuntosDeVida(),40);
-    }*/
 
 }

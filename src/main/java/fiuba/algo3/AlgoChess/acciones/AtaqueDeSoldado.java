@@ -21,7 +21,7 @@ public class AtaqueDeSoldado extends Habilidad {
         for (int i = 0; i < unidadesAfectados.size();i++){
             unidadesAfectados.get(i).recibirDanio(this.danioCuerpoACuerpo);
         }*/
-        if(unidadesAfectados.size() >= 0){
+        if(unidadesAfectados.size() > 0){
             unidadesAfectados.get(0).recibirDanio(this.danioCuerpoACuerpo);
         }
 

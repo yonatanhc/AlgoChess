@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class JineteTest {
-    /*
+
     @Test
     void testComprobarPuntosDeVidaA100(){
         Jinete nuevoJinete =new Jinete();
@@ -22,7 +22,7 @@ class JineteTest {
         Jinete nuevoJinete = new Jinete();
         assertEquals(nuevoJinete.getCosto(),3);
     }
-
+/*
     @Test
     void testAtacarAUnSoldadoYVerificarDanio(){
         Jinete nuevoJinete = new Jinete();
