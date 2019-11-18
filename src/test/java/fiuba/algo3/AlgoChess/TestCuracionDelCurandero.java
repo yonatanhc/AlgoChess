@@ -13,20 +13,20 @@ public class TestCuracionDelCurandero {
 
     @Test
     void test01CuracionCatapulta() {
-        Tablero tablero = new Tablero();
         Curandero curandero = new Curandero();// vida de curandero 75
-        Jugador jugador = new Jugador("marisol");
-        tablero.ingresarUnidadEn(curandero, 4, 3,jugador);
+        Jugador jugador1 = new Jugador("marisol");
+        Jugador jugador2 = new Jugador("Manuel");
+        Tablero tablero = new Tablero(jugador1,jugador2);
+        tablero.ingresarUnidadEn(curandero, 9, 3,jugador1);
 
         Jinete jinete1 = new Jinete(); // vida de jinete 100
-        tablero.ingresarUnidadEn(jinete1, 4, 2,jugador);
+        tablero.ingresarUnidadEn(jinete1, 10, 2,jugador1);
 
-        Jugador jugador2 = new Jugador("manuel");
         Jinete jinete2 = new Jinete();
-        tablero.ingresarUnidadEn(jinete2, 2, 3,jugador2);
+        tablero.ingresarUnidadEn(jinete2, 11, 3,jugador2);
 
         Catapulta catapulta = new Catapulta(); // vida de jinete 100
-        tablero.ingresarUnidadEn(catapulta, 4, 4,jugador);
+        tablero.ingresarUnidadEn(catapulta, 4, 4,jugador1);
 
         curandero.activarHabilidad();
 

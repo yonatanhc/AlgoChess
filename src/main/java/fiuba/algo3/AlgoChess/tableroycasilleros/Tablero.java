@@ -8,22 +8,35 @@ public class Tablero {
 
     private ArrayList<Casillero> tableroDelJuego;
     private int ladoDelTablero;
+    private Jugador jugadorAliado;
+    private Jugador jugadorEnemigo;
 
-    public Tablero(){
+    public Tablero(Jugador jugador1, Jugador jugador2){
         this.ladoDelTablero = 20;
+        this.jugadorAliado = jugador1;
+        this.jugadorEnemigo = jugador2;
         this.tableroDelJuego = new ArrayList<Casillero>();
         this.inicializarTablero();
     }
 
-    public void inicializarTablero() {
+    private void inicializarTablero() {
         if(this.tableroDelJuego.isEmpty()) {
             for(int i = 1; i <= this.ladoDelTablero; i++){
                 for (int j = 1; j <= this.ladoDelTablero; j++) {
                     Casillero casillero = new Casillero(i,j);
                     casillero.setEsEnemigo(asignarLadoDelCampo(i));
                     this.tableroDelJuego.add(casillero);
+                    this.asignarLadoDelCampoAJugador(casillero,i);
                 }
             }
+        }
+    }
+
+    private void asignarLadoDelCampoAJugador(Casillero casilleroAAsignar, int posicion) {
+        if(posicion<=this.ladoDelTablero/2){
+            this.jugadorAliado.campoDelJugador(casilleroAAsignar);
+        }else{
+            this.jugadorEnemigo.campoDelJugador(casilleroAAsignar);
         }
     }
 
@@ -32,13 +45,16 @@ public class Tablero {
         return posicion<=this.ladoDelTablero/2;
     }
 
-    public void ingresarUnidadEn(Unidad nuevaUnidad,int posicionX,int posicionY,Jugador jugador){
+    public void ingresarUnidadEn(Unidad nuevaUnidad, int posicionX, int posicionY, Jugador jugador){
         Casillero casilleroALlenar = this.obtenerCasillero(posicionX,posicionY);
-        if(!casilleroALlenar.casilleroLibre()){throw new CasilleroOcupadoException();}
-         else {
-            nuevaUnidad.setUbicacion(casilleroALlenar);
-            jugador.agregarUnidad(nuevaUnidad);
-            nuevaUnidad.asignarTablero(this);
+        if(casilleroALlenar.casilleroLibre()){
+            if (jugador.esMiCampo(casilleroALlenar)) {
+                nuevaUnidad.setUbicacion(casilleroALlenar);
+                jugador.agregarUnidad(nuevaUnidad);
+                nuevaUnidad.asignarTablero(this);
+            }
+        }else{
+            throw new CasilleroOcupadoException();
         }
     }
 
@@ -63,4 +79,10 @@ public class Tablero {
         return this.tableroDelJuego.size();
     }
 
+    public void moverUnidadAPosicion(int xInicial, int yInicial, int xFinal, int yFinal){
+        Casillero casilleroOrigen = this.obtenerCasillero(xInicial,yInicial);
+        Unidad unidadAMover = casilleroOrigen.obtenerUnidad();
+        Casillero casilleroDestino = this.obtenerCasillero(xFinal,yFinal);
+        moverUnidadA(unidadAMover,casilleroDestino);
+    }
 }

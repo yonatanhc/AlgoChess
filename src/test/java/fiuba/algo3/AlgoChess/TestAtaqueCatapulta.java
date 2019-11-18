@@ -12,20 +12,20 @@ import org.junit.jupiter.api.Test;
 public class TestAtaqueCatapulta {
     @Test
     void test01AtaqueDeCatapulta(){
-        Tablero tablero = new Tablero();
-        Jugador jugador = new Jugador("jorge");
+        Jugador jugador = new Jugador("juan");
+        Jugador jugador2 = new Jugador("Pedro");
+        Tablero tablero = new Tablero(jugador,jugador2);
         Catapulta catapulta = new Catapulta();
-        tablero.ingresarUnidadEn(catapulta,12,10,jugador);
+        tablero.ingresarUnidadEn(catapulta,5,10,jugador);
 
-        Jugador jugador2 = new Jugador("manuel");
         Soldado soldado = new Soldado();//unidad enemiga
-        tablero.ingresarUnidadEn(soldado,6,9,jugador2);
+        tablero.ingresarUnidadEn(soldado,11,9,jugador2);
 
         Jinete jinete = new Jinete();
-        tablero.ingresarUnidadEn(jinete,5,10,jugador);
+        tablero.ingresarUnidadEn(jinete,10,10,jugador);
 
         Curandero curandero = new Curandero();
-        tablero.ingresarUnidadEn(curandero,5,11,jugador);
+        tablero.ingresarUnidadEn(curandero,9,11,jugador);
 
         catapulta.activarHabilidad();
 
@@ -36,20 +36,20 @@ public class TestAtaqueCatapulta {
 
     @Test
     void test02AtaqueDeCatapulta(){
-        Tablero tablero = new Tablero();
-        Jugador jugador = new Jugador("maria");
+        Jugador jugador = new Jugador("juan");
+        Jugador jugador2 = new Jugador("Pedro");
+        Tablero tablero = new Tablero(jugador,jugador2);
         Catapulta catapulta = new Catapulta();
         tablero.ingresarUnidadEn(catapulta,8,8,jugador);
 
-        Jugador jugador2 = new Jugador("fredy");
         Soldado soldado = new Soldado();//unidad enemiga
-        tablero.ingresarUnidadEn(soldado,6,8,jugador2);
+        tablero.ingresarUnidadEn(soldado,11,8,jugador2);
 
         Jinete jinete = new Jinete();
-        tablero.ingresarUnidadEn(jinete,1,10,jugador2);
+        tablero.ingresarUnidadEn(jinete,13,8,jugador2);
 
         Curandero curandero = new Curandero();
-        tablero.ingresarUnidadEn(curandero,1,11,jugador2);
+        tablero.ingresarUnidadEn(curandero,14,9,jugador2);
 
         catapulta.activarHabilidad();
 
