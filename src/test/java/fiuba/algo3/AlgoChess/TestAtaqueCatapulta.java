@@ -43,7 +43,7 @@ public class TestAtaqueCatapulta {
         tablero.ingresarUnidadEn(catapulta,8,8,jugador);
 
         Soldado soldado = new Soldado();//unidad enemiga
-        tablero.ingresarUnidadEn(soldado,11,8,jugador2);
+        tablero.ingresarUnidadEn(soldado,18,8,jugador2);
 
         Jinete jinete = new Jinete();
         tablero.ingresarUnidadEn(jinete,13,8,jugador2);
