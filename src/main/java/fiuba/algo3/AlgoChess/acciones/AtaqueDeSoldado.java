@@ -16,15 +16,11 @@ public class AtaqueDeSoldado extends Habilidad {
 
     public void activarHabilidad(Unidad unidad){
         this.unidadAtacante = unidad;
-        ArrayList<Unidad> unidadesAfectados = rangoDelAtaque(unidad.getUbicacion().getX(),unidad.getUbicacion().getY());
-        /*
-        for (int i = 0; i < unidadesAfectados.size();i++){
-            unidadesAfectados.get(i).recibirDanio(this.danioCuerpoACuerpo);
-        }*/
-        if(unidadesAfectados.size() > 0){
-            unidadesAfectados.get(0).recibirDanio(this.danioCuerpoACuerpo);
-        }
+        ArrayList<Unidad> unidadesAfectadas = rangoDelAtaque(unidad.getUbicacion().getX(),unidad.getUbicacion().getY());
 
+        for (int i = 0; i < unidadesAfectadas.size();i++){
+            unidadesAfectadas.get(i).recibirDanio(this.danioCuerpoACuerpo);
+        }
     }
 
     public ArrayList<Unidad> rangoDelAtaque(int x, int y){
@@ -32,16 +28,10 @@ public class AtaqueDeSoldado extends Habilidad {
         for(int i = 1; i <= 2;i++){
             this.listaDeUnidadesAfectadas(x,y,i,unidadesAfectados);
         }
-        filtrarUnidades(unidadesAfectados);
+        filtrarUnidades(this.unidadAtacante,unidadesAfectados,true);
 
         return unidadesAfectados;
     }
 
-    public void filtrarUnidades(ArrayList<Unidad> unidades){
-        for(int i = 0; i < unidades.size(); i++){
-            if(unidades.get(i).getJugador().equals(this.unidadAtacante.getJugador())){
-                unidades.remove(i);
-            }
-        }
-    }
+
 }

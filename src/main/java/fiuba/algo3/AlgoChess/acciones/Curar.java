@@ -17,8 +17,8 @@ public class Curar extends Habilidad {
     public void activarHabilidad(Unidad unidad) {
         this.unidad = unidad;
         ArrayList<Unidad> unidadesAfectadas = rangoDeLaHabilidad(unidad.getUbicacion().getX(),unidad.getUbicacion().getY());
-        if(unidadesAfectadas.size() > 0){
-            unidadesAfectadas.get(0).sanarDanio(this.curacion);
+        for (int i = 0; i < unidadesAfectadas.size();i++){
+            unidadesAfectadas.get(i).sanarDanio(this.curacion);
         }
     }
 

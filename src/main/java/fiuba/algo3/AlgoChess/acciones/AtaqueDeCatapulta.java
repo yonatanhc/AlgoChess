@@ -24,17 +24,12 @@ public class AtaqueDeCatapulta extends Habilidad {
 
     private ArrayList<Unidad> listaDeUnidades(int x, int y) {
         Unidad unidadEnemiga = primeraUnidadEnemiga(x,y);
-
-        return iterador(unidadEnemiga,1);
-        /*
-        if(unidadEnemiga != null){
-            return iterador(unidadEnemiga,1);
-        }*/
-
+        //if(unidadEnemiga == null) return null;
+        return unidadesContiguas(unidadEnemiga,1);
     }
 
-    //devuelve una lista con todas las  unidades adayacentes contiguas
-    private ArrayList<Unidad> iterador(Unidad unidad,int cantidad){
+    //devuelve una lista con todas las  unidades  contiguas
+    private ArrayList<Unidad> unidadesContiguas(Unidad unidad,int cantidad){
         ArrayList<Unidad> unidades = new  ArrayList<Unidad>();
         unidades.add(unidad);
         while(cantidad <= unidades.size()){
@@ -47,7 +42,7 @@ public class AtaqueDeCatapulta extends Habilidad {
     private Unidad primeraUnidadEnemiga(int x, int y){
         ArrayList<Unidad> unidades = new  ArrayList<Unidad>();
         int rango = 6; //rango inicial
-        while(unidades.size() == 0 && rango <= 20){
+        while(unidades.size() == 0 ){//falta verificar cuando esta al borde del tablero
             this.listaDeUnidadesAfectadas(x,y,rango,unidades);
             filtrarUnidades(this.unidadAtacante,unidades,true);//remove las unidades aliadas
             rango++;
