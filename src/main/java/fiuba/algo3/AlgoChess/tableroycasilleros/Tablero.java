@@ -49,11 +49,11 @@ public class Tablero {
     public void ingresarUnidadEn(Unidad nuevaUnidad, int posicionX, int posicionY, Jugador jugador){
         Casillero casilleroALlenar = this.obtenerCasillero(posicionX,posicionY);
         if(casilleroALlenar.casilleroLibre()){
-            if (jugador.esMiCampo(casilleroALlenar)) {
+            //if (jugador.esMiCampo(casilleroALlenar)) {
                 nuevaUnidad.setUbicacion(casilleroALlenar);
                 jugador.agregarUnidad(nuevaUnidad);
                 nuevaUnidad.asignarTablero(this);
-            }
+            //}
         }else{
             throw new CasilleroOcupadoException();
         }
