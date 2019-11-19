@@ -10,7 +10,7 @@ public class Tablero {
     private ArrayList<Casillero> tableroDelJuego;
     private int ladoDelTablero;
     private Jugador jugadorAliado;
-    private Jugador jugadorEnemigo;
+   private Jugador jugadorEnemigo;
 
     public Tablero(Jugador jugador1, Jugador jugador2){
         this.ladoDelTablero = 20;
@@ -49,11 +49,11 @@ public class Tablero {
     public void ingresarUnidadEn(Unidad nuevaUnidad, int posicionX, int posicionY, Jugador jugador){
         Casillero casilleroALlenar = this.obtenerCasillero(posicionX,posicionY);
         if(casilleroALlenar.casilleroLibre()){
-            //if (jugador.esMiCampo(casilleroALlenar)) {
+            if (jugador.esMiCampo(casilleroALlenar)) {
                 nuevaUnidad.setUbicacion(casilleroALlenar);
                 jugador.agregarUnidad(nuevaUnidad);
                 nuevaUnidad.asignarTablero(this);
-            //}
+            }
         }else{
             throw new CasilleroOcupadoException();
         }

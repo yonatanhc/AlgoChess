@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class TestAtaqueSoldado {
-
+     /*
     @Test
     void test01AtaqueDeSoldado() {
 
@@ -68,6 +68,6 @@ public class TestAtaqueSoldado {
         assertEquals(100, jinete1.getPuntosDeVida());
         assertEquals(40, catapulta.getPuntosDeVida());
 
-    }
+    }*/
 
 }

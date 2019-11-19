@@ -9,14 +9,16 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestCuracionDelCurandero {
+public class TestCurandero {
 
     @Test
-    void test01CuracionCatapulta() {
-        Curandero curandero = new Curandero();// vida de curandero 75
+    void test01Curandero() {
+
         Jugador jugador1 = new Jugador("marisol");
         Jugador jugador2 = new Jugador("Manuel");
         Tablero tablero = new Tablero(jugador1,jugador2);
+
+        Curandero curandero = new Curandero();// vida de curandero 75
         tablero.ingresarUnidadEn(curandero, 9, 3,jugador1);
 
         Jinete jinete1 = new Jinete(); // vida de jinete 100
@@ -25,7 +27,7 @@ public class TestCuracionDelCurandero {
         Jinete jinete2 = new Jinete();
         tablero.ingresarUnidadEn(jinete2, 11, 3,jugador2);
 
-        Catapulta catapulta = new Catapulta(); // vida de jinete 100
+        Catapulta catapulta = new Catapulta();
         tablero.ingresarUnidadEn(catapulta, 4, 4,jugador1);
 
         curandero.activarHabilidad();
@@ -33,6 +35,10 @@ public class TestCuracionDelCurandero {
         assertEquals(115, jinete1.getPuntosDeVida());
         assertEquals(100, jinete2.getPuntosDeVida());
         assertEquals(50, catapulta.getPuntosDeVida());
+    }
+
+    @Test
+    void test02Curandero(){
 
     }
 }

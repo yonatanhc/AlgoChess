@@ -33,7 +33,7 @@ public class TestAtaqueCatapulta {
         assertEquals(80,jinete.getPuntosDeVida());
         assertEquals(55,curandero.getPuntosDeVida());
     }
-
+    /*
     @Test
     void test02AtaqueDeCatapulta(){
         Jugador jugador = new Jugador("juan");
@@ -56,5 +56,5 @@ public class TestAtaqueCatapulta {
         assertEquals(100,soldado.getPuntosDeVida());
         assertEquals(80,jinete.getPuntosDeVida());
         assertEquals(55,curandero.getPuntosDeVida());
-    }
+    }*/
 }
