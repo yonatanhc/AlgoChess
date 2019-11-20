@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestCurandero {
 
     @Test
-    void test01Curandero() {
+    void test01CuranderoNoSanaACatapultaAliada() {
 
         Jugador jugador1 = new Jugador("marisol");
         Jugador jugador2 = new Jugador("Manuel");
@@ -39,6 +39,57 @@ public class TestCurandero {
 
     @Test
     void test02Curandero(){
+        Jugador jugador1 = new Jugador("marisol");
+        Jugador jugador2 = new Jugador("Manuel");
+        Tablero tablero = new Tablero(jugador1,jugador2);
+
+        Curandero curandero = new Curandero();// vida de curandero 75
+        tablero.ingresarUnidadEn(curandero, 1, 1,jugador1);
+
+        Soldado soldado1 = new Soldado(); // vida de jinete 100
+        tablero.ingresarUnidadEn(soldado1, 1, 2,jugador1);
+
+        Soldado soldado2 = new Soldado();
+        tablero.ingresarUnidadEn(soldado2, 15, 15,jugador2);
+        tablero.moverUnidadAPosicion(15,15,2,2);
+
+        Soldado soldado3 = new Soldado();
+        tablero.ingresarUnidadEn(soldado3, 3, 3,jugador1);
+
+        curandero.activarHabilidad();
+
+        assertEquals(75, curandero.getPuntosDeVida());
+        assertEquals(115, soldado1.getPuntosDeVida());
+        assertEquals(100, soldado2.getPuntosDeVida());
+        assertEquals(115, soldado3.getPuntosDeVida());
+
+    }
+
+    @Test
+    void test03Curandero(){
+        Jugador jugador1 = new Jugador("marisol");
+        Jugador jugador2 = new Jugador("Manuel");
+        Tablero tablero = new Tablero(jugador1,jugador2);
+
+        Curandero curandero = new Curandero();// vida de curandero 75
+        tablero.ingresarUnidadEn(curandero, 20, 20,jugador2);
+
+        Jinete jinete = new Jinete();
+        tablero.ingresarUnidadEn(jinete, 19, 19,jugador2);
+
+        Soldado soldado2 = new Soldado();
+        tablero.ingresarUnidadEn(soldado2, 1, 1,jugador1);
+        tablero.moverUnidadA(soldado2,tablero.obtenerCasillero(18,20));
+
+        Soldado soldado3 = new Soldado();
+        tablero.ingresarUnidadEn(soldado3, 18, 18,jugador2);
+
+        curandero.activarHabilidad();
+
+        assertEquals(75, curandero.getPuntosDeVida());//65
+        assertEquals(115, jinete.getPuntosDeVida());//105
+        assertEquals(100, soldado2.getPuntosDeVida());
+        assertEquals(115, soldado3.getPuntosDeVida());
 
     }
 }

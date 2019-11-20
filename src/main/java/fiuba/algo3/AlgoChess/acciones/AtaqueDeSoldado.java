@@ -24,13 +24,13 @@ public class AtaqueDeSoldado extends Habilidad {
     }
 
     public ArrayList<Unidad> rangoDelAtaque(int x, int y){
-        ArrayList<Unidad> unidadesAfectados = new ArrayList<Unidad>();
+        ArrayList<Unidad> unidadesAfectadas = new ArrayList<Unidad>();
         for(int i = 1; i <= 2;i++){
-            this.listaDeUnidadesAfectadas(x,y,i,unidadesAfectados);
+            listaDeUnidadesAfectadas(x,y,i,unidadesAfectadas);
         }
-        filtrarUnidades(this.unidadAtacante,unidadesAfectados,true);
+        filtrarUnidades(this.unidadAtacante,unidadesAfectadas,true);
 
-        return unidadesAfectados;
+        return unidadesAfectadas;
     }
 
 

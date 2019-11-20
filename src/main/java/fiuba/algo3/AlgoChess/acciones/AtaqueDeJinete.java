@@ -21,7 +21,8 @@ public class AtaqueDeJinete extends Habilidad {
         int x = unidad.getUbicacion().getX();
         int y = unidad.getUbicacion().getY();
         ArrayList<Unidad> unidades = new ArrayList<Unidad>();
-        this.listaDeUnidadesAfectadas(x,y,1,unidades);
+        listaDeUnidadesAfectadas(x,y,1,unidades);
+        listaDeUnidadesAfectadas(x,y,2,unidades);
         tipoDeAtaqueAUsar(x,y,unidades);
 
     }
@@ -34,7 +35,7 @@ public class AtaqueDeJinete extends Habilidad {
                 ataqueConEspada();
         }
         else{
-            for(int i = 1 ; i <= unidades.size() ; i++){
+            for(int i = 0 ; i < unidades.size() ; i++){
                 if(unidades.get(i).getNombreDeUnidad() == "Soldado"){
                     ataqueConArcoFlecha();
                 }
@@ -46,7 +47,7 @@ public class AtaqueDeJinete extends Habilidad {
     private void ataqueConArcoFlecha(){
         ArrayList<Unidad> unidades = rangoDelAtaque(3,5);
         filtrarUnidades(this.unidadAtacante,unidades,true);
-        for (int i = 1; i<= unidades.size();i++){
+        for (int i = 0; i< unidades.size();i++){
             unidades.get(i).recibirDanio(this.danioADistancia);
         }
 
@@ -54,8 +55,8 @@ public class AtaqueDeJinete extends Habilidad {
 
     private void ataqueConEspada(){
         ArrayList<Unidad> unidades = rangoDelAtaque(1,2);
-        filtrarUnidades(this.unidadAtacante,unidades,true);
-        for (int i = 1; i<= unidades.size();i++){
+        //filtrarUnidades(this.unidadAtacante,unidades,true);
+        for (int i = 0; i< unidades.size();i++){
             unidades.get(i).recibirDanio(this.danioCuerpoACuerpo);
         }
     }
