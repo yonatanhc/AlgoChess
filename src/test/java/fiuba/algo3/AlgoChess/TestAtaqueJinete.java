@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestAtaqueJinete {
-
+    /*
     @Test
     void test01AtaqueEnDistanciaCortaDeJinete(){
         Jugador jugador1 = new Jugador("nn");
@@ -48,5 +48,5 @@ public class TestAtaqueJinete {
         //assertEquals(50, catapulta2.getPuntosDeVida());
 
 
-    }
+    }/*
 }

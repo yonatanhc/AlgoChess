@@ -51,7 +51,7 @@ public class TestCurandero {
 
         Soldado soldado2 = new Soldado();
         tablero.ingresarUnidadEn(soldado2, 15, 15,jugador2);
-        tablero.moverUnidadAPosicion(15,15,2,2);
+        tablero.moverUnidadA(soldado2,tablero.obtenerCasillero(2,2));
 
         Soldado soldado3 = new Soldado();
         tablero.ingresarUnidadEn(soldado3, 3, 3,jugador1);
