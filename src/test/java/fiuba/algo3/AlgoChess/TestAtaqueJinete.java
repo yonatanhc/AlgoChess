@@ -48,5 +48,5 @@ public class TestAtaqueJinete {
         //assertEquals(50, catapulta2.getPuntosDeVida());
 
 
-    }/*
+    }*/
 }
