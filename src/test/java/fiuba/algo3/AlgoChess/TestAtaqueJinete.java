@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestAtaqueJinete {
-    /*
+
     @Test
     void test01AtaqueEnDistanciaCortaDeJinete(){
         Jugador jugador1 = new Jugador("nn");
@@ -45,8 +45,35 @@ public class TestAtaqueJinete {
         assertEquals(100, jinete.getPuntosDeVida());
         assertEquals(95, jinete2.getPuntosDeVida());
         assertEquals(75, curandero.getPuntosDeVida());
-        //assertEquals(50, catapulta2.getPuntosDeVida());
+    }
 
+    @Test
+    void test02AtaqueEnDistanciaMedianaDeJinete() {
+        Jugador jugador1 = new Jugador("nn");
+        Jugador jugador2 = new Jugador("abc");
+        Tablero tablero = new Tablero(jugador1, jugador2);
 
-    }*/
+        Jinete jinete = new Jinete();
+        tablero.ingresarUnidadEn(jinete,10,5,jugador1);
+
+        Soldado soldado = new Soldado();
+        tablero.ingresarUnidadEn(soldado,8,5,jugador1);
+
+        Soldado soldado2 = new Soldado();
+        tablero.ingresarUnidadEn(soldado2,13,5,jugador2);
+
+        Soldado soldado3 = new Soldado();
+        tablero.ingresarUnidadEn(soldado3,6,7,jugador1);
+
+        Soldado soldado4 = new Soldado();
+        tablero.ingresarUnidadEn(soldado4,15,8,jugador2);
+
+        jinete.activarHabilidad();
+
+        assertEquals(100, soldado.getPuntosDeVida());
+        assertEquals(85, soldado2.getPuntosDeVida());
+        assertEquals(100, soldado3.getPuntosDeVida());
+        assertEquals(85, soldado4.getPuntosDeVida());
+        assertEquals(100, jinete.getPuntosDeVida());
+    }
 }

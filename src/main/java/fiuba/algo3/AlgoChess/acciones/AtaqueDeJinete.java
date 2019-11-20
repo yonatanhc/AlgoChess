@@ -28,21 +28,15 @@ public class AtaqueDeJinete extends Habilidad {
     }
 
     private void tipoDeAtaqueAUsar(int x, int y ,ArrayList<Unidad> unidades){
-        int cantidadInicial = unidades.size();
-        filtrarUnidades(this.unidadAtacante,unidades,false);
-        int cantidadFinal = unidades.size();
-        if(cantidadInicial != cantidadFinal && unidades.size() == 0){
+
+        if(contieneSoloEnemigosCercanos(unidades)){
                 ataqueConEspada();
         }
         else{
-            for(int i = 0 ; i < unidades.size() ; i++){
-                if(unidades.get(i).getNombreDeUnidad() == "Soldado"){
-                    ataqueConArcoFlecha();
-                }
-            }
+             if(contieneSoldadoAliado(unidades)){
+                 ataqueConArcoFlecha();
+             }
         }
-
-
     }
     private void ataqueConArcoFlecha(){
         ArrayList<Unidad> unidades = rangoDelAtaque(3,5);
@@ -71,4 +65,21 @@ public class AtaqueDeJinete extends Habilidad {
         return unidadesAfectadas;
     }
 
+    private boolean contieneSoldadoAliado(ArrayList<Unidad> unidades){
+        for (int i = 0; i < unidades.size(); i++){
+            if(unidades.get(i).getNombreDeUnidad() == "Soldado"){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean contieneSoloEnemigosCercanos(ArrayList<Unidad> unidades){
+        for (int i = 0; i < unidades.size(); i++){
+            if(unidades.get(i).getJugador().equals(this.unidadAtacante.getJugador())){
+                return false;
+            }
+        }
+        return true;
+    }
 }
