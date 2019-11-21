@@ -45,4 +45,7 @@ public class Casillero {
     public int getY() {
         return this.y;
     }
+
+    public void setEsEnemigo(boolean asignarLadoDelCampo) {
+    }
 }

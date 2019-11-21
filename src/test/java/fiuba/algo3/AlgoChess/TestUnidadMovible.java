@@ -166,7 +166,7 @@ public class TestUnidadMovible {
         assertEquals(tablero.obtenerCasillero(2, 5), soldado3.getUbicacion());
 
         //alejo una de las unidades
-       tablero.moverUnidadAPosicion(2,5,2,6);
+        tablero.intercambiarPosicionDeUnidad(soldado3,tablero.obtenerCasillero(2,6));
         //creo nuevamente el batallon
         batallon = new Batallon(soldado1);
 
@@ -210,6 +210,28 @@ public class TestUnidadMovible {
         assertEquals(tablero.obtenerCasillero(3, 3), soldado3.getUbicacion());
         assertEquals(tablero.obtenerCasillero(2, 1), soldado4.getUbicacion());
 
+    }
+    @Test
+    void test08PruebaMovimientoBatallonDentroDelTablero(){
+        Soldado soldado1 = new Soldado();
+        Soldado soldado2 = new Soldado();
+        Soldado soldado3 = new Soldado();
+        Jugador jugador = new Jugador("jugador");
+        Jugador jugador2 = new Jugador("Pedro");
+        Tablero tablero = new Tablero(jugador,jugador2);
+        Casillero ubicacion;
+
+        tablero.ingresarUnidadEn(soldado1,7,6,jugador);
+        tablero.ingresarUnidadEn(soldado2,8,6,jugador);
+        tablero.ingresarUnidadEn(soldado3,6,6,jugador);
+
+        ubicacion = tablero.obtenerCasillero(7,7);
+        tablero.intercambiarPosicionDeUnidad(soldado1,ubicacion);
+        ubicacion = tablero.obtenerCasillero(7,7);
+
+        assertEquals(tablero.obtenerCasillero(7, 7), soldado1.getUbicacion());
+        assertEquals(tablero.obtenerCasillero(8, 7),soldado2.getUbicacion());
+        assertEquals(tablero.obtenerCasillero(6, 7), soldado3.getUbicacion());
     }
 
     //Movimiento de una Unidad en todas las direcciones
