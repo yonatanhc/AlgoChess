@@ -39,6 +39,7 @@ public class TestAtaqueCatapulta {
         Jugador jugador = new Jugador("juan");
         Jugador jugador2 = new Jugador("Pedro");
         Tablero tablero = new Tablero(jugador,jugador2);
+
         Catapulta catapulta = new Catapulta();
         tablero.ingresarUnidadEn(catapulta,8,8,jugador);
 

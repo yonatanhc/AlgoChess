@@ -2,6 +2,10 @@ package fiuba.algo3.AlgoChess.tableroycasilleros;
 
 import fiuba.algo3.AlgoChess.Jugador;
 import fiuba.algo3.AlgoChess.MoverCatapultaError;
+import fiuba.algo3.AlgoChess.acciones.Rango;
+import fiuba.algo3.AlgoChess.acciones.RangoContiguo;
+import fiuba.algo3.AlgoChess.entidades.Batallon;
+import fiuba.algo3.AlgoChess.entidades.Soldado;
 import fiuba.algo3.AlgoChess.entidades.Unidad;
 import java.util.ArrayList;
 
@@ -10,7 +14,7 @@ public class Tablero {
     private ArrayList<Casillero> tableroDelJuego;
     private int ladoDelTablero;
     private Jugador jugadorAliado;
-    private Jugador jugadorEnemigo;
+   private Jugador jugadorEnemigo;
 
     public Tablero(Jugador jugador1, Jugador jugador2){
         this.ladoDelTablero = 20;
@@ -69,18 +73,39 @@ public class Tablero {
             }throw new ErrorDePosicionException();
     }
 
-    public void moverUnidadA(Unidad unidad, Casillero destino){
-        if(destino.casilleroLibre()){
-            if(unidad.getNombreDeUnidad() != "Catapulta") { // realizar chequeo de catapulta
-                unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
-                unidad.setUbicacion(destino);
-            }else{
-                throw new MoverCatapultaError();
-            }
-        }else{
-            throw new CasilleroOcupadoException();}
+    public void intercambiarPosicionDeUnidadSoldado(Unidad unidad, Casillero destino) {
+        unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
+        unidad.setUbicacion(destino);
     }
+    public void intercambiarPosicionDeUnidad(Unidad unidad, Casillero destino){
+      if (destino.casilleroLibre()) {
+          if (unidad.getNombreDeUnidad() != "Catapulta") { // realizar chequeo de catapulta
+              if (unidad.getNombreDeUnidad() != "Soldado") { // realizo un chequeo para la movilidad del batallon
+                  unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
+                  unidad.setUbicacion(destino);
+              } else {
+                  // Si estoy aca la unidad es soldado.
+                  RangoContiguo rango= new RangoContiguo(this);
+                  ArrayList<Unidad> miembrosBatallon = rango.listaDeUnidadesAfectados(unidad.getUbicacion().getX(), unidad.getUbicacion().getY());
+                  //Elimino si no es soldado y es el mismo soldado seleccionado
+                  miembrosBatallon.removeIf(n -> n.getClass() != unidad.getClass()|| n==unidad || n.getJugador() != unidad.getJugador());
+                  miembrosBatallon.add(unidad); //Me queda una lista con el soldado seleccionado y 2 contiguos
 
+                  if (miembrosBatallon.size() >= 3) {
+
+                      Batallon batallon = new Batallon(unidad,miembrosBatallon);
+                      batallon.moverBatallon(destino);
+                  } else {
+                      this.intercambiarPosicionDeUnidadSoldado(unidad,destino);
+                  }
+              }
+          }else{
+                  throw new MoverCatapultaError();
+              }
+          } else {
+              throw new CasilleroOcupadoException();
+          }
+    }
     public int tamanioDelTablero(){
         return this.tableroDelJuego.size();
     }
@@ -89,7 +114,7 @@ public class Tablero {
         Casillero casilleroOrigen = this.obtenerCasillero(xInicial,yInicial);
         Unidad unidadAMover = casilleroOrigen.obtenerUnidad();
         Casillero casilleroDestino = this.obtenerCasillero(xFinal,yFinal);
-        moverUnidadA(unidadAMover,casilleroDestino);
+        intercambiarPosicionDeUnidad(unidadAMover,casilleroDestino);
         unidadAMover.activarHabilidad();
     }
 }
