@@ -22,7 +22,7 @@ public class TestUnidadMovible {
 
         jinete.setUbicacion(ubicacion);//al jinete se le ubica en el casillero (3,4)
 
-        tablero.moverUnidadA(jinete,otraUbicacion);// la nueva ubicacion del casillero es (3,5)
+        tablero.intercambiarPosicionDeUnidad(jinete,otraUbicacion);// la nueva ubicacion del casillero es (3,5)
 
         assertTrue(ubicacion.casilleroLibre());
         assertEquals(jinete.getUbicacion(), tablero.obtenerCasillero(3, 5));
@@ -41,7 +41,7 @@ public class TestUnidadMovible {
         Curandero curandero = new Curandero();
         curandero.setUbicacion(otraUbicacion);//curandero se ubica en el casillero (6,5)
         assertThrows(CasilleroOcupadoException.class,()->{
-            tablero.moverUnidadA(soldado,ubicacion);
+            tablero.intercambiarPosicionDeUnidad(soldado,ubicacion);
         });
     }
 
@@ -166,7 +166,7 @@ public class TestUnidadMovible {
         assertEquals(tablero.obtenerCasillero(2, 5), soldado3.getUbicacion());
 
         //alejo una de las unidades
-        tablero.moverUnidadA(soldado3,tablero.obtenerCasillero(2,6));
+       tablero.moverUnidadAPosicion(2,5,2,6);
         //creo nuevamente el batallon
         batallon = new Batallon(soldado1);
 

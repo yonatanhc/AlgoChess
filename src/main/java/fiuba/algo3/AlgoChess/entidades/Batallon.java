@@ -24,9 +24,7 @@ public class Batallon {
         this.tablero = liderBatallon.getTablero();
         this.rango = new RangoContiguo(tablero);
         this.miembrosBatallon = new ArrayList<Unidad>();
-
         ArrayList<Unidad> unidadesCercanas = rango.listaDeUnidadesAfectados(liderBatallon.getUbicacion().getX(),liderBatallon.getUbicacion().getY());
-
         //Elimino si no es soldado y es el mismo soldado seleccionado
         unidadesCercanas.removeIf(n -> n.getClass() != liderBatallon.getClass() || n == liderBatallon || n.getJugador() != liderBatallon.getJugador());
         this.miembrosBatallon = unidadesCercanas;
@@ -36,32 +34,20 @@ public class Batallon {
 
 
     public void moverBatallon(Casillero casilleroDestino) {
-
         int xOrigen = this.liderBatallon.getUbicacion().getX();
         int yOrigen = this.liderBatallon.getUbicacion().getY();
         Casillero casilleroDestinoDeCadaUnidad;
-
         for(int i = 0; i<miembrosBatallon.size(); i++){
-
             int xdiff = xOrigen - this.miembrosBatallon.get(i).getUbicacion().getX();
             int ydiff = yOrigen - this.miembrosBatallon.get(i).getUbicacion().getY();
-
             //chequeamos si el casillero a moverse esta libre o si es válido. En otro caso, no hacemos nada
             try {
                 casilleroDestinoDeCadaUnidad = tablero.obtenerCasillero(casilleroDestino.getX() - xdiff, casilleroDestino.getY() - ydiff);
-                tablero.moverUnidadA(this.miembrosBatallon.get(i), casilleroDestinoDeCadaUnidad);
+                tablero.intercambiarPosicionDeUnidad(this.miembrosBatallon.get(i), casilleroDestinoDeCadaUnidad);
             }
             catch (ErrorDePosicionException e){}
             catch (CasilleroOcupadoException e){}
-
-
-
         }
-
-
-
-
-        
     }
 
 }

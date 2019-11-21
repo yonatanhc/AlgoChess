@@ -19,7 +19,7 @@ public class TestCurandero {
         Tablero tablero = new Tablero(jugador1,jugador2);
 
         Curandero curandero = new Curandero();// vida de curandero 75
-        tablero.ingresarUnidadEn(curandero, 9, 3,jugador1);
+        tablero.ingresarUnidadEn(curandero, 8, 3,jugador1);
 
         Jinete jinete1 = new Jinete(); // vida de jinete 100
         tablero.ingresarUnidadEn(jinete1, 10, 2,jugador1);
@@ -28,9 +28,9 @@ public class TestCurandero {
         tablero.ingresarUnidadEn(jinete2, 11, 3,jugador2);
 
         Catapulta catapulta = new Catapulta();
-        tablero.ingresarUnidadEn(catapulta, 4, 4,jugador1);
+        tablero.ingresarUnidadEn(catapulta, 9, 4,jugador1);
 
-        curandero.activarHabilidad();
+        tablero.moverUnidadAPosicion(8,3,9,2);
 
         assertEquals(115, jinete1.getPuntosDeVida());
         assertEquals(100, jinete2.getPuntosDeVida());
@@ -44,19 +44,19 @@ public class TestCurandero {
         Tablero tablero = new Tablero(jugador1,jugador2);
 
         Curandero curandero = new Curandero();// vida de curandero 75
-        tablero.ingresarUnidadEn(curandero, 1, 1,jugador1);
+        tablero.ingresarUnidadEn(curandero, 9, 2,jugador1);
 
         Soldado soldado1 = new Soldado(); // vida de jinete 100
-        tablero.ingresarUnidadEn(soldado1, 1, 2,jugador1);
+        tablero.ingresarUnidadEn(soldado1, 9, 3,jugador1);
 
         Soldado soldado2 = new Soldado();
-        tablero.ingresarUnidadEn(soldado2, 15, 15,jugador2);
-        tablero.moverUnidadA(soldado2,tablero.obtenerCasillero(2,2));
+        tablero.ingresarUnidadEn(soldado2, 13, 5,jugador2);
+        tablero.moverUnidadAPosicion(13,5,12,5);
 
         Soldado soldado3 = new Soldado();
-        tablero.ingresarUnidadEn(soldado3, 3, 3,jugador1);
+        tablero.ingresarUnidadEn(soldado3, 9, 1,jugador1);
 
-        curandero.activarHabilidad();
+        tablero.moverUnidadAPosicion(9,2,10,2);
 
         assertEquals(75, curandero.getPuntosDeVida());
         assertEquals(115, soldado1.getPuntosDeVida());
@@ -72,22 +72,22 @@ public class TestCurandero {
         Tablero tablero = new Tablero(jugador1,jugador2);
 
         Curandero curandero = new Curandero();// vida de curandero 75
-        tablero.ingresarUnidadEn(curandero, 20, 20,jugador2);
+        tablero.ingresarUnidadEn(curandero, 12, 2,jugador2);
 
         Jinete jinete = new Jinete();
-        tablero.ingresarUnidadEn(jinete, 19, 19,jugador2);
+        tablero.ingresarUnidadEn(jinete, 12, 3,jugador2);
 
         Soldado soldado2 = new Soldado();
-        tablero.ingresarUnidadEn(soldado2, 1, 1,jugador1);
-        tablero.moverUnidadA(soldado2,tablero.obtenerCasillero(18,20));
+        tablero.ingresarUnidadEn(soldado2, 10, 4,jugador1);
+        tablero.moverUnidadAPosicion(10,4,11,4);
 
         Soldado soldado3 = new Soldado();
-        tablero.ingresarUnidadEn(soldado3, 18, 18,jugador2);
+        tablero.ingresarUnidadEn(soldado3, 11, 1,jugador2);
 
-        curandero.activarHabilidad();
+        tablero.moverUnidadAPosicion(12,2,11,2);
 
-        assertEquals(75, curandero.getPuntosDeVida());//65
-        assertEquals(115, jinete.getPuntosDeVida());//105
+        assertEquals(65, curandero.getPuntosDeVida());//65
+        assertEquals(105, jinete.getPuntosDeVida());//105
         assertEquals(100, soldado2.getPuntosDeVida());
         assertEquals(115, soldado3.getPuntosDeVida());
 

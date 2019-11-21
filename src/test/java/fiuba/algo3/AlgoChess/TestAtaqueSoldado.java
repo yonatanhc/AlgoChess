@@ -43,28 +43,26 @@ public class TestAtaqueSoldado {
         Tablero tablero = new Tablero(jugador1,jugador2);
 
         Soldado soldado = new Soldado();// vida de soldado 100
-        tablero.ingresarUnidadEn(soldado, 1, 1,jugador1);
+        tablero.ingresarUnidadEn(soldado, 9, 5,jugador1);
+
 
         Jinete jinete1 = new Jinete(); // vida de jinete 100
-        tablero.ingresarUnidadEn(jinete1, 1, 2,jugador1);
+        tablero.ingresarUnidadEn(jinete1, 10, 4,jugador1);
 
 
         Jinete jinete2 = new Jinete();
-        tablero.ingresarUnidadEn(jinete2, 15, 15,jugador2);
-        tablero.moverUnidadA(jinete2,tablero.obtenerCasillero(1,3));
+        tablero.ingresarUnidadEn(jinete2, 11, 4,jugador2);
 
         Soldado soldado1 = new Soldado();
-        tablero.ingresarUnidadEn(soldado1, 18, 11,jugador2);
-        tablero.moverUnidadA(soldado1,tablero.obtenerCasillero(2,2));;
+        tablero.ingresarUnidadEn(soldado1, 12, 3,jugador2);
 
         Soldado soldado2 = new Soldado();
-        tablero.ingresarUnidadEn(soldado2, 20, 20,jugador2);
-        tablero.moverUnidadA(soldado2,tablero.obtenerCasillero(3,1));;
+        tablero.ingresarUnidadEn(soldado2, 11, 5,jugador2);
 
         Soldado soldado3 = new Soldado();
-        tablero.ingresarUnidadEn(soldado3, 3, 3,jugador1);
-
-        soldado.activarHabilidad();
+        tablero.ingresarUnidadEn(soldado3, 10, 3,jugador1);
+        //muevo soldado para activar ataque
+        tablero.moverUnidadAPosicion(9,5,10,5);
 
        assertEquals(100, soldado.getPuntosDeVida());
         assertEquals(90, soldado2.getPuntosDeVida());

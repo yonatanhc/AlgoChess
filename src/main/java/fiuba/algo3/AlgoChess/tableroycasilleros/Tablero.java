@@ -25,7 +25,6 @@ public class Tablero {
             for(int i = 1; i <= this.ladoDelTablero; i++){
                 for (int j = 1; j <= this.ladoDelTablero; j++) {
                     Casillero casillero = new Casillero(i,j);
-                    casillero.setEsEnemigo(asignarLadoDelCampo(i));
                     this.tableroDelJuego.add(casillero);
                     this.asignarLadoDelCampoAJugador(casillero,i);
                 }
@@ -69,7 +68,7 @@ public class Tablero {
             }throw new ErrorDePosicionException();
     }
 
-    public void moverUnidadA(Unidad unidad, Casillero destino){
+    public void intercambiarPosicionDeUnidad(Unidad unidad, Casillero destino){
         if(destino.casilleroLibre()){
             if(unidad.getNombreDeUnidad() != "Catapulta") { // realizar chequeo de catapulta
                 unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
@@ -89,7 +88,7 @@ public class Tablero {
         Casillero casilleroOrigen = this.obtenerCasillero(xInicial,yInicial);
         Unidad unidadAMover = casilleroOrigen.obtenerUnidad();
         Casillero casilleroDestino = this.obtenerCasillero(xFinal,yFinal);
-        moverUnidadA(unidadAMover,casilleroDestino);
+        intercambiarPosicionDeUnidad(unidadAMover,casilleroDestino);
         unidadAMover.activarHabilidad();
     }
 }
