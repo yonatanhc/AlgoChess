@@ -36,7 +36,11 @@ public class Tablero {
             }
         }
     }
-
+    /*remove inicializarTablero y asiganarLadoDelCampo
+    private void asignarLadoDelCampoAJugador() {
+        this.jugadorAliado.campoDelJugador(1,10);
+        this.jugadorEnemigo.campoDelJugador(11,20);
+    }*/
     private void asignarLadoDelCampoAJugador(Casillero casilleroAAsignar, int posicion) {
         if(posicion<=this.ladoDelTablero/2){
             this.jugadorAliado.campoDelJugador(casilleroAAsignar);
@@ -49,6 +53,23 @@ public class Tablero {
     private boolean asignarLadoDelCampo(int posicion){
         return posicion<=this.ladoDelTablero/2;
     }
+
+    /*
+    //al momento de ingresar unidad  se crear el casillero , insetando la unidad
+    public void ingresarUnidadEn(Unidad nuevaUnidad, int posicionX, int posicionY, Jugador jugador){
+        //si el casillero no existe devuelve null
+        if(this.obtenerCasillero(posicionX,posicionY) == null){
+            if (jugador.esMiCampo(posicionX,posicionY)) { //verifico si la posicion pertence al jugador
+                Casillero casilleroALlenar = new Casillero(nuevaUnidad,posicionX,posicionY); //creo el casillero, con la unidad
+                nuevaUnidad.setUbicacion(casilleroALlenar);
+                jugador.agregarUnidad(nuevaUnidad);
+                this.tableroDelJuego.add(casilleroALlenar);
+                //nuevaUnidad.asignarTablero(this);
+            }
+        }else{
+            throw new CasilleroOcupadoException();
+        }
+    }*/
 
     public void ingresarUnidadEn(Unidad nuevaUnidad, int posicionX, int posicionY, Jugador jugador){
         Casillero casilleroALlenar = this.obtenerCasillero(posicionX,posicionY);

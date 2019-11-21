@@ -42,6 +42,15 @@ public class Jugador {
         }
     }
 
+    /*
+    public boolean esMiCampo(int x, int y) {
+        if(x >= this.inicioDelCampo && x <= finDelCampo && y >= 1 && y <= 20){
+             return true;
+        }else{
+            throw new CampoContrarioException();
+        }
+    }*/
+
     public int tamanioCampo(){
         return this.casillerosDelJugador.size();
     }
@@ -49,5 +58,12 @@ public class Jugador {
     public void campoDelJugador(Casillero casillero){
         this.casillerosDelJugador.add(casillero);
     }
+
+    /*
+    public void campoDelJugador(int inicio , int fin){
+        this.inicioDelCampo = inicio;
+        this.finDelCampo = fin;
+    }*/
+
 
 }
