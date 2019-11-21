@@ -28,23 +28,14 @@ public class Batallon {
         //Elimino si no es soldado y es el mismo soldado seleccionado
         unidadesCercanas.removeIf(n -> n.getClass() != liderBatallon.getClass() || n == liderBatallon || n.getJugador() != liderBatallon.getJugador());
         this.miembrosBatallon = unidadesCercanas;
-       //this.miembrosBatallon = unidadesCercanas.subList(1,3);
+        if(unidadesCercanas.size()>=maxCantMiembros){
+            this.miembrosBatallon = unidadesCercanas.subList(1,3);
+        }
+
         this.miembrosBatallon.add(liderBatallon); //Me queda una lista con el soldado seleccionado y 2 contiguos
+        int size_miembros= this.miembrosBatallon.size();
     }
 
-    /*
-    public Batallon(Unidad soldado,ArrayList<Unidad> unidadesCercanas){
-        liderBatallon = soldado;
-        this.tablero = liderBatallon.getTablero();
-        this.rango = new RangoContiguo(tablero);
-        this.miembrosBatallon = new ArrayList<Unidad>();
-        //ArrayList<Unidad> unidadesCercanas = rango.listaDeUnidadesAfectados(liderBatallon.getUbicacion().getX(),liderBatallon.getUbicacion().getY());
-        //Elimino si no es soldado y es el mismo soldado seleccionado
-        //unidadesCerc anas.removeIf(n -> n.getClass() != liderBatallon.getClass() || n == liderBatallon || n.getJugador() != liderBatallon.getJugador());
-        this.miembrosBatallon = unidadesCercanas;
-       //this.miembrosBatallon = unidadesCercanas.subList(1,3);
-        //this.miembrosBatallon.add(liderBatallon); //Me queda una lista con el soldado seleccionado y 2 contiguos
-    }*/
 
 
     public void moverBatallon(Casillero casilleroDestino) {
