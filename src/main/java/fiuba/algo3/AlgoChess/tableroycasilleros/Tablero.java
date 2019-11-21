@@ -98,6 +98,7 @@ public class Tablero {
         unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
         unidad.setUbicacion(destino);
     }
+
     public void intercambiarPosicionDeUnidad(Unidad unidad, Casillero destino){
       if (destino.casilleroLibre()) {
           if (unidad.getNombreDeUnidad() != "Catapulta") { // realizar chequeo de catapulta
@@ -105,20 +106,10 @@ public class Tablero {
                   unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
                   unidad.setUbicacion(destino);
               } else {
-                  // Si estoy aca la unidad es soldado.
-                  RangoContiguo rango= new RangoContiguo(this);
-                  ArrayList<Unidad> miembrosBatallon = rango.listaDeUnidadesAfectados(unidad.getUbicacion().getX(), unidad.getUbicacion().getY());
-                  //Elimino si no es soldado y es el mismo soldado seleccionado
-                  miembrosBatallon.removeIf(n -> n.getClass() != unidad.getClass()|| n==unidad || n.getJugador() != unidad.getJugador());
-                  miembrosBatallon.add(unidad); //Me queda una lista con el soldado seleccionado y 2 contiguos
 
-                  if (miembrosBatallon.size() >= 3) {
-
-                      Batallon batallon = new Batallon(unidad,miembrosBatallon);
+                      Batallon batallon = new Batallon(unidad);
                       batallon.moverBatallon(destino);
-                  } else {
-                      this.intercambiarPosicionDeUnidadSoldado(unidad,destino);
-                  }
+
               }
           }else{
                   throw new MoverCatapultaError();
@@ -127,6 +118,7 @@ public class Tablero {
               throw new CasilleroOcupadoException();
           }
     }
+
     public int tamanioDelTablero(){
         return this.tableroDelJuego.size();
     }
