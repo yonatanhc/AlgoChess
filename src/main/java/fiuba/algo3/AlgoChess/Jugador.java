@@ -25,6 +25,8 @@ public class Jugador {
         unidad.perteneceAlJugador(this);
     }
 
+    public String obtenerNombre(){return this.nombre;}
+
     public void removerUnidad(Unidad unidad){
         for (int i = 0 ; i < unidades.size() ; i++){
             if(unidad.equals(this.unidades.get(i))){
@@ -58,6 +60,11 @@ public class Jugador {
     public void campoDelJugador(Casillero casillero){
         this.casillerosDelJugador.add(casillero);
     }
+
+    public boolean tieneUnidades(){ //A partir de este metodo, defino quien es el jugador ganador
+        return (unidades.size() == 0 );
+    }
+
 
     /*
     public void campoDelJugador(int inicio , int fin){
