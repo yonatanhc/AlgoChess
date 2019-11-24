@@ -25,6 +25,8 @@ public class Jugador {
         unidad.perteneceAlJugador(this);
     }
 
+    public String obtenerNombre(){return this.nombre;}
+
     public void removerUnidad(Unidad unidad){
         for (int i = 0 ; i < unidades.size() ; i++){
             if(unidad.equals(this.unidades.get(i))){
@@ -42,6 +44,15 @@ public class Jugador {
         }
     }
 
+    /*
+    public boolean esMiCampo(int x, int y) {
+        if(x >= this.inicioDelCampo && x <= finDelCampo && y >= 1 && y <= 20){
+             return true;
+        }else{
+            throw new CampoContrarioException();
+        }
+    }*/
+
     public int tamanioCampo(){
         return this.casillerosDelJugador.size();
     }
@@ -49,5 +60,17 @@ public class Jugador {
     public void campoDelJugador(Casillero casillero){
         this.casillerosDelJugador.add(casillero);
     }
+
+    public boolean tieneUnidades(){ //A partir de este metodo, defino quien es el jugador ganador
+        return (unidades.size() == 0 );
+    }
+
+
+    /*
+    public void campoDelJugador(int inicio , int fin){
+        this.inicioDelCampo = inicio;
+        this.finDelCampo = fin;
+    }*/
+
 
 }

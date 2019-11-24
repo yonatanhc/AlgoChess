@@ -36,7 +36,11 @@ public class Tablero {
             }
         }
     }
-
+    /*remove inicializarTablero y asiganarLadoDelCampo
+    private void asignarLadoDelCampoAJugador() {
+        this.jugadorAliado.campoDelJugador(1,10);
+        this.jugadorEnemigo.campoDelJugador(11,20);
+    }*/
     private void asignarLadoDelCampoAJugador(Casillero casilleroAAsignar, int posicion) {
         if(posicion<=this.ladoDelTablero/2){
             this.jugadorAliado.campoDelJugador(casilleroAAsignar);
@@ -49,6 +53,23 @@ public class Tablero {
     private boolean asignarLadoDelCampo(int posicion){
         return posicion<=this.ladoDelTablero/2;
     }
+
+    /*
+    //al momento de ingresar unidad  se crear el casillero , insetando la unidad
+    public void ingresarUnidadEn(Unidad nuevaUnidad, int posicionX, int posicionY, Jugador jugador){
+        //si el casillero no existe devuelve null
+        if(this.obtenerCasillero(posicionX,posicionY) == null){
+            if (jugador.esMiCampo(posicionX,posicionY)) { //verifico si la posicion pertence al jugador
+                Casillero casilleroALlenar = new Casillero(nuevaUnidad,posicionX,posicionY); //creo el casillero, con la unidad
+                nuevaUnidad.setUbicacion(casilleroALlenar);
+                jugador.agregarUnidad(nuevaUnidad);
+                this.tableroDelJuego.add(casilleroALlenar);
+                //nuevaUnidad.asignarTablero(this);
+            }
+        }else{
+            throw new CasilleroOcupadoException();
+        }
+    }*/
 
     public void ingresarUnidadEn(Unidad nuevaUnidad, int posicionX, int posicionY, Jugador jugador){
         Casillero casilleroALlenar = this.obtenerCasillero(posicionX,posicionY);
@@ -77,6 +98,7 @@ public class Tablero {
         unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
         unidad.setUbicacion(destino);
     }
+
     public void intercambiarPosicionDeUnidad(Unidad unidad, Casillero destino){
       if (destino.casilleroLibre()) {
           if (unidad.getNombreDeUnidad() != "Catapulta") { // realizar chequeo de catapulta
@@ -84,20 +106,10 @@ public class Tablero {
                   unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
                   unidad.setUbicacion(destino);
               } else {
-                  // Si estoy aca la unidad es soldado.
-                  RangoContiguo rango= new RangoContiguo(this);
-                  ArrayList<Unidad> miembrosBatallon = rango.listaDeUnidadesAfectados(unidad.getUbicacion().getX(), unidad.getUbicacion().getY());
-                  //Elimino si no es soldado y es el mismo soldado seleccionado
-                  miembrosBatallon.removeIf(n -> n.getClass() != unidad.getClass()|| n==unidad || n.getJugador() != unidad.getJugador());
-                  miembrosBatallon.add(unidad); //Me queda una lista con el soldado seleccionado y 2 contiguos
 
-                  if (miembrosBatallon.size() >= 3) {
-
-                      Batallon batallon = new Batallon(unidad,miembrosBatallon);
+                      Batallon batallon = new Batallon(unidad);
                       batallon.moverBatallon(destino);
-                  } else {
-                      this.intercambiarPosicionDeUnidadSoldado(unidad,destino);
-                  }
+
               }
           }else{
                   throw new MoverCatapultaError();
@@ -106,6 +118,7 @@ public class Tablero {
               throw new CasilleroOcupadoException();
           }
     }
+
     public int tamanioDelTablero(){
         return this.tableroDelJuego.size();
     }

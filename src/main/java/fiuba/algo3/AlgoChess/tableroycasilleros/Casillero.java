@@ -8,13 +8,14 @@ public class Casillero {
     private boolean estaLibre;
     private Unidad unidadAGuardar;
 
-    public Casillero(int x, int y) {
+    public Casillero(int x, int y) { //en el constructor resive la unidad
         this.x = x;
         this.y = y;
-        this.unidadAGuardar = null;
+        this.unidadAGuardar = null; //this.unidadAGuardad = unidad;
         this.estaLibre = true;
     }
 
+    //remove método
     public void ocuparCasilleroConUnidad(Unidad unidadAOcuparCasillero){
         if(estaLibre) {
             this.unidadAGuardar = unidadAOcuparCasillero;
@@ -46,6 +47,7 @@ public class Casillero {
         return this.y;
     }
 
+    //???????
     public void setEsEnemigo(boolean asignarLadoDelCampo) {
     }
 }

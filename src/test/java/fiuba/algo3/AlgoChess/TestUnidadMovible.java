@@ -197,19 +197,18 @@ public class TestUnidadMovible {
         tablero.ingresarUnidadEn(soldado1, 2, 2, jugador);
         tablero.ingresarUnidadEn(soldado2, 1, 2, jugador);
         tablero.ingresarUnidadEn(soldado3, 3, 2, jugador);
-        tablero.ingresarUnidadEn(soldado4, 2, 1, jugador);
+        tablero.ingresarUnidadEn(soldado4, 1, 3, jugador);
 
-        ubicacion = tablero.obtenerCasillero(2, 3);
+        ubicacion = tablero.obtenerCasillero(3, 3);
 
         batallon = new Batallon(soldado1);
 
         batallon.moverBatallon(ubicacion);
 
-        assertEquals(tablero.obtenerCasillero(2, 3), soldado1.getUbicacion());
-        assertEquals(tablero.obtenerCasillero(1, 3), soldado2.getUbicacion());
-        assertEquals(tablero.obtenerCasillero(3, 3), soldado3.getUbicacion());
-        assertEquals(tablero.obtenerCasillero(2, 1), soldado4.getUbicacion());
-
+        assertEquals(tablero.obtenerCasillero(3, 3), soldado1.getUbicacion());
+        assertEquals(tablero.obtenerCasillero(1, 2), soldado2.getUbicacion()); //Este soldado se queda quieto
+        assertEquals(tablero.obtenerCasillero(4, 3), soldado3.getUbicacion());
+        assertEquals(tablero.obtenerCasillero(2, 4), soldado4.getUbicacion());
     }
     @Test
     void test08PruebaMovimientoBatallonDentroDelTablero(){
