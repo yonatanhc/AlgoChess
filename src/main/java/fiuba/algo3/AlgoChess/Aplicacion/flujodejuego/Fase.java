@@ -9,4 +9,6 @@ public abstract class Fase {
 
     public abstract void siguienteFase();
 
+    public abstract void accionDeFase(); //Ejecuta la accion principal de la fase
+
 }

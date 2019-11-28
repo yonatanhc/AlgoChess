@@ -30,6 +30,14 @@ public class TestFlujoDeJuego {
             assertEquals(jugador2,algoChess.obtenerJugadorEnEspera() );
             assertEquals(jugador1,algoChess.obtenerJudadorEnTurno() );
 
+            algoChess.avanzarSiguienteFase(); // Se pasa a la fase de ataque nuevamente
+            algoChess.avanzarSiguienteFase(); // Se pasa a la fase de Movimientos y se deberían intercambiar nuevamente los Jugadores
+
+            assertEquals(jugador1,algoChess.obtenerJugadorEnEspera() );
+            assertEquals(jugador2,algoChess.obtenerJudadorEnTurno() );
+
+
+
         }
 
 }

@@ -4,7 +4,6 @@ import fiuba.algo3.AlgoChess.Aplicacion.flujodejuego.Fase;
 import fiuba.algo3.AlgoChess.Aplicacion.flujodejuego.FaseInicial;
 import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class AlgoChess {
@@ -25,17 +24,18 @@ public class AlgoChess {
             this.jugadorEnTurno = new Jugador(nombre2);
             this.jugadorEnEspera = new Jugador(nombre1);
         }
+
         this.faseActual = new FaseInicial(this);
         this.tablero = new Tablero(jugadorEnTurno, jugadorEnEspera);
     }
 
-    public void avanzarSiguienteFase(){this.faseActual.siguienteFase();};
+    public void avanzarSiguienteFase(){this.faseActual.siguienteFase();}
+    public void asignarFase(Fase fase){this.faseActual = fase;}
 
     public Jugador obtenerJudadorEnTurno(){ return this.jugadorEnTurno;}
     public Jugador obtenerJugadorEnEspera(){return this.jugadorEnEspera;}
 
-    public void asignarFase(Fase fase){this.faseActual = fase;}
-
+    public Tablero obtenerTablero(){return this.tablero;}
 
 
     public void cambioDeTurno(){

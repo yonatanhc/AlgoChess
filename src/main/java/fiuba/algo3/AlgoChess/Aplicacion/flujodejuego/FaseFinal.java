@@ -8,7 +8,13 @@ public class FaseFinal extends Fase {
         super(algoChess_pass);
     }
 
+    @Override
     public void siguienteFase(){
+
+    }
+
+    @Override
+    public void accionDeFase() {
 
     }
 }

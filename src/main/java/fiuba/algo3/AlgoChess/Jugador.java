@@ -25,6 +25,10 @@ public class Jugador {
         unidad.perteneceAlJugador(this);
     }
 
+    public boolean asignoTodasLasUnidades(){
+        return puntos == 0;
+    }
+
     public String obtenerNombre(){return this.nombre;}
 
     public void removerUnidad(Unidad unidad){

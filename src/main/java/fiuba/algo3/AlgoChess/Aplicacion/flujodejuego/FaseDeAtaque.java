@@ -4,10 +4,12 @@ import fiuba.algo3.AlgoChess.AlgoChess;
 
 public class FaseDeAtaque extends Fase {
 
+
     public FaseDeAtaque(AlgoChess algoChess_pass) {
         super(algoChess_pass);
     }
 
+    @Override
     public void siguienteFase(){
         if(algoChess.obtenerJugadorEnEspera().tieneUnidades()){
 
@@ -18,6 +20,8 @@ public class FaseDeAtaque extends Fase {
             this.algoChess.asignarFase(new FaseFinal(this.algoChess));
         }
 
-
     }
+
+    @Override
+    public void accionDeFase(){}
 }
