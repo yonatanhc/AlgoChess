@@ -1,0 +1,31 @@
+.root{
+	-fx-background-image: url("../Imagenes/fondotablero.png");
+	-fx-background-repeat: stretch;
+	-fx-background-size: 1366 768;
+	-fx-background-position: center center;
+
+}
+
+#head{
+	-fx-spacing:10;
+	-fx-alignment:center;	
+}
+
+#name{
+	-fx-font-size:20px;
+}
+
+#player{
+	
+	-fx-background-color:#DBDBDF;
+	-fx-background-radius:8;
+	-fx-min-width:300px;
+	-fx-position-shape:true;
+}
+#vbox{
+	-fx-background-image: url("../Imagenes/fondoDeSalida.png");
+	-fx-background-repeat: stretch;
+	-fx-background-size: 600 325;
+	-fx-background-position: center center;
+	-fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+}

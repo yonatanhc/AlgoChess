@@ -1,0 +1,15 @@
+.root{
+    -fx-background-image: url("../Imagenes/fondoDeNombres.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 1366 768;
+    -fx-background-position: center center;
+
+}
+
+#pane{
+    -fx-background-image: url("../Imagenes/fondoDeSalida.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 350 200;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(  gaussian, rgba(0,0,0,0.5) , 2,2,2,2 );
+}

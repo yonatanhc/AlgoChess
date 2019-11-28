@@ -1,10 +1,9 @@
 package fiuba.algo3.AlgoChess;
 
-import fiuba.algo3.AlgoChess.flujodejuego.Fase;
-import fiuba.algo3.AlgoChess.flujodejuego.FaseInicial;
+import fiuba.algo3.AlgoChess.Aplicacion.flujodejuego.Fase;
+import fiuba.algo3.AlgoChess.Aplicacion.flujodejuego.FaseInicial;
 import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class AlgoChess {

@@ -1,4 +1,4 @@
-package fiuba.algo3.AlgoChess.flujodejuego;
+package fiuba.algo3.AlgoChess.Aplicacion.flujodejuego;
 
 import fiuba.algo3.AlgoChess.AlgoChess;
 
