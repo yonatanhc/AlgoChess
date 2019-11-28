@@ -4,6 +4,7 @@ import fiuba.algo3.AlgoChess.AlgoChess;
 import fiuba.algo3.AlgoChess.entidades.Catapulta;
 import fiuba.algo3.AlgoChess.entidades.Unidad;
 
+
 public class FaseInicial extends Fase {
 
     public FaseInicial(AlgoChess algoChess_pass) {
@@ -13,7 +14,7 @@ public class FaseInicial extends Fase {
 
     @Override
     public void siguienteFase(){
-        this.algoChess.asignarFase(new FaseDeMovimiento(this.algoChess));
+        this.algoChess.asignarFase(new FaseDeJuego(this.algoChess));
     }
 
     @Override

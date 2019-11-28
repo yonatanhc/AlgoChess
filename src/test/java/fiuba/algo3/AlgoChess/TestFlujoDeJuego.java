@@ -15,23 +15,17 @@ public class TestFlujoDeJuego {
             Jugador jugador1 = algoChess.obtenerJugadorEnEspera();
             Jugador jugador2 = algoChess.obtenerJudadorEnTurno();
 
-            algoChess.avanzarSiguienteFase(); //Se pasa a la fase de movimiento (No hay cambio de turno)
+            algoChess.avanzarSiguienteFase(); //Se pasa a la fase de juego (No hay cambio de turno)
 
             assertEquals(jugador1,algoChess.obtenerJugadorEnEspera() );
             assertEquals(jugador2,algoChess.obtenerJudadorEnTurno() );
 
-            algoChess.avanzarSiguienteFase(); //Se pasa a la fase de ataque (No hay cambio de turno)
-
-            assertEquals(jugador1,algoChess.obtenerJugadorEnEspera() );
-            assertEquals(jugador2,algoChess.obtenerJudadorEnTurno() );
-
-            algoChess.avanzarSiguienteFase(); // Se vuelve nuevamente a la fase de movimiento SE INTERCAMBIAN LOS JUGADORES
+            algoChess.avanzarSiguienteFase(); //Se pasa a la siguiente fase de juego SE INTERCAMBIAN LOS JUGADORES
 
             assertEquals(jugador2,algoChess.obtenerJugadorEnEspera() );
             assertEquals(jugador1,algoChess.obtenerJudadorEnTurno() );
 
-            algoChess.avanzarSiguienteFase(); // Se pasa a la fase de ataque nuevamente
-            algoChess.avanzarSiguienteFase(); // Se pasa a la fase de Movimientos y se deberían intercambiar nuevamente los Jugadores
+            algoChess.avanzarSiguienteFase(); // Se pasa nuevamente a la siguiente fase y se intercambian los jugadores
 
             assertEquals(jugador1,algoChess.obtenerJugadorEnEspera() );
             assertEquals(jugador2,algoChess.obtenerJudadorEnTurno() );
