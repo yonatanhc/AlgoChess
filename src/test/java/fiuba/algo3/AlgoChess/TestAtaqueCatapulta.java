@@ -10,29 +10,30 @@ import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 import org.junit.jupiter.api.Test;
 
 public class TestAtaqueCatapulta {
-    @Test
-    void test01AtaqueDeCatapulta(){
-        Jugador jugador = new Jugador("juan");
-        Jugador jugador2 = new Jugador("Pedro");
-        Tablero tablero = new Tablero(jugador,jugador2);
-        Catapulta catapulta = new Catapulta();
-        tablero.ingresarUnidadEn(catapulta,5,10,jugador);
 
-        Soldado soldado = new Soldado();//unidad enemiga
-        tablero.ingresarUnidadEn(soldado,11,9,jugador2);
+        @Test
+        void test01AtaqueDeCatapulta(){
+            Jugador jugador = new Jugador("juan");
+            Jugador jugador2 = new Jugador("Pedro");
+            Tablero tablero = new Tablero(jugador,jugador2);
+            Catapulta catapulta = new Catapulta();
+            tablero.ingresarUnidadEn(catapulta,5,10,jugador);
 
-        Jinete jinete = new Jinete();
-        tablero.ingresarUnidadEn(jinete,10,10,jugador);
+            Soldado soldado = new Soldado();//unidad enemiga
+            tablero.ingresarUnidadEn(soldado,11,9,jugador2);
 
-        Curandero curandero = new Curandero();
-        tablero.ingresarUnidadEn(curandero,9,11,jugador);
+            Jinete jinete = new Jinete();
+            tablero.ingresarUnidadEn(jinete,10,10,jugador);
 
-        catapulta.activarHabilidad();
+            Curandero curandero = new Curandero();
+            tablero.ingresarUnidadEn(curandero,9,11,jugador);
 
-        assertEquals(80,soldado.getPuntosDeVida());
-        assertEquals(80,jinete.getPuntosDeVida());
-        assertEquals(55,curandero.getPuntosDeVida());
-    }
+            catapulta.activarHabilidad();
+
+            assertEquals(80,soldado.getPuntosDeVida());
+            assertEquals(80,jinete.getPuntosDeVida());
+            assertEquals(55,curandero.getPuntosDeVida());
+        }
 
     @Test
     void test02AtaqueDeCatapulta(){

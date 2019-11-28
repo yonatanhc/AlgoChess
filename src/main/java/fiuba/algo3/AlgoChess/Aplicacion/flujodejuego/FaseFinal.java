@@ -4,11 +4,11 @@ import fiuba.algo3.AlgoChess.AlgoChess;
 
 public class FaseFinal extends Fase {
 
-    public FaseFinal(AlgoChess algoChess) {
-        super();
+    public FaseFinal(AlgoChess algoChess_pass) {
+        super(algoChess_pass);
     }
 
-    protected void siguienteFase(){
+    public void siguienteFase(){
 
     }
 }

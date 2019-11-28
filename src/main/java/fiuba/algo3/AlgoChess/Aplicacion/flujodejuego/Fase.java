@@ -5,6 +5,8 @@ import fiuba.algo3.AlgoChess.AlgoChess;
 public abstract class Fase {
     protected AlgoChess algoChess;
 
-    protected abstract void siguienteFase();
+    public Fase(AlgoChess algoChessCreated){this.algoChess = algoChessCreated;}
+
+    public abstract void siguienteFase();
 
 }
