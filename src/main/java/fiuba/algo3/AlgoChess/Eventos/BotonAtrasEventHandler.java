@@ -6,10 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 
-public class PantallaNombresBotonAtrasEventHandler  implements EventHandler<ActionEvent> {
+public class BotonAtrasEventHandler implements EventHandler<ActionEvent> {
 	private Aplicacion app;
 	
-	public PantallaNombresBotonAtrasEventHandler(Aplicacion app) {
+	public BotonAtrasEventHandler(Aplicacion app) {
 		this.app = app;
 	}
 	

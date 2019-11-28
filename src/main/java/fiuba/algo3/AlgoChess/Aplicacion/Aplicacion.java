@@ -40,6 +40,7 @@ public class Aplicacion extends Application {
         salidaDelPrograma.getStylesheets().add("Css/darkTheme.css");
         salidaDelPrograma.setAlignment(Pos.CENTER);
         inicioDePartida.setOnAction(new ComienzoDelJuego(this));
+        botonCreditos.setOnAction(new CreditosEventHandler(this));
         salidaDelPrograma.setOnAction(new SalirDelProgramaEventHandler(stage));
         panel.setId("pane");
         BorderPane.setMargin(box,new Insets(0,280,200,0));
@@ -122,7 +123,7 @@ public class Aplicacion extends Application {
         BotonAceptarNombresEventHandler botonAceptarEventHandler = new BotonAceptarNombresEventHandler(textoJugador1,textoJugador2,etiquetaError,this);
         botonAceptar.setOnAction(botonAceptarEventHandler);
         botonAceptar.defaultButtonProperty().bind(botonAceptar.focusedProperty());
-        PantallaNombresBotonAtrasEventHandler eh = new PantallaNombresBotonAtrasEventHandler(this);
+        BotonAtrasEventHandler eh = new BotonAtrasEventHandler(this);
         botonAtras.setOnAction(eh);
         botonAtras.defaultButtonProperty().bind(botonAtras.focusedProperty());
         PantallaNombresEnterEventHandler textoEventHandler = new PantallaNombresEnterEventHandler(botonAceptar);
@@ -154,6 +155,33 @@ public class Aplicacion extends Application {
 
     public void refresh(String nombre1,String nombre2) {
         InitialPhaseView initialPhase = new InitialPhaseView(nombre1,nombre2,this.stage);//jugador1 y jugador2
+    }
+
+    public void Creditos(){
+        BorderPane borderPane = new BorderPane();
+        Label label = new Label("Integrantes");
+        Label integrante1 = new Label("Alejandro, Pablo Martín");
+        Label integrante2 = new Label("Huaman, Yonatan");
+        Label integrante3 = new Label("Chávez Cabanillas, José E.");
+        Label integrante4 = new Label("Rizzo, Gonzalo Gabriel");
+        Button botonAtras = new Button("Atras");
+        botonAtras.setOnAction(new BotonAtrasEventHandler(this));
+        VBox vBox = new VBox(label,integrante1,integrante2,integrante3,integrante4);
+        BorderPane.setAlignment(vBox,Pos.CENTER);
+        BorderPane.setMargin(vBox,new Insets(120,50,100,100));
+        vBox.setAlignment(Pos.TOP_CENTER);
+        vBox.setSpacing(65);
+        borderPane.setCenter(vBox);
+        BorderPane.setAlignment(botonAtras,Pos.TOP_LEFT);
+        BorderPane.setMargin(botonAtras,new Insets(0,25,400,200));
+        botonAtras.setAlignment(Pos.CENTER_LEFT);
+        borderPane.setBottom(botonAtras);
+        Scene scene = new Scene(borderPane);
+        scene.getStylesheets().add("Css/credito.css");
+        this.stage.setScene(scene);
+        this.stage.setMaximized(true);
+        this.stage.show();
+        this.stage.setFullScreen(true);
     }
 
 }
