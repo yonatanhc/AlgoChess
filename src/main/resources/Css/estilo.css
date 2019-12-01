@@ -6,11 +6,6 @@
 
 }
 
-#head{
-	-fx-spacing:10;
-	-fx-alignment:center;	
-}
-
 #name{
 	-fx-font-size:20px;
 }
@@ -29,3 +24,4 @@
 	-fx-background-position: center center;
 	-fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
 }
+

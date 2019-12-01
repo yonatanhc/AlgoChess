@@ -150,11 +150,11 @@ public class Aplicacion extends Application {
     public void iniciarJuego(String nombre1,String nombre2) {
         this.algoChess = new AlgoChess(nombre1,nombre2);
         this.stage.setTitle("AlgoChess");
-        this.refresh(nombre1,nombre2);
+        this.refresh(nombre1,nombre2,this.algoChess);
     }
 
-    public void refresh(String nombre1,String nombre2) {
-        InitialPhaseView initialPhase = new InitialPhaseView(nombre1,nombre2,this.stage);//jugador1 y jugador2
+    public void refresh(String nombre1,String nombre2,AlgoChess algoChess) {
+        InitialPhaseView initialPhase = new InitialPhaseView(nombre1,nombre2,this.stage,algoChess);//jugador1 y jugador2
     }
 
     public void Creditos(){
