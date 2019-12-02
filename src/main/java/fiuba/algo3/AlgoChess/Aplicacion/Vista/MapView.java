@@ -144,7 +144,7 @@ public class MapView extends Group {
 
 
     public void setPieceOnAlgoChess(PieceView piece, int x, int y){
-        this.turnOf.setPiece(piece.createButtonPieceMax());
+        this.turnOf.setPiece(piece.createButtonPieceMax(),piece.getUnidadOfPieceView().getCosto());
 
         //fijarse campoContrarioExcepcion
         this.algoChess.obtenerTablero().ingresarUnidadEn(piece.getUnidadOfPieceView(),x,y,this.algoChess.obtenerJudadorEnTurno());

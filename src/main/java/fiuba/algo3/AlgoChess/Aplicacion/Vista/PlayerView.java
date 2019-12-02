@@ -2,6 +2,7 @@ package fiuba.algo3.AlgoChess.Aplicacion.Vista;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -21,12 +22,14 @@ public class PlayerView {
 		this.namePlayer = name;
 		this.points = 20;
 		this.player = new VBox();
+
 		 this.vbox = new VBox();
 		 this.vbox.setAlignment(Pos.CENTER);
 		this.piece = new ScrollPane();
 		piece.setContent(this.vbox);
 		piece.setPrefSize(80,400);
 		piece.setFitToHeight(true);
+
 		player.setStyle("-fx-spacing:15;-fx-background-color:"+color);
 	}
 
@@ -35,13 +38,14 @@ public class PlayerView {
 		Text name = new Text(this.namePlayer);
 		name.setStyle("-fx-font-size:50px");
 
-
-		this.player.getChildren().addAll(name,this.piece);
+		this.player.getChildren().addAll(name,pointView(),this.piece);
 		hbox.getChildren().add(player);
 	}
 
-	public void setPiece(Button piece) {
+	public void setPiece(Button piece,int costo) {
+		this.points -= costo;
 		this.vbox.getChildren().add(piece);
+		changePoint();
 		//agregar onclick de datos de la pieza
 	}
 
@@ -51,5 +55,15 @@ public class PlayerView {
 
 	public String getColor(){
 		return this.color;
+	}
+	public Button pointView(){
+		Button button = new Button();
+		button.setText(String.valueOf(this.points));
+		return button;
+	}
+
+	public void changePoint(){
+		this.player.getChildren().remove(1);
+		this.player.getChildren().add(1,pointView());
 	}
 }
