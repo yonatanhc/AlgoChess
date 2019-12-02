@@ -19,7 +19,9 @@ public class Jugador {
         this.casillerosDelJugador = new ArrayList<Casillero>();
     }
     public void agregarUnidad(Unidad unidad){
-        if(unidad.getCosto() > this.puntos) throw new PuntosNoDisponibleDelJugadorException();
+        if(unidad.getCosto() > this.puntos  ){
+            throw new PuntosNoDisponibleDelJugadorException();
+        }
         this.puntos -= unidad.getCosto();
         unidades.add(unidad);
         unidad.perteneceAlJugador(this);
@@ -44,7 +46,8 @@ public class Jugador {
         if(this.casillerosDelJugador.contains(casilleroALlenar)){
             return true;
         }else{
-            throw new CampoContrarioException();
+          //  throw new CampoContrarioException(); // Deberia enviar una excepcion?
+            return false;
         }
     }
 

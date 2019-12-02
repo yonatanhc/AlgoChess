@@ -21,12 +21,10 @@ public class FaseInicial extends Fase {
     public void accionDeFase(){
         Unidad unidadPrueba = new Catapulta();
 
-        while(algoChess.obtenerJudadorEnTurno().asignoTodasLasUnidades()){
+        while(algoChess.obtenerJudadorEnTurno().asignoTodasLasUnidades() && algoChess.obtenerJugadorEnEspera().asignoTodasLasUnidades()){
+            if(!algoChess.obtenerJudadorEnTurno().asignoTodasLasUnidades()){
             algoChess.obtenerJudadorEnTurno().agregarUnidad(unidadPrueba);
-        }
-
-        while(algoChess.obtenerJugadorEnEspera().asignoTodasLasUnidades()){
-            algoChess.obtenerJugadorEnEspera().agregarUnidad(unidadPrueba);
+            }
         }
 
         this.siguienteFase();
