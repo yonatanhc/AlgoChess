@@ -18,13 +18,14 @@ public class Jugador {
         this.unidades = new ArrayList<Unidad>();
         this.casillerosDelJugador = new ArrayList<Casillero>();
     }
-    public void agregarUnidad(Unidad unidad){
-        if(unidad.getCosto() > this.puntos  ){
+    public void agregarUnidad(Unidad unidad) {
+        if (unidad.getCosto() <this.puntos) {
+            this.puntos -= unidad.getCosto();
+            unidades.add(unidad);
+            unidad.perteneceAlJugador(this);
+        } else {
             throw new PuntosNoDisponibleDelJugadorException();
         }
-        this.puntos -= unidad.getCosto();
-        unidades.add(unidad);
-        unidad.perteneceAlJugador(this);
     }
 
     public boolean asignoTodasLasUnidades(){
