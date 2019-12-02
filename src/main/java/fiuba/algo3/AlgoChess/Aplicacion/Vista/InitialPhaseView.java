@@ -39,10 +39,10 @@ public class InitialPhaseView {
 		HBox hbox = new HBox();
 		hbox.setAlignment(Pos.CENTER);
 
-
 		player1.viewPlayer(hbox);
 		hbox.getChildren().add(mapView);
 		player2.viewPlayer(hbox);
+		mapView.turnOfPlayer();
 
 		hbox.setAlignment(Pos.CENTER);
 		Scene theScene = new Scene(hbox);

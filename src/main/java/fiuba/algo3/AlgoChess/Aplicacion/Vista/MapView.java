@@ -32,6 +32,7 @@ public class MapView extends Group {
     private Button[][] buttons;
 
     public MapView(AlgoChess algoChess, boolean eventMovement){
+
         this.algoChess = algoChess;
         table = new GridPane();
         width = tileWidth * 20;
@@ -59,6 +60,7 @@ public class MapView extends Group {
         buttons[x][y].setStyle("-fx-border-color:"+this.turnOf.getColor());
         table.add(button,x,y);
         setPieceOnAlgoChess(piece,x,y);
+        changeShift();
         stage.close();
     }
     public void setPlayers(PlayerView player1,PlayerView player2){
@@ -78,9 +80,9 @@ public class MapView extends Group {
 
                 }
                 else{
+                    //validar si la posciion se le pertenece al jugador en turno
                     eventOnClickMenuPiece(x,y);
                 }
-                changeShift();
             }
         });
 
@@ -119,7 +121,6 @@ public class MapView extends Group {
             @Override
             public void handle(MouseEvent event) {
                 addViewOnMap(stage,piece,x,y);
-
             }
 
         });
@@ -127,6 +128,7 @@ public class MapView extends Group {
     }
 
     public void changeShift(){
+        this.turnOf.changeTurn();
         this.algoChess.cambioDeTurno();
         turnOfPlayer();
     }
@@ -139,7 +141,7 @@ public class MapView extends Group {
         if(name == player2.getName()){
             this.turnOf = player2;
         }
-
+        this.turnOf.turnView();
     }
 
 

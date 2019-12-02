@@ -56,10 +56,21 @@ public class PlayerView {
 	public String getColor(){
 		return this.color;
 	}
+
 	public Button pointView(){
 		Button button = new Button();
 		button.setText(String.valueOf(this.points));
 		return button;
+	}
+
+	public void turnView(){
+		Button button = new Button();
+		button.setText("Es Mi Turno");
+		this.player.getChildren().add(2,button);
+	}
+
+	public void changeTurn(){
+		this.player.getChildren().remove(2);
 	}
 
 	public void changePoint(){
