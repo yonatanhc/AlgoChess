@@ -39,8 +39,8 @@ public class MapView extends Group {
         heigth = tileHeigth * 20;
         buttons = new Button[ (int)width][(int)heigth];
 
-        for (int i = 0; i < 20; i++) {
-            for (int j = 0; j < 20; j++) {
+        for (int i = 1; i <=20; i++) {
+            for (int j = 1; j <=20; j++) {
                 Button v = new Button();
                 eventOnClick(v,i,j,eventMovement);
                 v.setMinHeight(this.tileHeigth);

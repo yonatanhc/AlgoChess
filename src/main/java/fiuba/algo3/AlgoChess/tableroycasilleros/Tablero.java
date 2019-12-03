@@ -26,10 +26,9 @@ public class Tablero {
 
     private void inicializarTablero() {
         if(this.tableroDelJuego.isEmpty()) {
-            for(int i = 0; i <= this.ladoDelTablero; i++){
-                for (int j = 0; j <= this.ladoDelTablero; j++) {
+            for(int i = 1; i <= this.ladoDelTablero; i++){
+                for (int j = 1; j <= this.ladoDelTablero; j++) {
                     Casillero casillero = new Casillero(i,j);
-                    casillero.setEsEnemigo(asignarLadoDelCampo(i));
                     this.tableroDelJuego.add(casillero);
                     this.asignarLadoDelCampoAJugador(casillero,i);
                 }

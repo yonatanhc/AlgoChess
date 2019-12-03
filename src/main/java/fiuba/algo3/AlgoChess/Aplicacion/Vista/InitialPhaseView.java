@@ -50,6 +50,6 @@ public class InitialPhaseView {
 		this.stage.setScene(theScene);
 		this.stage.setMaximized(true);
 		this.stage.show();
-		this.stage.setFullScreen(true);
+		//this.stage.setFullScreen(true);
 	}
 }
