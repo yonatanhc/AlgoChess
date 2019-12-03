@@ -19,20 +19,13 @@ public class Jugador {
         this.casillerosDelJugador = new ArrayList<Casillero>();
     }
     public void agregarUnidad(Unidad unidad) {
-        if (unidad.getCosto() > this.puntos) {
-            throw new PuntosNoDisponibleDelJugadorException();
-        }else{
-            this.puntos -= unidad.getCosto();
-            unidades.add(unidad);
-            unidad.perteneceAlJugador(this);
-        }
-        /*if (unidad.getCosto() <= this.puntos) {
+        if (unidad.getCosto() <this.puntos) {
             this.puntos -= unidad.getCosto();
             unidades.add(unidad);
             unidad.perteneceAlJugador(this);
         } else {
             throw new PuntosNoDisponibleDelJugadorException();
-        }*/
+        }
     }
 
     public boolean asignoTodasLasUnidades(){
@@ -54,8 +47,8 @@ public class Jugador {
         if(this.casillerosDelJugador.contains(casilleroALlenar)){
             return true;
         }else{
-          //  throw new CampoContrarioException(); // Deberia enviar una excepcion?
-            return false;
+            throw new CampoContrarioException(); // Deberia enviar una excepcion?
+            //return false;
         }
     }
 

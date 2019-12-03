@@ -1,6 +1,7 @@
 package fiuba.algo3.AlgoChess.Aplicacion.flujodejuego;
 
 import fiuba.algo3.AlgoChess.AlgoChess;
+import fiuba.algo3.AlgoChess.entidades.Unidad;
 
 public class FaseFinal extends Fase {
 
@@ -13,7 +14,7 @@ public class FaseFinal extends Fase {
     }
 
     @Override
-    public void accionDeFase() {
+    public void accionDeFase(Unidad unidad, int x, int y) {
 
     }
 }

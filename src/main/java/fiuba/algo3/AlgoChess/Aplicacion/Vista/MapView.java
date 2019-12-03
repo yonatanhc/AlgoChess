@@ -1,11 +1,14 @@
 package fiuba.algo3.AlgoChess.Aplicacion.Vista;
 
 import fiuba.algo3.AlgoChess.AlgoChess;
+import fiuba.algo3.AlgoChess.CampoContrarioException;
+import fiuba.algo3.AlgoChess.PuntosNoDisponibleDelJugadorException;
 import fiuba.algo3.AlgoChess.entidades.*;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,6 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import fiuba.algo3.AlgoChess.AlgoChess;
+import javafx.stage.StageStyle;
 
 
 public class MapView extends Group {
@@ -54,13 +58,8 @@ public class MapView extends Group {
     }
 
     public void addViewOnMap(Stage stage,PieceView piece, int x, int y) {
-        Button button = piece.createButtonPieceMin();
-        table.getChildren().remove(buttons[x][y]);
-        buttons[x][y] = button;
-        buttons[x][y].setStyle("-fx-border-color:"+this.turnOf.getColor());
-        table.add(button,x,y);
         setPieceOnAlgoChess(piece,x,y);
-        changeShift();
+
         stage.close();
     }
     public void setPlayers(PlayerView player1,PlayerView player2){
@@ -146,10 +145,38 @@ public class MapView extends Group {
 
 
     public void setPieceOnAlgoChess(PieceView piece, int x, int y){
-        this.turnOf.setPiece(piece.createButtonPieceMax(),piece.getUnidadOfPieceView().getCosto());
 
         //fijarse campoContrarioExcepcion
-        this.algoChess.obtenerTablero().ingresarUnidadEn(piece.getUnidadOfPieceView(),x,y,this.algoChess.obtenerJudadorEnTurno());
+        //this.algoChess.obtenerTablero().ingresarUnidadEn(piece.getUnidadOfPieceView(), x, y, this.algoChess.obtenerJudadorEnTurno());
+        try {
+        algoChess.accionDeFase(piece.getUnidadOfPieceView(),x, y);
+
+        this.turnOf.setPiece(piece.createButtonPieceMax(),piece.getUnidadOfPieceView().getCosto());
+        Button button = piece.createButtonPieceMin();
+        table.getChildren().remove(buttons[x][y]);
+        buttons[x][y] = button;
+        buttons[x][y].setStyle("-fx-border-color:"+this.turnOf.getColor());
+        table.add(button,x,y);
+        changeShift();
+
+
+        }catch (PuntosNoDisponibleDelJugadorException e){
+            Alert dialogoAlerta = new Alert(Alert.AlertType.ERROR);
+            dialogoAlerta.setTitle("Error!PuntosNoDisponibleDelJugadorException");
+            dialogoAlerta.setHeaderText("No tiene puntos disponibles!. Elija una unidad de menor costo");
+            dialogoAlerta.initStyle(StageStyle.UTILITY);
+            java.awt.Toolkit.getDefaultToolkit().beep();
+            dialogoAlerta.showAndWait();
+        }catch (CampoContrarioException e){
+            Alert dialogoAlerta = new Alert(Alert.AlertType.ERROR);
+            dialogoAlerta.setTitle("Error!CampoContrarioException");
+            dialogoAlerta.setHeaderText("Cuidado!. No puede inicializar una unidad en campo enemigo");
+            dialogoAlerta.initStyle(StageStyle.UTILITY);
+            java.awt.Toolkit.getDefaultToolkit().beep();
+            dialogoAlerta.showAndWait();
+
+        }
+
     }
 
 }

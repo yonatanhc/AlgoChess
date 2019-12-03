@@ -2,6 +2,7 @@ package fiuba.algo3.AlgoChess;
 
 import fiuba.algo3.AlgoChess.Aplicacion.flujodejuego.Fase;
 import fiuba.algo3.AlgoChess.Aplicacion.flujodejuego.FaseInicial;
+import fiuba.algo3.AlgoChess.entidades.Unidad;
 import fiuba.algo3.AlgoChess.tableroycasilleros.Tablero;
 
 import java.util.Random;
@@ -31,6 +32,7 @@ public class AlgoChess {
 
     public void avanzarSiguienteFase(){this.faseActual.siguienteFase();}
     public void asignarFase(Fase fase){this.faseActual = fase;}
+    public void accionDeFase(Unidad unidad, int x, int y){this.faseActual.accionDeFase(unidad, x, y);}
 
     public Jugador obtenerJudadorEnTurno(){ return this.jugadorEnTurno;}
     public Jugador obtenerJugadorEnEspera(){return this.jugadorEnEspera;}

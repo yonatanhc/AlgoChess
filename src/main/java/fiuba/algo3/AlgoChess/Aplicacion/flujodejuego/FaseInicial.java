@@ -1,8 +1,12 @@
 package fiuba.algo3.AlgoChess.Aplicacion.flujodejuego;
 
 import fiuba.algo3.AlgoChess.AlgoChess;
+import fiuba.algo3.AlgoChess.CampoContrarioException;
+import fiuba.algo3.AlgoChess.PuntosNoDisponibleDelJugadorException;
 import fiuba.algo3.AlgoChess.entidades.Catapulta;
 import fiuba.algo3.AlgoChess.entidades.Unidad;
+import javafx.scene.control.Alert;
+import javafx.stage.StageStyle;
 
 
 public class FaseInicial extends Fase {
@@ -18,16 +22,12 @@ public class FaseInicial extends Fase {
     }
 
     @Override
-    public void accionDeFase(){
-        Unidad unidadPrueba = new Catapulta();
+    public void accionDeFase(Unidad unidad, int x, int y){
 
-        while(algoChess.obtenerJudadorEnTurno().asignoTodasLasUnidades() && algoChess.obtenerJugadorEnEspera().asignoTodasLasUnidades()){
-            if(!algoChess.obtenerJudadorEnTurno().asignoTodasLasUnidades()){
-            algoChess.obtenerJudadorEnTurno().agregarUnidad(unidadPrueba);
-            }
+        if(algoChess.obtenerJudadorEnTurno().asignoTodasLasUnidades() && algoChess.obtenerJugadorEnEspera().asignoTodasLasUnidades()) {
+            this.siguienteFase();
         }
-
-        this.siguienteFase();
+        this.algoChess.obtenerTablero().ingresarUnidadEn(unidad, x, y, this.algoChess.obtenerJudadorEnTurno());
 
     }
 

@@ -25,11 +25,9 @@ public class FaseDeJuego extends Fase {
     }
 
     @Override
-    public void accionDeFase() {
-        Unidad unidadPrueba = new Catapulta();
-        Casillero casilleroPrueba = new Casillero(1,1);
+    public void accionDeFase(Unidad unidad, int x, int y) {
 
-        algoChess.obtenerTablero().intercambiarPosicionDeUnidad(unidadPrueba,casilleroPrueba);
+        algoChess.obtenerTablero().intercambiarPosicionDeUnidad(unidad,algoChess.obtenerTablero().obtenerCasillero(x,y));
 
         this.siguienteFase();
     }
