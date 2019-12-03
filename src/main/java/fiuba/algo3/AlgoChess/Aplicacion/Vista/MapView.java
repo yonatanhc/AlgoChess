@@ -168,6 +168,8 @@ public class MapView extends Group {
             dialogoAlerta.initStyle(StageStyle.UTILITY);
             java.awt.Toolkit.getDefaultToolkit().beep();
             dialogoAlerta.showAndWait();
+            if(algoChess.obtenerJudadorEnTurno().asignoTodasLasUnidades()){changeShift();}
+
         }catch (CampoContrarioException e){
             Alert dialogoAlerta = new Alert(Alert.AlertType.ERROR);
             dialogoAlerta.setTitle("Error!CampoContrarioException");
