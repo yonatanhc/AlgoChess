@@ -50,7 +50,7 @@ public class MapView extends Group {
                 eventOnClick(v,i,j,eventMovement);
                 v.setMinHeight(this.tileHeigth);
                 v.setMinWidth(this.tileWidth);
-                v.setStyle("-fx-background-color:transparent;-fx-border-color: black");
+                v.setStyle("-fx-background-color:transparent;-fx-border-color: white");
                 buttons[i][j] = v;
                 table.add(v , i, j);
             }
@@ -124,7 +124,7 @@ public class MapView extends Group {
 
             @Override
             public void handle(MouseEvent event) {
-                addViewOnMap(stage,piece,x,y);
+                addViewOnMap(stage, piece, x, y);
             }
 
         });
@@ -166,13 +166,15 @@ public class MapView extends Group {
 
 
         }catch (PuntosNoDisponibleDelJugadorException e){
-            Alert dialogoAlerta = new Alert(Alert.AlertType.ERROR);
-            dialogoAlerta.setTitle("Error!PuntosNoDisponibleDelJugadorException");
-            dialogoAlerta.setHeaderText("No tiene puntos disponibles!. Elija una unidad de menor costo");
-            dialogoAlerta.initStyle(StageStyle.UTILITY);
-            java.awt.Toolkit.getDefaultToolkit().beep();
-            dialogoAlerta.showAndWait();
             if(algoChess.obtenerJudadorEnTurno().asignoTodasLasUnidades()){changeShift();}
+            else {
+                Alert dialogoAlerta = new Alert(Alert.AlertType.ERROR);
+                dialogoAlerta.setTitle("Error!PuntosNoDisponibleDelJugadorException");
+                dialogoAlerta.setHeaderText("No tiene puntos disponibles!. Elija una unidad de menor costo");
+                dialogoAlerta.initStyle(StageStyle.UTILITY);
+                java.awt.Toolkit.getDefaultToolkit().beep();
+                dialogoAlerta.showAndWait();
+            }
 
         }catch (CampoContrarioException e){
             Alert dialogoAlerta = new Alert(Alert.AlertType.ERROR);
