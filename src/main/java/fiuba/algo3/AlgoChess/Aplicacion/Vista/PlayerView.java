@@ -77,4 +77,8 @@ public class PlayerView {
 		this.player.getChildren().remove(1);
 		this.player.getChildren().add(1,pointView());
 	}
+
+	public int pointsVerify() {
+		return this.points;
+	}
 }

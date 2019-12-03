@@ -34,11 +34,11 @@ public class MapView extends Group {
     private PlayerView turnOf;
     private PlayerView player1;
     private PlayerView player2;
-
+    private Stage stage;
     private Button[][] buttons;
 
-    public MapView(AlgoChess algoChess, boolean eventMovement){
-
+    public MapView(AlgoChess algoChess, boolean eventMovement,Stage stage){
+        this.stage=stage;
         this.algoChess = algoChess;
         table = new GridPane();
         width = tileWidth * 20;
@@ -194,7 +194,9 @@ public class MapView extends Group {
             dialogoAlerta.showAndWait();
 
         }
-
+        if(player1.pointsVerify()==0&&player2.pointsVerify()==0){
+            FaseDeJuegoVista faseDeJuegoVista = new FaseDeJuegoVista(player1,player2,algoChess,this,this.stage);
+        }
     }
 
 }
