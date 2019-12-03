@@ -1,6 +1,7 @@
 package fiuba.algo3.AlgoChess.Aplicacion.Vista;
 
 import fiuba.algo3.AlgoChess.AlgoChess;
+import fiuba.algo3.AlgoChess.Aplicacion.flujodejuego.FaseDeJuego;
 import fiuba.algo3.AlgoChess.Aplicacion.flujodejuego.FaseDeJuegoException;
 import fiuba.algo3.AlgoChess.CampoContrarioException;
 import fiuba.algo3.AlgoChess.PuntosNoDisponibleDelJugadorException;
@@ -191,7 +192,6 @@ public class MapView extends Group {
             dialogoAlerta.initStyle(StageStyle.UTILITY);
             java.awt.Toolkit.getDefaultToolkit().beep();
             dialogoAlerta.showAndWait();
-
 
         }
 

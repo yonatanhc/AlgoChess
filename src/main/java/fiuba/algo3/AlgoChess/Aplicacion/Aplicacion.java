@@ -7,12 +7,14 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Aplicacion extends Application {
 
@@ -156,7 +158,6 @@ public class Aplicacion extends Application {
     public void refresh(String nombre1,String nombre2,AlgoChess algoChess) {
 
         InitialPhaseView initialPhase = new InitialPhaseView(nombre1,nombre2,this.stage,algoChess); //jugador1 y jugador2
-
     }
 
     public void Creditos(){
