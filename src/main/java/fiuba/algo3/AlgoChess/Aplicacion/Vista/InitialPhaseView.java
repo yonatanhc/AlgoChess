@@ -16,7 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 
-public class InitialPhaseView {
+public class InitialPhaseView{
 	private Stage stage;
 	private PieceView pieceView;
 	private MapView mapView;
@@ -31,7 +31,9 @@ public class InitialPhaseView {
 		player1 =  new PlayerView(jugador1,"red");
 		player2 =  new PlayerView(jugador2,"blue");
 		mapView.setPlayers(player1,player2);
+
 		initialPhase();
+
 	}
 
 	public void initialPhase(){

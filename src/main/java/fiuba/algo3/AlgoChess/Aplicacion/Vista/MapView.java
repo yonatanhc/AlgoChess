@@ -1,6 +1,7 @@
 package fiuba.algo3.AlgoChess.Aplicacion.Vista;
 
 import fiuba.algo3.AlgoChess.AlgoChess;
+import fiuba.algo3.AlgoChess.Aplicacion.flujodejuego.FaseDeJuegoException;
 import fiuba.algo3.AlgoChess.CampoContrarioException;
 import fiuba.algo3.AlgoChess.PuntosNoDisponibleDelJugadorException;
 import fiuba.algo3.AlgoChess.entidades.*;
@@ -49,7 +50,7 @@ public class MapView extends Group {
                 eventOnClick(v,i,j,eventMovement);
                 v.setMinHeight(this.tileHeigth);
                 v.setMinWidth(this.tileWidth);
-                v.setStyle("-fx-background-color:transparent;-fx-border-color: white");
+                v.setStyle("-fx-background-color:transparent;-fx-border-color: black");
                 buttons[i][j] = v;
                 table.add(v , i, j);
             }
@@ -57,12 +58,15 @@ public class MapView extends Group {
         table.setStyle("-fx-padding: 20;");
         this.addView(table);
     }
-
+    
     public void addViewOnMap(Stage stage,PieceView piece, int x, int y) {
         setPieceOnAlgoChess(piece,x,y);
-
         stage.close();
+
     }
+
+
+
     public void setPlayers(PlayerView player1,PlayerView player2){
         this.player1 = player1;
         this.player2 = player2;
@@ -151,6 +155,7 @@ public class MapView extends Group {
         //this.algoChess.obtenerTablero().ingresarUnidadEn(piece.getUnidadOfPieceView(), x, y, this.algoChess.obtenerJudadorEnTurno());
         try {
         algoChess.accionDeFase(piece.getUnidadOfPieceView(),x, y);
+
         this.turnOf.setPiece(piece.createButtonPieceMax(),piece.getUnidadOfPieceView().getCosto());
         Button button = piece.createButtonPieceMin();
         table.getChildren().remove(buttons[x][y]);
@@ -159,16 +164,16 @@ public class MapView extends Group {
         table.add(button,x,y);
         changeShift();
 
+
         }catch (PuntosNoDisponibleDelJugadorException e){
+            Alert dialogoAlerta = new Alert(Alert.AlertType.ERROR);
+            dialogoAlerta.setTitle("Error!PuntosNoDisponibleDelJugadorException");
+            dialogoAlerta.setHeaderText("No tiene puntos disponibles!. Elija una unidad de menor costo");
+            dialogoAlerta.initStyle(StageStyle.UTILITY);
+            java.awt.Toolkit.getDefaultToolkit().beep();
+            dialogoAlerta.showAndWait();
             if(algoChess.obtenerJudadorEnTurno().asignoTodasLasUnidades()){changeShift();}
-            else {
-                Alert dialogoAlerta = new Alert(Alert.AlertType.ERROR);
-                dialogoAlerta.setTitle("Error!PuntosNoDisponibleDelJugadorException");
-                dialogoAlerta.setHeaderText("No tiene puntos disponibles!. Elija una unidad de menor costo");
-                dialogoAlerta.initStyle(StageStyle.UTILITY);
-                java.awt.Toolkit.getDefaultToolkit().beep();
-                dialogoAlerta.showAndWait();
-            }
+
         }catch (CampoContrarioException e){
             Alert dialogoAlerta = new Alert(Alert.AlertType.ERROR);
             dialogoAlerta.setTitle("Error!CampoContrarioException");
@@ -176,6 +181,16 @@ public class MapView extends Group {
             dialogoAlerta.initStyle(StageStyle.UTILITY);
             java.awt.Toolkit.getDefaultToolkit().beep();
             dialogoAlerta.showAndWait();
+
+        }catch (FaseDeJuegoException e){
+            Alert dialogoAlerta = new Alert(Alert.AlertType.INFORMATION);
+            dialogoAlerta.setTitle("Siguiente Fase:");
+            dialogoAlerta.setHeaderText("Comienza el juego! Muevan sus unidades!");
+            dialogoAlerta.initStyle(StageStyle.UTILITY);
+            java.awt.Toolkit.getDefaultToolkit().beep();
+            dialogoAlerta.showAndWait();
+
+
         }
 
     }

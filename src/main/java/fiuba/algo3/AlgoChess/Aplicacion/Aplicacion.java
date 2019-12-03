@@ -154,7 +154,9 @@ public class Aplicacion extends Application {
     }
 
     public void refresh(String nombre1,String nombre2,AlgoChess algoChess) {
-        InitialPhaseView initialPhase = new InitialPhaseView(nombre1,nombre2,this.stage,algoChess);//jugador1 y jugador2
+
+        InitialPhaseView initialPhase = new InitialPhaseView(nombre1,nombre2,this.stage,algoChess); //jugador1 y jugador2
+
     }
 
     public void Creditos(){
