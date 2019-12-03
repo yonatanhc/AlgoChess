@@ -49,7 +49,7 @@ public class MapView extends Group {
                 eventOnClick(v,i,j,eventMovement);
                 v.setMinHeight(this.tileHeigth);
                 v.setMinWidth(this.tileWidth);
-                v.setStyle("-fx-background-color:transparent;-fx-border-color: black");
+                v.setStyle("-fx-background-color:transparent;-fx-border-color: white");
                 buttons[i][j] = v;
                 table.add(v , i, j);
             }
@@ -57,7 +57,7 @@ public class MapView extends Group {
         table.setStyle("-fx-padding: 20;");
         this.addView(table);
     }
-    
+
     public void addViewOnMap(Stage stage,PieceView piece, int x, int y) {
         setPieceOnAlgoChess(piece,x,y);
 
@@ -151,7 +151,6 @@ public class MapView extends Group {
         //this.algoChess.obtenerTablero().ingresarUnidadEn(piece.getUnidadOfPieceView(), x, y, this.algoChess.obtenerJudadorEnTurno());
         try {
         algoChess.accionDeFase(piece.getUnidadOfPieceView(),x, y);
-
         this.turnOf.setPiece(piece.createButtonPieceMax(),piece.getUnidadOfPieceView().getCosto());
         Button button = piece.createButtonPieceMin();
         table.getChildren().remove(buttons[x][y]);
@@ -160,16 +159,16 @@ public class MapView extends Group {
         table.add(button,x,y);
         changeShift();
 
-
         }catch (PuntosNoDisponibleDelJugadorException e){
-            Alert dialogoAlerta = new Alert(Alert.AlertType.ERROR);
-            dialogoAlerta.setTitle("Error!PuntosNoDisponibleDelJugadorException");
-            dialogoAlerta.setHeaderText("No tiene puntos disponibles!. Elija una unidad de menor costo");
-            dialogoAlerta.initStyle(StageStyle.UTILITY);
-            java.awt.Toolkit.getDefaultToolkit().beep();
-            dialogoAlerta.showAndWait();
             if(algoChess.obtenerJudadorEnTurno().asignoTodasLasUnidades()){changeShift();}
-
+            else {
+                Alert dialogoAlerta = new Alert(Alert.AlertType.ERROR);
+                dialogoAlerta.setTitle("Error!PuntosNoDisponibleDelJugadorException");
+                dialogoAlerta.setHeaderText("No tiene puntos disponibles!. Elija una unidad de menor costo");
+                dialogoAlerta.initStyle(StageStyle.UTILITY);
+                java.awt.Toolkit.getDefaultToolkit().beep();
+                dialogoAlerta.showAndWait();
+            }
         }catch (CampoContrarioException e){
             Alert dialogoAlerta = new Alert(Alert.AlertType.ERROR);
             dialogoAlerta.setTitle("Error!CampoContrarioException");
@@ -177,7 +176,6 @@ public class MapView extends Group {
             dialogoAlerta.initStyle(StageStyle.UTILITY);
             java.awt.Toolkit.getDefaultToolkit().beep();
             dialogoAlerta.showAndWait();
-
         }
 
     }
