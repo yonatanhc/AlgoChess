@@ -19,7 +19,7 @@ public class Jugador {
         this.casillerosDelJugador = new ArrayList<Casillero>();
     }
     public void agregarUnidad(Unidad unidad) {
-        if (unidad.getCosto() <this.puntos) {
+        if (unidad.getCosto() <=this.puntos) {
             this.puntos -= unidad.getCosto();
             unidades.add(unidad);
             unidad.perteneceAlJugador(this);
