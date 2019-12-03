@@ -49,6 +49,7 @@ public class MapView extends Group {
                 eventOnClick(v,i,j,eventMovement);
                 v.setMinHeight(this.tileHeigth);
                 v.setMinWidth(this.tileWidth);
+                v.setStyle("-fx-background-color:transparent;-fx-border-color: black");
                 buttons[i][j] = v;
                 table.add(v , i, j);
             }
@@ -56,7 +57,7 @@ public class MapView extends Group {
         table.setStyle("-fx-padding: 20;");
         this.addView(table);
     }
-
+    
     public void addViewOnMap(Stage stage,PieceView piece, int x, int y) {
         setPieceOnAlgoChess(piece,x,y);
 
