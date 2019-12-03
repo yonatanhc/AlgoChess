@@ -19,6 +19,13 @@ public class FaseInicial extends Fase {
     @Override
     public void siguienteFase(){
         this.algoChess.asignarFase(new FaseDeJuego(this.algoChess));
+
+        Alert dialogoAlerta = new Alert(Alert.AlertType.INFORMATION);
+        dialogoAlerta.setTitle("Siguiente Fase:");
+        dialogoAlerta.setHeaderText("Comienza el juego! Muevan sus unidades!");
+        dialogoAlerta.initStyle(StageStyle.UTILITY);
+        java.awt.Toolkit.getDefaultToolkit().beep();
+        dialogoAlerta.showAndWait();
     }
 
     @Override

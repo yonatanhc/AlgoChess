@@ -74,8 +74,8 @@ public class Tablero {
         Casillero casilleroALlenar = this.obtenerCasillero(posicionX,posicionY);
         if(casilleroALlenar.casilleroLibre()){
             if (jugador.esMiCampo(casilleroALlenar)) {
-                nuevaUnidad.setUbicacion(casilleroALlenar);
                 jugador.agregarUnidad(nuevaUnidad);
+                nuevaUnidad.setUbicacion(casilleroALlenar);
                 nuevaUnidad.asignarTablero(this);
             }
         }else{
