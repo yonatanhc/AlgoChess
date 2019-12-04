@@ -22,8 +22,10 @@ public class PieceView {
     private HashMap<String, String> listaImage;
     private boolean eventMovement;
     private int lastXPosition;
+    private MapView mapView;
 
-    public PieceView(Unidad unidad) {
+    public PieceView(Unidad unidad ,MapView mapView) {
+        this.mapView = mapView;
         this.unidad = unidad;
         listaView();
         eventMovement = false;
@@ -107,21 +109,28 @@ public class PieceView {
         VBox vbox = new VBox();
 
         Button b1 = getMovementView("derecha");
-        performRightMovement(b1,x,y);
+        performRightMovement(this,b1,x,y,x,y+1);
         Button b = new Button();
         Button b2 = getMovementView("izquierda");
+        performRightMovement(this,b2,x,y,x,y-1);
         HBox hbox2 = new HBox();
         hbox2.getChildren().addAll(b2,b,b1);
 
         Button b6 = getMovementView("arribaIzquierda");
+        performRightMovement(this,b6,x,y,x-1,y-1);
         Button b3 = getMovementView("arriba");
+        performRightMovement(this,b3,x,y,x-1,y);
         Button b5 = getMovementView("arribaDerecha");
+        performRightMovement(this,b5,x,y,x-1,y+1);
         HBox hbox1 = new HBox();
         hbox1.getChildren().addAll(b6,b3,b5);
 
         Button b8 = getMovementView("abajoizquierda");
+        performRightMovement(this,b8,x,y,x+1,y-1);
         Button b4 = getMovementView("abajo");
+        performRightMovement(this,b4,x,y,x+1,y);
         Button b7 = getMovementView("abajoDerecha");
+        performRightMovement(this,b7,x,y,x+1,y+1);
         HBox hbox3 = new HBox();
         hbox3.getChildren().addAll(b8,b4,b7);
 
@@ -133,12 +142,13 @@ public class PieceView {
         stage.show();
     }
 
-    public void performRightMovement(Button button, int x, int y){
+    public void performRightMovement(PieceView pieceView,Button button, int x, int y,int n, int m){
         button.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
 
+                mapView.changeButton(pieceView,x,y,n,m);
             }
 
         });

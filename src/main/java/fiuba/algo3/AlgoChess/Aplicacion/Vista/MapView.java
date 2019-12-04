@@ -57,18 +57,22 @@ public class MapView extends Group {
 
         for (int i = 1; i <=20; i++) {
             for (int j = 1; j <=20; j++) {
-                Button v = new Button();
-                eventOnClick(v,i,j);
-
-                v.setMinHeight(this.tileHeigth);
-                v.setMinWidth(this.tileWidth);
-                v.setStyle("-fx-background-color:transparent;-fx-border-color: white");
-                buttons[i][j] = v;
-                table.add(v , i, j);
+                createButtonOnMap(i,j);
             }
         }
         table.setStyle("-fx-padding: 20;");
         this.addView(table);
+    }
+
+    public void createButtonOnMap(int i, int j){
+        Button v = new Button();
+        eventOnClick(v,i,j);
+
+        v.setMinHeight(this.tileHeigth);
+        v.setMinWidth(this.tileWidth);
+        v.setStyle("-fx-background-color:transparent;-fx-border-color: white");
+        buttons[i][j] = v;
+        table.add(v , i, j);
     }
 
     public void addViewOnMap(Stage stage,PieceView piece, int x, int y) {
@@ -108,19 +112,19 @@ public class MapView extends Group {
         Stage stage = new Stage();
         HBox hbox = new HBox();
 
-        PieceView soldado = new PieceView(new Soldado());
+        PieceView soldado = new PieceView(new Soldado(),this);
         Button soldadoB = soldado.createButtonPieceMax();
         positionPieceOnMap(stage,soldadoB,soldado,x,y);
 
-        PieceView jinete = new PieceView(new Jinete());
+        PieceView jinete = new PieceView(new Jinete(),this);
         Button jineteB = jinete.createButtonPieceMax();
         positionPieceOnMap(stage,jineteB,jinete,x,y);
 
-        PieceView curandero = new PieceView(new Curandero());
+        PieceView curandero = new PieceView(new Curandero(),this);
         Button curanderoB = curandero.createButtonPieceMax();
         positionPieceOnMap(stage,curanderoB,curandero,x,y);
 
-        PieceView catapulta = new PieceView(new Catapulta());
+        PieceView catapulta = new PieceView(new Catapulta(),this);
         Button catapultaB = catapulta.createButtonPieceMax();
         positionPieceOnMap(stage,catapultaB,catapulta,x,y);
 
@@ -213,11 +217,13 @@ public class MapView extends Group {
         }
     }
 
-    public void changeButton(int x, int y,int n, int m){
-        Button b1 = buttons[x][y];
-        Button b2 = buttons[n][m];
-        buttons[n][m] = b2;
-        buttons[x][y] = b1;
+    public void changeButton(PieceView pieceView,int x, int y,int n, int m){
+        table.getChildren().remove(buttons[n][m]);
+        table.getChildren().remove(buttons[x][y]);
+        Button b = pieceView.createButtonPieceMin(n,m);
+        buttons[n][m] = b;
+        table.add(b,n,m);
+        createButtonOnMap(x,y);
     }
 
 }
