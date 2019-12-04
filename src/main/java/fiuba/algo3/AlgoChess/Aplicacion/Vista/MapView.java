@@ -36,10 +36,16 @@ public class MapView extends Group {
     private PlayerView player2;
     private Stage stage;
     private Button[][] buttons;
+    private boolean eventMovement;
 
-    public MapView(AlgoChess algoChess, boolean eventMovement,Stage stage){
+    public MapView(AlgoChess algoChess,Stage stage){
         this.stage=stage;
         this.algoChess = algoChess;
+    }
+
+
+    public void getMapView(){
+
         table = new GridPane();
         width = tileWidth * 20;
         heigth = tileHeigth * 20;
@@ -48,7 +54,8 @@ public class MapView extends Group {
         for (int i = 1; i <=20; i++) {
             for (int j = 1; j <=20; j++) {
                 Button v = new Button();
-                eventOnClick(v,i,j,eventMovement);
+                eventOnClick(v,i,j);
+
                 v.setMinHeight(this.tileHeigth);
                 v.setMinWidth(this.tileWidth);
                 v.setStyle("-fx-background-color:transparent;-fx-border-color: white");
@@ -59,14 +66,16 @@ public class MapView extends Group {
         table.setStyle("-fx-padding: 20;");
         this.addView(table);
     }
-    
+
     public void addViewOnMap(Stage stage,PieceView piece, int x, int y) {
         setPieceOnAlgoChess(piece,x,y);
         stage.close();
 
     }
 
-
+    public void setEventMovement(boolean event){
+        this.eventMovement = event;
+    }
 
     public void setPlayers(PlayerView player1,PlayerView player2){
         this.player1 = player1;
@@ -76,18 +85,15 @@ public class MapView extends Group {
         this.getChildren().add(view);
     }
 
-    public void eventOnClick(Button button,int x ,int y,boolean movePiece){
+    public void eventOnClick(Button button,int x ,int y){
         button.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
-                if(movePiece){
-
-                }
-                else{
-                    //validar si la posciion se le pertenece al jugador en turno
+                if(eventMovement){
                     eventOnClickMenuPiece(x,y);
                 }
+
             }
         });
 

@@ -19,11 +19,17 @@ public class FaseDeJuegoVista {
         this.player2=jugador2;
         this.algoChess=algoChess;
         this.mapView=mapView;
+
         this.stage=stage;
         mostrarVistaDeJuego();
     }
 
     public void mostrarVistaDeJuego(){
+        this.stage.setTitle("fase Juego");
+        this.mapView.setEventMovement(false);
+        this.player1.deletePoint();
+        this.player2.deletePoint();
+        /*
         this.stage.setTitle("Phase Game");
         HBox hbox = new HBox();
         hbox.setAlignment(Pos.CENTER);
@@ -39,7 +45,7 @@ public class FaseDeJuegoVista {
         this.stage.setScene(theScene);
         this.stage.setMaximized(true);
         this.stage.show();
-        //this.stage.setFullScreen(true);
+        //this.stage.setFullScreen(true);*/
     }
 
 }

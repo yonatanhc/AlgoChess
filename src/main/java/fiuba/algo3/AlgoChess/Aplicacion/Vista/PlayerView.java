@@ -63,6 +63,10 @@ public class PlayerView {
 		return button;
 	}
 
+	public void deletePoint(){
+		this.player.getChildren().remove(1);
+	}
+
 	public void turnView(){
 		Button button = new Button();
 		button.setText("Es Mi Turno");
