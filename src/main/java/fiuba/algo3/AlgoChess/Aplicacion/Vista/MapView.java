@@ -202,8 +202,6 @@ public class MapView extends Group {
             java.awt.Toolkit.getDefaultToolkit().beep();
             dialogoAlerta.showAndWait();
 
-        }catch (FaseDeJuegoException e){
-
         }
         if(player1.pointsVerify()==0&&player2.pointsVerify()==0){
             for(int i = 0; i < this.listPieceView.size();i++){
@@ -216,6 +214,7 @@ public class MapView extends Group {
             java.awt.Toolkit.getDefaultToolkit().beep();
             dialogoAlerta.showAndWait();
 
+            algoChess.avanzarSiguienteFase();
             FaseDeJuegoVista faseDeJuegoVista = new FaseDeJuegoVista(player1,player2,algoChess,this,this.stage);
         }
     }

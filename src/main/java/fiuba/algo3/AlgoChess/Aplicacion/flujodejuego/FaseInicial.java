@@ -20,7 +20,7 @@ public class FaseInicial extends Fase {
     @Override
     public void siguienteFase(){
         this.algoChess.asignarFase(new FaseDeJuego(this.algoChess));
-        throw new FaseDeJuegoException();
+
     }
 
     @Override
