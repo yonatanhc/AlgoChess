@@ -5,6 +5,7 @@ import fiuba.algo3.AlgoChess.entidades.Unidad;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -67,7 +68,6 @@ public class PieceView {
     public Button createButtonPieceMax() {
         Button button= new Button();
         button.setGraphic(getImageViewMax(this.unidad.getNombreDeUnidad()));
-        viewPointOnClick(button);
         return button;
     }
 
@@ -89,7 +89,8 @@ public class PieceView {
             public void handle(MouseEvent event) {
                 if(event.getButton().equals(MouseButton.PRIMARY)){
                     if(eventMovement){
-                        showMovementTypes(x,y);
+                        if(unidad.getNombreDeUnidad() == "Catapulta") {eventCatapulta();}
+                        else {showMovementTypes(x,y);}
                     }
                 }
                 else{
@@ -173,8 +174,19 @@ public class PieceView {
         });
     }
 
-    public void viewPointOnClick(Button button){
-
+    public void eventCatapulta(){
+        //activar ataque para catapulta en algoChess
+        Stage stage = new Stage();
+        Button b = new Button("Activar Ataque");
+        b.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stage.close();
+            }
+        });
+        Scene theScene = new Scene(b);
+        stage.setScene(theScene);
+        stage.show();
     }
 
 }

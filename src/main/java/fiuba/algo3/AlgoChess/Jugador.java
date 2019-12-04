@@ -80,5 +80,9 @@ public class Jugador {
         this.finDelCampo = fin;
     }*/
 
+    public ArrayList<Unidad> getUnidades(){
+        return this.unidades;
+    }
+
 
 }
