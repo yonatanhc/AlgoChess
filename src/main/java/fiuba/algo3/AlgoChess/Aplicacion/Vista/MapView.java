@@ -226,6 +226,7 @@ public class MapView extends Group {
         table.getChildren().remove(buttons[n][m]);
         table.getChildren().remove(buttons[x][y]);
         Button b = pieceView.createButtonPieceMin(n,m);
+        b.setStyle("-fx-border-color:"+this.turnOf.getColor());
         buttons[n][m] = b;
         table.add(b,n,m);
         createButtonOnMap(x,y);
