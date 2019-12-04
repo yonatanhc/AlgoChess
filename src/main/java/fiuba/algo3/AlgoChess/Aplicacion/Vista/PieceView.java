@@ -7,9 +7,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.util.HashMap;
@@ -65,6 +67,7 @@ public class PieceView {
     public Button createButtonPieceMax() {
         Button button= new Button();
         button.setGraphic(getImageViewMax(this.unidad.getNombreDeUnidad()));
+        viewPointOnClick(button);
         return button;
     }
 
@@ -84,9 +87,25 @@ public class PieceView {
 
             @Override
             public void handle(MouseEvent event) {
-               if(eventMovement){
-                   showMovementTypes(x,y);
-               }
+                if(event.getButton().equals(MouseButton.PRIMARY)){
+                    if(eventMovement){
+                        showMovementTypes(x,y);
+                    }
+                }
+                else{
+
+                        Stage stage = new Stage();
+                        stage.setTitle("Vida de Pieza");
+                        VBox vbox = new VBox();
+                        Text text = new Text("Vida Disponible");
+                        Button b = new Button(String.valueOf(unidad.getPuntosDeVida()));
+                        vbox.getChildren().addAll(text,b);
+                        Scene theScene = new Scene(vbox,50,50);
+                        stage.setScene(theScene);
+                        stage.show();
+
+                }
+
             }
 
         });
@@ -152,6 +171,10 @@ public class PieceView {
             }
 
         });
+    }
+
+    public void viewPointOnClick(Button button){
+
     }
 
 }

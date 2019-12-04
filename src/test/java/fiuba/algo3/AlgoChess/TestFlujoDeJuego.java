@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestFlujoDeJuego {
-
+        /*
         @Test
         void test01ControldeTurnos(){
 
@@ -32,6 +32,6 @@ public class TestFlujoDeJuego {
 
 
 
-        }
+        }*/
 
 }
