@@ -1,6 +1,7 @@
 package fiuba.algo3.AlgoChess.Aplicacion.flujodejuego;
 
 import fiuba.algo3.AlgoChess.AlgoChess;
+import fiuba.algo3.AlgoChess.MoverCatapultaError;
 import fiuba.algo3.AlgoChess.entidades.Catapulta;
 import fiuba.algo3.AlgoChess.entidades.Unidad;
 import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
@@ -27,8 +28,11 @@ public class FaseDeJuego extends Fase {
     @Override
     public void accionDeFase(Unidad unidad, int x, int y) {
 
-        algoChess.obtenerTablero().intercambiarPosicionDeUnidad(unidad,algoChess.obtenerTablero().obtenerCasillero(x,y));
-
+        try {
+            algoChess.obtenerTablero().moverUnidadAPosicion(unidad.getUbicacion().getX(), unidad.getUbicacion().getY(), x, y);
+        }catch (MoverCatapultaError e){
+            unidad.activarHabilidad();
+        }
         this.siguienteFase();
     }
 }

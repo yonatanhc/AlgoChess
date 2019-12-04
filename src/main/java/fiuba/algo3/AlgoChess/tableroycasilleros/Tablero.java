@@ -116,6 +116,8 @@ public class Tablero {
           } else {
               throw new CasilleroOcupadoException();
           }
+          unidad.activarHabilidad();
+
     }
 
     public int tamanioDelTablero(){
