@@ -164,7 +164,7 @@ public class MapView extends Group {
         algoChess.accionDeFase(piece.getUnidadOfPieceView(),x, y);
 
         this.turnOf.setPiece(piece.createButtonPieceMax(),piece.getUnidadOfPieceView().getCosto());
-        Button button = piece.createButtonPieceMin();
+        Button button = piece.createButtonPieceMin(x,y);
         table.getChildren().remove(buttons[x][y]);
         buttons[x][y] = button;
         buttons[x][y].setStyle("-fx-border-color:"+this.turnOf.getColor());
