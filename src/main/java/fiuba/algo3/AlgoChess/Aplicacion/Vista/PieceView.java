@@ -19,22 +19,25 @@ public class PieceView {
     private Unidad unidad;
     private Button pieceButton;
     private double playerScale = 1;
-    //private Tablero tablero;
     private HashMap<String, String> listaImage;
-
+    private boolean eventMovement;
     private int lastXPosition;
 
     public PieceView(Unidad unidad) {
         this.unidad = unidad;
         listaView();
+        eventMovement = false;
     }
 
+    public void changeMovement(){
+        this.eventMovement = true;
+    }
     public ImageView getImageViewMin(String piece) {
         ImageView pieceImage = new ImageView(new Image(searchImage(piece)));
         pieceImage.setScaleX(playerScale);
         pieceImage.setScaleY(playerScale);
-        pieceImage.setFitHeight(28);
-        pieceImage.setFitWidth(19);
+        pieceImage.setFitHeight(25);
+        pieceImage.setFitWidth(16);
         return pieceImage;
     }
 
@@ -79,9 +82,9 @@ public class PieceView {
 
             @Override
             public void handle(MouseEvent event) {
-               //if(eventMovement){
+               if(eventMovement){
                    showMovementTypes(x,y);
-               //}
+               }
             }
 
         });
@@ -92,8 +95,8 @@ public class PieceView {
         ImageView pieceImage = new ImageView(new Image("imagenes/"+name+".jpg"));
         pieceImage.setScaleX(playerScale);
         pieceImage.setScaleY(playerScale);
-        pieceImage.setFitHeight(20);
-        pieceImage.setFitWidth(10);
+        pieceImage.setFitHeight(23);
+        pieceImage.setFitWidth(13);
 
         b1.setGraphic(pieceImage);
         return b1;
@@ -140,5 +143,6 @@ public class PieceView {
 
         });
     }
+
 }
 

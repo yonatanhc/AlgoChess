@@ -22,6 +22,8 @@ import javafx.stage.Stage;
 import fiuba.algo3.AlgoChess.AlgoChess;
 import javafx.stage.StageStyle;
 
+import java.util.ArrayList;
+
 
 public class MapView extends Group {
 
@@ -37,10 +39,12 @@ public class MapView extends Group {
     private Stage stage;
     private Button[][] buttons;
     private boolean eventMovement;
+    private ArrayList<PieceView> listPieceView;
 
     public MapView(AlgoChess algoChess,Stage stage){
         this.stage=stage;
         this.algoChess = algoChess;
+        this.listPieceView = new ArrayList<>();
     }
 
 
@@ -68,6 +72,7 @@ public class MapView extends Group {
     }
 
     public void addViewOnMap(Stage stage,PieceView piece, int x, int y) {
+        this.listPieceView.add(piece);
         setPieceOnAlgoChess(piece,x,y);
         stage.close();
 
@@ -201,8 +206,18 @@ public class MapView extends Group {
 
         }
         if(player1.pointsVerify()==0&&player2.pointsVerify()==0){
+            for(int i = 0; i < this.listPieceView.size();i++){
+                listPieceView.get(i).changeMovement();
+            }
             FaseDeJuegoVista faseDeJuegoVista = new FaseDeJuegoVista(player1,player2,algoChess,this,this.stage);
         }
+    }
+
+    public void changeButton(int x, int y,int n, int m){
+        Button b1 = buttons[x][y];
+        Button b2 = buttons[n][m];
+        buttons[n][m] = b2;
+        buttons[x][y] = b1;
     }
 
 }
