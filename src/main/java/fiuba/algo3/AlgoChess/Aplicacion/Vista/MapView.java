@@ -221,7 +221,7 @@ public class MapView extends Group {
 
     //se intercambia los botones del mapa, movimiento de las unidades
     public void changeButton(PieceView pieceView,int x, int y,int n, int m){
-        this.algoChess.obtenerTablero().moverUnidadAPosicion(x,y,n,m);
+
         //realizar movimiento  de las unidades en algoChess,excepciones....
         table.getChildren().remove(buttons[n][m]);
         table.getChildren().remove(buttons[x][y]);
@@ -230,7 +230,13 @@ public class MapView extends Group {
         buttons[n][m] = b;
         table.add(b,n,m);
         createButtonOnMap(x,y);
+
         //recorrer la lista de unidades y cambiar o no su vida
+        Unidad aux;
+        aux = algoChess.obtenerTablero().obtenerCasillero(x,y).obtenerUnidad();
+        algoChess.accionDeFase(aux,n,m);
+        changeShift();
+        //this.algoChess.obtenerTablero().moverUnidadAPosicion(x,y,n,m);
     }
     /*
     public void recorrerListaDeUnidadYCambiarVida(){
