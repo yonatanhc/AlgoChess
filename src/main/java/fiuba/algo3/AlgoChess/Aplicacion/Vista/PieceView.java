@@ -126,38 +126,38 @@ public class PieceView {
 
     public void showMovementTypes(int x, int y){
         Stage stage = new Stage();
-        VBox vbox = new VBox();
+        HBox hbox = new HBox();
 
-        Button b1 = getMovementView("derecha");
+        Button b1 = getMovementView("arriba");
         performRightMovement(this,b1,x,y,x,y+1);
         Button b = new Button();
-        Button b2 = getMovementView("izquierda");
+        Button b2 = getMovementView("abajo");
         performRightMovement(this,b2,x,y,x,y-1);
-        HBox hbox2 = new HBox();
-        hbox2.getChildren().addAll(b2,b,b1);
+        VBox vbox2 = new VBox();
+        vbox2.getChildren().addAll(b2,b,b1);
 
         Button b6 = getMovementView("arribaIzquierda");
         performRightMovement(this,b6,x,y,x-1,y-1);
-        Button b3 = getMovementView("arriba");
+        Button b3 = getMovementView("izquierda");
         performRightMovement(this,b3,x,y,x-1,y);
-        Button b5 = getMovementView("arribaDerecha");
+        Button b5 = getMovementView("abajoIzquierda");
         performRightMovement(this,b5,x,y,x-1,y+1);
-        HBox hbox1 = new HBox();
-        hbox1.getChildren().addAll(b6,b3,b5);
+        VBox vbox1 = new VBox();
+        vbox1.getChildren().addAll(b6,b3,b5);
 
-        Button b8 = getMovementView("abajoizquierda");
+        Button b8 = getMovementView("arribaDerecha");
         performRightMovement(this,b8,x,y,x+1,y-1);
-        Button b4 = getMovementView("abajo");
+        Button b4 = getMovementView("derecha");
         performRightMovement(this,b4,x,y,x+1,y);
         Button b7 = getMovementView("abajoDerecha");
         performRightMovement(this,b7,x,y,x+1,y+1);
-        HBox hbox3 = new HBox();
-        hbox3.getChildren().addAll(b8,b4,b7);
+        VBox vbox3 = new VBox();
+        vbox3.getChildren().addAll(b8,b4,b7);
 
 
-        vbox.getChildren().addAll(hbox1,hbox2,hbox3);
+        hbox.getChildren().addAll(vbox1,vbox2,vbox3);
 
-        Scene theScene = new Scene(vbox);
+        Scene theScene = new Scene(hbox);
         stage.setScene(theScene);
         stage.show();
     }
