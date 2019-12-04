@@ -1,6 +1,7 @@
 package fiuba.algo3.AlgoChess.Aplicacion.Vista;
 
 
+import fiuba.algo3.AlgoChess.AlgoChess;
 import fiuba.algo3.AlgoChess.entidades.Unidad;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -187,6 +188,8 @@ public class PieceView {
         Scene theScene = new Scene(b);
         stage.setScene(theScene);
         stage.show();
+        mapView.getAlgoChess().accionDeFase(unidad,1,1);
+
     }
 
 }

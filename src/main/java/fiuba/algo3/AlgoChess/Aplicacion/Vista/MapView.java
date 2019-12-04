@@ -47,6 +47,8 @@ public class MapView extends Group {
         this.listPieceView = new ArrayList<>();
     }
 
+    public AlgoChess getAlgoChess(){return algoChess;}
+
 
     public void getMapView(){
 
@@ -201,6 +203,12 @@ public class MapView extends Group {
             dialogoAlerta.showAndWait();
 
         }catch (FaseDeJuegoException e){
+
+        }
+        if(player1.pointsVerify()==0&&player2.pointsVerify()==0){
+            for(int i = 0; i < this.listPieceView.size();i++){
+                listPieceView.get(i).changeMovement();
+            }
             Alert dialogoAlerta = new Alert(Alert.AlertType.INFORMATION);
             dialogoAlerta.setTitle("Siguiente Fase:");
             dialogoAlerta.setHeaderText("Comienza el juego! Muevan sus unidades!");
@@ -208,11 +216,6 @@ public class MapView extends Group {
             java.awt.Toolkit.getDefaultToolkit().beep();
             dialogoAlerta.showAndWait();
 
-        }
-        if(player1.pointsVerify()==0&&player2.pointsVerify()==0){
-            for(int i = 0; i < this.listPieceView.size();i++){
-                listPieceView.get(i).changeMovement();
-            }
             FaseDeJuegoVista faseDeJuegoVista = new FaseDeJuegoVista(player1,player2,algoChess,this,this.stage);
         }
     }
