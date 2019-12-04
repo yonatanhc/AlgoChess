@@ -143,28 +143,28 @@ public class PieceView {
         HBox hbox = new HBox();
 
         Button b1 = getMovementView("arriba");
-        performRightMovement(this,b1,x,y,x,y+1);
+        performRightMovement(this,b1,x,y,x,y+1,stage);
         Button b = new Button();
         Button b2 = getMovementView("abajo");
-        performRightMovement(this,b2,x,y,x,y-1);
+        performRightMovement(this,b2,x,y,x,y-1,stage);
         VBox vbox2 = new VBox();
         vbox2.getChildren().addAll(b2,b,b1);
 
         Button b6 = getMovementView("arribaIzquierda");
-        performRightMovement(this,b6,x,y,x-1,y-1);
+        performRightMovement(this,b6,x,y,x-1,y-1,stage);
         Button b3 = getMovementView("izquierda");
-        performRightMovement(this,b3,x,y,x-1,y);
+        performRightMovement(this,b3,x,y,x-1,y,stage);
         Button b5 = getMovementView("abajoIzquierda");
-        performRightMovement(this,b5,x,y,x-1,y+1);
+        performRightMovement(this,b5,x,y,x-1,y+1,stage);
         VBox vbox1 = new VBox();
         vbox1.getChildren().addAll(b6,b3,b5);
 
         Button b8 = getMovementView("arribaDerecha");
-        performRightMovement(this,b8,x,y,x+1,y-1);
+        performRightMovement(this,b8,x,y,x+1,y-1,stage);
         Button b4 = getMovementView("derecha");
-        performRightMovement(this,b4,x,y,x+1,y);
+        performRightMovement(this,b4,x,y,x+1,y,stage);
         Button b7 = getMovementView("abajoDerecha");
-        performRightMovement(this,b7,x,y,x+1,y+1);
+        performRightMovement(this,b7,x,y,x+1,y+1,stage);
         VBox vbox3 = new VBox();
         vbox3.getChildren().addAll(b8,b4,b7);
 
@@ -176,13 +176,15 @@ public class PieceView {
         stage.show();
     }
 
-    public void performRightMovement(PieceView pieceView,Button button, int x, int y,int n, int m){
+    public void performRightMovement(PieceView pieceView,Button button, int x, int y,int n, int m, Stage stage){
         button.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
 
                 mapView.changeButton(pieceView,x,y,n,m);
+                stage.close();
+
             }
 
         });

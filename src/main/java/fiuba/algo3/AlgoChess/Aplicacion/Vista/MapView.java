@@ -237,6 +237,7 @@ public class MapView extends Group {
         algoChess.accionDeFase(aux,n,m);
         changeShift();
         //this.algoChess.obtenerTablero().moverUnidadAPosicion(x,y,n,m);
+
     }
 
     PlayerView getTurnOf(){return turnOf;}
