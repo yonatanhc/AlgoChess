@@ -238,6 +238,8 @@ public class MapView extends Group {
         changeShift();
         //this.algoChess.obtenerTablero().moverUnidadAPosicion(x,y,n,m);
     }
+
+    PlayerView getTurnOf(){return turnOf;}
     /*
     public void recorrerListaDeUnidadYCambiarVida(){
         ArrayList<Unidad> lista = this.algoChess.obtenerJudadorEnTurno().getUnidades();

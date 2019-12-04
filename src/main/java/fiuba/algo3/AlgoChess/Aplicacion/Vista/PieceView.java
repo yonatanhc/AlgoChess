@@ -5,6 +5,7 @@ import fiuba.algo3.AlgoChess.AlgoChess;
 import fiuba.algo3.AlgoChess.entidades.Unidad;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -15,6 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.util.HashMap;
 
@@ -86,9 +88,20 @@ public class PieceView {
     public void addEventMovement(Button button,int x, int y){
         button.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>() {
 
+
             @Override
             public void handle(MouseEvent event) {
-                if(event.getButton().equals(MouseButton.PRIMARY)){
+
+                if(unidad.getJugador().obtenerNombre() != mapView.getTurnOf().getName()){
+                    Alert dialogoAlerta = new Alert(Alert.AlertType.ERROR);
+                    dialogoAlerta.setTitle("Error! Pieza Contraria");
+                    dialogoAlerta.setHeaderText("Esta seleccionando una pieza del jugador contrario. Elija una de sus piezas");
+                    dialogoAlerta.initStyle(StageStyle.UTILITY);
+                    java.awt.Toolkit.getDefaultToolkit().beep();
+                    dialogoAlerta.showAndWait();
+                }
+
+                else if(event.getButton().equals(MouseButton.PRIMARY)){
                     if(eventMovement){
                         if(unidad.getNombreDeUnidad() == "Catapulta") {eventCatapulta();}
                         else {showMovementTypes(x,y);}
