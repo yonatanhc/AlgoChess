@@ -93,6 +93,7 @@ public class PieceView {
             public void handle(MouseEvent event) {
 
                 if(unidad.getJugador().obtenerNombre() != mapView.getTurnOf().getName()){
+
                     Alert dialogoAlerta = new Alert(Alert.AlertType.ERROR);
                     dialogoAlerta.setTitle("Error! Pieza Contraria");
                     dialogoAlerta.setHeaderText("Esta seleccionando una pieza del jugador contrario. Elija una de sus piezas");
@@ -204,7 +205,7 @@ public class PieceView {
         stage.setScene(theScene);
         stage.show();
         mapView.getAlgoChess().accionDeFase(unidad,1,1);
-
+        mapView.changeShift();
     }
 
 }
