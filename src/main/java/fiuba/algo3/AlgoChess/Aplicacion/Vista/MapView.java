@@ -227,24 +227,7 @@ public class MapView extends Group {
 
     //se intercambia los botones del mapa, movimiento de las unidades
     public void changeButton(PieceView pieceView,int x, int y,int n, int m){
-<<<<<<< HEAD
 
-
-        table.getChildren().remove(buttons[n][m]);
-        table.getChildren().remove(buttons[x][y]);
-        Button b = pieceView.createButtonPieceMin(n,m);
-        b.setStyle("-fx-border-color:"+this.turnOf.getColor());
-        buttons[n][m] = b;
-        table.add(b,n,m);
-        createButtonOnMap(x,y);
-
-        Unidad aux;
-        aux = algoChess.obtenerTablero().obtenerCasillero(x,y).obtenerUnidad();
-        algoChess.accionDeFase(aux,n,m);
-
-        changeShift();
-        deletePieceDeath();
-=======
         try {
             Unidad aux;
             aux = algoChess.obtenerTablero().obtenerCasillero(x,y).obtenerUnidad();
@@ -258,6 +241,7 @@ public class MapView extends Group {
             table.add(b,n,m);
             createButtonOnMap(x,y);
             changeShift();
+            deletePieceDeath();
         }catch (CasilleroOcupadoException e){
             Alert dialogoAlerta = new Alert(Alert.AlertType.ERROR);
             dialogoAlerta.setTitle("Error!CasilleroOcupadoException");
@@ -266,7 +250,7 @@ public class MapView extends Group {
             java.awt.Toolkit.getDefaultToolkit().beep();
             dialogoAlerta.showAndWait();
         }
->>>>>>> b8f25509945011e1012834e2b78af6f6c90b6e71
+
     }
 
     PlayerView getTurnOf(){return turnOf;}
@@ -275,7 +259,7 @@ public class MapView extends Group {
         for(int i = 0; i < listPieceView.size(); i++){
             PieceView pieceView = listPieceView.get(i);
             Unidad unidad = pieceView.getUnidadOfPieceView();
-            if(unidad.getPuntosDeVida() == 0){
+            if(unidad.getPuntosDeVida() <= 0){
                 int x = unidad.getUbicacion().getX();
                 int y = unidad.getUbicacion().getY();
                 table.getChildren().remove(buttons[x][y]);
