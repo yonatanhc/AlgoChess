@@ -204,7 +204,7 @@ public class PieceView {
         stage.setScene(theScene);
         stage.show();
         mapView.getAlgoChess().accionDeFase(unidad,1,1);
-
+        mapView.changeShift();
     }
 
 }

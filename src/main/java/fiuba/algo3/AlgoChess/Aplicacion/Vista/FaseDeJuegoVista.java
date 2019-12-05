@@ -29,23 +29,7 @@ public class FaseDeJuegoVista {
         this.mapView.setEventMovement(false);
         this.player1.deletePoint();
         this.player2.deletePoint();
-        /*
-        this.stage.setTitle("Phase Game");
-        HBox hbox = new HBox();
-        hbox.setAlignment(Pos.CENTER);
-
-        player1.viewPlayer(hbox);
-        hbox.getChildren().add(mapView);
-        player2.viewPlayer(hbox);
-        //mapView.turnOfPlayer();
-
-        hbox.setAlignment(Pos.CENTER);
-        Scene theScene = new Scene(hbox);
-        theScene.getStylesheets().add("Css/estilo.css");
-        this.stage.setScene(theScene);
-        this.stage.setMaximized(true);
-        this.stage.show();
-        //this.stage.setFullScreen(true);*/
+        mapView.setPosTurn(1);
     }
 
 }

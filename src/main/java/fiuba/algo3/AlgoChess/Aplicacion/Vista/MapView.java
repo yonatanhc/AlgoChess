@@ -39,6 +39,7 @@ public class MapView extends Group {
     private Stage stage;
     private Button[][] buttons;
     private boolean eventMovement;
+    private int posTurn;
     private ArrayList<PieceView> listPieceView;
 
     public MapView(AlgoChess algoChess,Stage stage){
@@ -86,6 +87,10 @@ public class MapView extends Group {
 
     public void setEventMovement(boolean event){
         this.eventMovement = event;
+    }
+
+    public void setPosTurn(int pos){
+        this.posTurn = pos;
     }
 
     public void setPlayers(PlayerView player1,PlayerView player2){
@@ -150,7 +155,7 @@ public class MapView extends Group {
     }
 
     public void changeShift(){
-        this.turnOf.changeTurn();
+        this.turnOf.changeTurn(this.posTurn);
         this.algoChess.cambioDeTurno();
         turnOfPlayer();
     }
@@ -163,7 +168,7 @@ public class MapView extends Group {
         if(name == player2.getName()){
             this.turnOf = player2;
         }
-        this.turnOf.turnView();
+        this.turnOf.turnView(this.posTurn);
     }
 
 
@@ -222,7 +227,7 @@ public class MapView extends Group {
     //se intercambia los botones del mapa, movimiento de las unidades
     public void changeButton(PieceView pieceView,int x, int y,int n, int m){
 
-        //realizar movimiento  de las unidades en algoChess,excepciones....
+
         table.getChildren().remove(buttons[n][m]);
         table.getChildren().remove(buttons[x][y]);
         Button b = pieceView.createButtonPieceMin(n,m);
@@ -231,23 +236,14 @@ public class MapView extends Group {
         table.add(b,n,m);
         createButtonOnMap(x,y);
 
-        //recorrer la lista de unidades y cambiar o no su vida
+
         Unidad aux;
         aux = algoChess.obtenerTablero().obtenerCasillero(x,y).obtenerUnidad();
         algoChess.accionDeFase(aux,n,m);
+
         changeShift();
-        //this.algoChess.obtenerTablero().moverUnidadAPosicion(x,y,n,m);
 
     }
 
     PlayerView getTurnOf(){return turnOf;}
-    /*
-    public void recorrerListaDeUnidadYCambiarVida(){
-        ArrayList<Unidad> lista = this.algoChess.obtenerJudadorEnTurno().getUnidades();
-        for (int i = 0; i < this.listPieceView.size(); i++){
-           if(lista.contains(this.listPieceView.get(i))){
-               this.listPieceView.get(i).
-           }
-        }
-    }*/
 }

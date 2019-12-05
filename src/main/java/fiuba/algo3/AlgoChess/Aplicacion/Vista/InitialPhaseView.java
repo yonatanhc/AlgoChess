@@ -29,6 +29,7 @@ public class InitialPhaseView{
 		this.stage = stage;
 		this.mapView = new MapView(algochess,stage);//the events are to position the pieces
 		this.mapView.setEventMovement(true);
+		this.mapView.setPosTurn(2);
 		this.mapView.getMapView();
 		player1 =  new PlayerView(jugador1,"red");
 		player2 =  new PlayerView(jugador2,"blue");

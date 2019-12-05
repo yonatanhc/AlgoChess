@@ -67,14 +67,14 @@ public class PlayerView {
 		this.player.getChildren().remove(1);
 	}
 
-	public void turnView(){
+	public void turnView(int pos){
 		Button button = new Button();
 		button.setText("Es Mi Turno");
-		this.player.getChildren().add(2,button);
+		this.player.getChildren().add(pos,button);
 	}
 
-	public void changeTurn(){
-		this.player.getChildren().remove(2);
+	public void changeTurn(int pos){
+		this.player.getChildren().remove(pos);
 	}
 
 	public void changePoint(){
