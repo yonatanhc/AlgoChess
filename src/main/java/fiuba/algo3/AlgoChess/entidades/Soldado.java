@@ -1,6 +1,7 @@
 package fiuba.algo3.AlgoChess.entidades;
 
 import fiuba.algo3.AlgoChess.acciones.AtaqueDeSoldado;
+import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
 
 public class Soldado extends Unidad {
 
@@ -15,8 +16,11 @@ public class Soldado extends Unidad {
         getTipoDeHabilidad().activarHabilidad(this);
     }
 
-
-
+    @Override
+    public void moverUnidad(Casillero destino) {
+        Batallon batallon = new Batallon(this);
+        batallon.moverBatallon(destino);
+    }
 
 
 }
