@@ -70,7 +70,7 @@ public class Jugador {
     }
 
     public boolean tieneUnidades(){ //A partir de este metodo, defino quien es el jugador ganador
-        return (unidades.size() == 0 );
+        return (unidades.size() != 0 );
     }
 
 

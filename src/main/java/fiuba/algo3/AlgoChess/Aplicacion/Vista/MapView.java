@@ -236,11 +236,16 @@ public class MapView extends Group {
         table.add(b,n,m);
         createButtonOnMap(x,y);
 
+        //recorrer la lista de unidades y cambiar o no su vida
+
         Unidad aux;
         aux = algoChess.obtenerTablero().obtenerCasillero(x,y).obtenerUnidad();
         algoChess.accionDeFase(aux,n,m);
 
         changeShift();
+
+        //this.algoChess.obtenerTablero().moverUnidadAPosicion(x,y,n,m);
+
     }
 
     PlayerView getTurnOf(){return turnOf;}

@@ -20,9 +20,9 @@ public class FaseDeJuego extends Fase {
     public void siguienteFase(){
         if(algoChess.obtenerJugadorEnEspera().tieneUnidades()){
 
-            algoChess.cambioDeTurno();  //Se realiza cambio de turno antes de cambiar de fase
+          //  algoChess.cambioDeTurno();  //Se realiza cambio de turno fuera de este metodo
 
-            this.algoChess.asignarFase(new FaseDeJuego(this.algoChess));
+            //this.algoChess.asignarFase(new FaseDeJuego(this.algoChess));
         }else{
             this.algoChess.asignarFase(new FaseFinal(this.algoChess));
         }

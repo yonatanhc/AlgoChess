@@ -6,7 +6,7 @@ import fiuba.algo3.AlgoChess.entidades.Unidad;
 public class FaseFinal extends Fase {
 
     public FaseFinal(AlgoChess algoChess_pass) {
-        super(algoChess_pass);
+       super(algoChess_pass);
     }
 
     @Override
