@@ -4,6 +4,7 @@ package fiuba.algo3.AlgoChess.Aplicacion.Vista;
 import fiuba.algo3.AlgoChess.AlgoChess;
 import fiuba.algo3.AlgoChess.entidades.Unidad;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -134,13 +135,13 @@ public class PieceView {
 
     public Button getMovementView(String name){
         Button b1 = new Button();
-        ImageView pieceImage = new ImageView(new Image("imagenes/"+name+".jpg"));
+        /*ImageView pieceImage = new ImageView(new Image("imagenes/"+name+".jpg"));
         pieceImage.setScaleX(playerScale);
         pieceImage.setScaleY(playerScale);
         pieceImage.setFitHeight(23);
         pieceImage.setFitWidth(13);
-
-        b1.setGraphic(pieceImage);
+*/
+        //b1.setGraphic(pieceImage);
         return b1;
     }
 
@@ -148,36 +149,48 @@ public class PieceView {
         Stage stage = new Stage();
         HBox hbox = new HBox();
 
-        Button b1 = getMovementView("arriba");
+        Button b1 = getMovementView("abajo");
+        b1.setId("Abajo");
         performRightMovement(this,b1,x,y,x,y+1,stage);
         Button b = new Button();
-        Button b2 = getMovementView("abajo");
+        Button b2 = getMovementView("arriba");
+        b2.setId("Arriba");
         performRightMovement(this,b2,x,y,x,y-1,stage);
         VBox vbox2 = new VBox();
+        vbox2.setAlignment(Pos.CENTER);
         vbox2.getChildren().addAll(b2,b,b1);
 
         Button b6 = getMovementView("arribaIzquierda");
+        b6.setId("ArribaIzq");
         performRightMovement(this,b6,x,y,x-1,y-1,stage);
         Button b3 = getMovementView("izquierda");
+        b3.setId("Izquierda");
         performRightMovement(this,b3,x,y,x-1,y,stage);
         Button b5 = getMovementView("abajoIzquierda");
+        b5.setId("AbajoIzq");
         performRightMovement(this,b5,x,y,x-1,y+1,stage);
         VBox vbox1 = new VBox();
+        vbox1.setAlignment(Pos.CENTER_LEFT);
         vbox1.getChildren().addAll(b6,b3,b5);
 
         Button b8 = getMovementView("arribaDerecha");
+        b8.setId("ArribaDer");
         performRightMovement(this,b8,x,y,x+1,y-1,stage);
         Button b4 = getMovementView("derecha");
+        b4.setId("Derecha");
         performRightMovement(this,b4,x,y,x+1,y,stage);
         Button b7 = getMovementView("abajoDerecha");
+        b7.setId("AbajoDer");
         performRightMovement(this,b7,x,y,x+1,y+1,stage);
         VBox vbox3 = new VBox();
+        vbox3.setAlignment(Pos.CENTER_RIGHT);
         vbox3.getChildren().addAll(b8,b4,b7);
 
-
+        hbox.setAlignment(Pos.CENTER);
         hbox.getChildren().addAll(vbox1,vbox2,vbox3);
 
         Scene theScene = new Scene(hbox);
+        theScene.getStylesheets().add("Css/botones.css");
         stage.setScene(theScene);
         stage.show();
     }
