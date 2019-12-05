@@ -302,8 +302,8 @@ public class MapView extends Group {
                 int y = unidad.getUbicacion().getY();
                 table.getChildren().remove(buttons[x][y]);
                 createButtonOnMap(x,y);
-                algoChess.obtenerTablero().removerUnidad(unidad.getUbicacion());
                 listPieceView.remove(i);
+                algoChess.obtenerTablero().removerUnidad(unidad.getUbicacion());
             }
         }
     }
