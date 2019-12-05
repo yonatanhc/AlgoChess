@@ -1,0 +1,38 @@
+#Derecha{
+    -fx-background-image: url("../Imagenes/flechaDerecha.png");
+    -fx-background-size: 23 23;
+}
+
+#Izquierda{
+    -fx-background-image: url("../Imagenes/flechaIzquierda.png");
+    -fx-background-size: 23 23;
+}
+
+#Arriba{
+    -fx-background-image: url("../Imagenes/flechaArriba.png");
+    -fx-background-size: 23 23;
+}
+#ArribaIzq{
+    -fx-background-image: url("../Imagenes/flechaDiagonalIA.png");
+    -fx-background-size: 23 23;
+}
+
+#ArribaDer{
+    -fx-background-image: url("../Imagenes/flechaDiagonalDA.png");
+    -fx-background-size: 23 23;
+}
+
+#Abajo{
+    -fx-background-image: url("../Imagenes/flechaAbajo.png");
+    -fx-background-size: 23 23;
+}
+
+#AbajoIzq{
+    -fx-background-image: url("../Imagenes/flechaDiagonalIAb.png");
+    -fx-background-size: 23 23;
+}
+
+#AbajoDer{
+    -fx-background-image: url("../Imagenes/flechaDiagonalDAb.png");
+    -fx-background-size: 23 23;
+}
