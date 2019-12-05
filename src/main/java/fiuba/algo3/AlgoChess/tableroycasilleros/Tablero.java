@@ -99,25 +99,11 @@ public class Tablero {
     }
 
     public void intercambiarPosicionDeUnidad(Unidad unidad, Casillero destino){
-      if (destino.casilleroLibre()) {
-          if (unidad.getNombreDeUnidad() != "Catapulta") { // realizar chequeo de catapulta
-              if (unidad.getNombreDeUnidad() != "Soldado") { // realizo un chequeo para la movilidad del batallon
-                  unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
-                  unidad.setUbicacion(destino);
-              } else {
-
-                      Batallon batallon = new Batallon(unidad);
-                      batallon.moverBatallon(destino);
-
-              }
-          }else{
-                  throw new MoverCatapultaError();
-              }
-          } else {
-              throw new CasilleroOcupadoException();
-          }
-
-
+        if(destino.casilleroLibre()) {
+            unidad.moverUnidad(destino);
+        }else {
+            throw new CasilleroOcupadoException();
+        }
     }
 
     public int tamanioDelTablero(){

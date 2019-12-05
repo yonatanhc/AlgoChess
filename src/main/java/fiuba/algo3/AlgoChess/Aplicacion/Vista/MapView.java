@@ -6,6 +6,7 @@ import fiuba.algo3.AlgoChess.Aplicacion.flujodejuego.FaseDeJuegoException;
 import fiuba.algo3.AlgoChess.CampoContrarioException;
 import fiuba.algo3.AlgoChess.PuntosNoDisponibleDelJugadorException;
 import fiuba.algo3.AlgoChess.entidades.*;
+import fiuba.algo3.AlgoChess.tableroycasilleros.CasilleroOcupadoException;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -226,6 +227,7 @@ public class MapView extends Group {
 
     //se intercambia los botones del mapa, movimiento de las unidades
     public void changeButton(PieceView pieceView,int x, int y,int n, int m){
+<<<<<<< HEAD
 
 
         table.getChildren().remove(buttons[n][m]);
@@ -242,6 +244,29 @@ public class MapView extends Group {
 
         changeShift();
         deletePieceDeath();
+=======
+        try {
+            Unidad aux;
+            aux = algoChess.obtenerTablero().obtenerCasillero(x,y).obtenerUnidad();
+            algoChess.accionDeFase(aux,n,m);
+
+            table.getChildren().remove(buttons[n][m]);
+            table.getChildren().remove(buttons[x][y]);
+            Button b = pieceView.createButtonPieceMin(n,m);
+            b.setStyle("-fx-border-color:"+this.turnOf.getColor());
+            buttons[n][m] = b;
+            table.add(b,n,m);
+            createButtonOnMap(x,y);
+            changeShift();
+        }catch (CasilleroOcupadoException e){
+            Alert dialogoAlerta = new Alert(Alert.AlertType.ERROR);
+            dialogoAlerta.setTitle("Error!CasilleroOcupadoException");
+            dialogoAlerta.setHeaderText("Cuidado! Esta intentando moverse a un casillero ocupado");
+            dialogoAlerta.initStyle(StageStyle.UTILITY);
+            java.awt.Toolkit.getDefaultToolkit().beep();
+            dialogoAlerta.showAndWait();
+        }
+>>>>>>> b8f25509945011e1012834e2b78af6f6c90b6e71
     }
 
     PlayerView getTurnOf(){return turnOf;}
