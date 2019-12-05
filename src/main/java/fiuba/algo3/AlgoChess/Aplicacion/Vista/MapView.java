@@ -35,6 +35,7 @@ public class MapView extends Group {
     private double tileHeigth = 33;
     private GridPane table;
     private PlayerView turnOf;
+    private PlayerView notTurnOf;
     private PlayerView player1;
     private PlayerView player2;
     private Stage stage;
@@ -165,9 +166,11 @@ public class MapView extends Group {
         String name = this.algoChess.obtenerJudadorEnTurno().obtenerNombre();
         if(name == player1.getName()){
             this.turnOf = player1;
+            this.notTurnOf = player2;
         }
         if(name == player2.getName()){
             this.turnOf = player2;
+            this.notTurnOf = player1;
         }
         this.turnOf.turnView(this.posTurn);
     }
@@ -255,16 +258,17 @@ public class MapView extends Group {
             dialogoAlerta.showAndWait();
         }
 
-        synckUnitsViewAndProgram();
+        synckUnitsViewAndProgram(this.turnOf);
         changeShift();
 
     }
 
-    private void synckUnitsViewAndProgram() {
+    private void synckUnitsViewAndProgram(PlayerView turnOf_) {
         int x_algoChess;
         int y_algoChess;
         int x;
         int y;
+        String name = this.algoChess.obtenerJudadorEnTurno().obtenerNombre();
 
         for (int i = 0; i < listPieceView.size(); i++) {
 
@@ -280,8 +284,10 @@ public class MapView extends Group {
                 table.getChildren().remove(buttons[x_algoChess][y_algoChess]);
                 Button b = listPieceView.get(i).createButtonPieceMin(x_algoChess, y_algoChess);
                 //if (this.turnOf.getName()==listPieceView.get(i).getUnidadOfPieceView().getJugador().obtenerNombre()) {
-                b.setStyle("-fx-border-color:" + this.turnOf.getColor());
-                //}
+                if(name == listPieceView.get(i).getUnidad().getJugador().obtenerNombre()) {
+                    b.setStyle("-fx-border-color:" + this.turnOf.getColor());
+                } else{b.setStyle("-fx-border-color:" + this.notTurnOf.getColor());}
+
                 buttons[x_algoChess][y_algoChess] = b;
                 table.add(b, x_algoChess, y_algoChess);
                 createButtonOnMap(x, y);

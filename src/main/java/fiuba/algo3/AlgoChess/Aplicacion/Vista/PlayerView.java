@@ -17,6 +17,7 @@ public class PlayerView {
 	private ScrollPane piece;
 	private String color;
 
+
 	public PlayerView(String name,String color) {
 		this.color = color;
 		this.namePlayer = name;
@@ -85,4 +86,6 @@ public class PlayerView {
 	public int pointsVerify() {
 		return this.points;
 	}
+
+
 }
