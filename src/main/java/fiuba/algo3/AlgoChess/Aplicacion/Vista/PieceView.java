@@ -206,6 +206,7 @@ public class PieceView {
         stage.show();
         mapView.getAlgoChess().accionDeFase(unidad,1,1);
         mapView.changeShift();
+        mapView.deletePieceDeath();
     }
 
 }

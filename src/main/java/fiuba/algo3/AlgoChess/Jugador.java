@@ -40,7 +40,7 @@ public class Jugador {
                 this.unidades.remove(i);
             }
         }
-        if (unidades.size() == 0) throw  new JugadorPerdioElJuegoExcepcion();
+       // if (unidades.size() == 0) throw  new JugadorPerdioElJuegoExcepcion();
     }
 
     public boolean esMiCampo(Casillero casilleroALlenar) {

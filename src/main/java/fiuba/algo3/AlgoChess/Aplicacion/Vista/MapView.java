@@ -228,9 +228,11 @@ public class MapView extends Group {
     //se intercambia los botones del mapa, movimiento de las unidades
     public void changeButton(PieceView pieceView,int x, int y,int n, int m){
 
+        Unidad aux;
+        aux = algoChess.obtenerTablero().obtenerCasillero(x,y).obtenerUnidad();
+
         try {
-            Unidad aux;
-            aux = algoChess.obtenerTablero().obtenerCasillero(x,y).obtenerUnidad();
+
             algoChess.accionDeFase(aux,n,m);
 
             table.getChildren().remove(buttons[n][m]);
