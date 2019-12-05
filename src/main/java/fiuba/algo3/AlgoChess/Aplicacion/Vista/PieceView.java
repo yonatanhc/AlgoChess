@@ -231,6 +231,8 @@ public class PieceView {
 
     public int getXPosition(){return XPosition;}
     public int getYPosition(){return YPosition;}
+    public void setXPosition(int x){XPosition = x;}
+    public void setYPosition(int y){XPosition = y;}
 
 }
 
