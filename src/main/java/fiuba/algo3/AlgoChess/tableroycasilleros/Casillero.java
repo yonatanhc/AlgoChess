@@ -15,6 +15,7 @@ public class Casillero {
         this.estaLibre = true;
     }
 
+    public Unidad getUnidad(){return unidadAGuardar;}
     //remove método
     public void ocuparCasilleroConUnidad(Unidad unidadAOcuparCasillero){
         if(estaLibre) {

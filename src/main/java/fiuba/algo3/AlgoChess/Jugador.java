@@ -42,6 +42,14 @@ public class Jugador {
         }
        // if (unidades.size() == 0) throw  new JugadorPerdioElJuegoExcepcion();
     }
+    public void removerUnidades(){
+        for (int i = 0 ; i < unidades.size() ; i++){
+            if(this.unidades.get(i).getPuntosDeVida()<=0){
+                this.unidades.remove(i);
+            }
+        }
+        if (unidades.size() == 0) throw  new JugadorPerdioElJuegoExcepcion();
+    }
 
     public boolean esMiCampo(Casillero casilleroALlenar) {
         if(this.casillerosDelJugador.contains(casilleroALlenar)){

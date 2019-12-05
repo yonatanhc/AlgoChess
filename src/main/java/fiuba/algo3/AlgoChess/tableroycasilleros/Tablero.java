@@ -14,7 +14,8 @@ public class Tablero {
     private ArrayList<Casillero> tableroDelJuego;
     private int ladoDelTablero;
     private Jugador jugadorAliado;
-   private Jugador jugadorEnemigo;
+    private Jugador jugadorEnemigo;
+    private ArrayList<Unidad> unidades;
 
     public Tablero(Jugador jugador1, Jugador jugador2){
         this.ladoDelTablero = 20;
@@ -91,6 +92,10 @@ public class Tablero {
                     return casilleroADevolver;
                 }
             }throw new ErrorDePosicionException();
+    }
+
+    public void removerUnidad(Casillero casilleroRemoverUnidad){
+            casilleroRemoverUnidad.cambiarEstadoDelCasilleroALibre();
     }
 
     public void intercambiarPosicionDeUnidadSoldado(Unidad unidad, Casillero destino) {
