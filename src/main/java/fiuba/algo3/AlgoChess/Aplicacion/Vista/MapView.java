@@ -236,17 +236,27 @@ public class MapView extends Group {
         table.add(b,n,m);
         createButtonOnMap(x,y);
 
-        //recorrer la lista de unidades y cambiar o no su vida
-
         Unidad aux;
         aux = algoChess.obtenerTablero().obtenerCasillero(x,y).obtenerUnidad();
         algoChess.accionDeFase(aux,n,m);
 
         changeShift();
-
-        //this.algoChess.obtenerTablero().moverUnidadAPosicion(x,y,n,m);
-
+        deletePieceDeath();
     }
 
     PlayerView getTurnOf(){return turnOf;}
+
+    public void deletePieceDeath(){
+        for(int i = 0; i < listPieceView.size(); i++){
+            PieceView pieceView = listPieceView.get(i);
+            Unidad unidad = pieceView.getUnidadOfPieceView();
+            if(unidad.getPuntosDeVida() == 0){
+                int x = unidad.getUbicacion().getX();
+                int y = unidad.getUbicacion().getY();
+                table.getChildren().remove(buttons[x][y]);
+                createButtonOnMap(x,y);
+                listPieceView.remove(i);
+            }
+        }
+    }
 }
