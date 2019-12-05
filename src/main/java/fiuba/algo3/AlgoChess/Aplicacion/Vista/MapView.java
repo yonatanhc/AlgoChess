@@ -235,14 +235,22 @@ public class MapView extends Group {
         buttons[n][m] = b;
         table.add(b,n,m);
         createButtonOnMap(x,y);
+<<<<<<< HEAD
 
 
+=======
+        //recorrer la lista de unidades y cambiar o no su vida
+>>>>>>> 1da6bd89836796eaaa067a0a9be269109fa74280
         Unidad aux;
         aux = algoChess.obtenerTablero().obtenerCasillero(x,y).obtenerUnidad();
         algoChess.accionDeFase(aux,n,m);
 
         changeShift();
+<<<<<<< HEAD
 
+=======
+        //this.algoChess.obtenerTablero().moverUnidadAPosicion(x,y,n,m);
+>>>>>>> 1da6bd89836796eaaa067a0a9be269109fa74280
     }
 
     PlayerView getTurnOf(){return turnOf;}

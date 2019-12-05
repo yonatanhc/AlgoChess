@@ -5,6 +5,9 @@ import fiuba.algo3.AlgoChess.MoverCatapultaError;
 import fiuba.algo3.AlgoChess.entidades.Catapulta;
 import fiuba.algo3.AlgoChess.entidades.Unidad;
 import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
+import fiuba.algo3.AlgoChess.tableroycasilleros.CasilleroOcupadoException;
+import javafx.scene.control.Alert;
+import javafx.stage.StageStyle;
 
 public class FaseDeJuego extends Fase {
 
@@ -30,10 +33,20 @@ public class FaseDeJuego extends Fase {
 
         try {
             algoChess.obtenerTablero().moverUnidadAPosicion(unidad.getUbicacion().getX(), unidad.getUbicacion().getY(), x, y);
+        }catch (CasilleroOcupadoException e){
+            Alert dialogoAlerta = new Alert(Alert.AlertType.ERROR);
+            dialogoAlerta.setTitle("Error!CasilleroOcupadoException");
+            dialogoAlerta.setHeaderText("Cuidado! Esta intentando moverse a un casillero ocupado");
+            dialogoAlerta.initStyle(StageStyle.UTILITY);
+            java.awt.Toolkit.getDefaultToolkit().beep();
+            dialogoAlerta.showAndWait();
         }catch (MoverCatapultaError e){
             unidad.activarHabilidad();
         }
+
         this.siguienteFase();
     }
+
+
 }
 
