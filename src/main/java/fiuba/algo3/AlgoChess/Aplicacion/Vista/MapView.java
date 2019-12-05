@@ -235,6 +235,7 @@ public class MapView extends Group {
 
             algoChess.accionDeFase(aux,n,m);
 
+
             table.getChildren().remove(buttons[n][m]);
             table.getChildren().remove(buttons[x][y]);
             Button b = pieceView.createButtonPieceMin(n,m);
@@ -242,6 +243,7 @@ public class MapView extends Group {
             buttons[n][m] = b;
             table.add(b,n,m);
             createButtonOnMap(x,y);
+
             changeShift();
             deletePieceDeath();
         }catch (CasilleroOcupadoException e){
@@ -253,6 +255,37 @@ public class MapView extends Group {
             dialogoAlerta.showAndWait();
         }
 
+        synckUnitsViewAndProgram();
+
+
+    }
+
+    private void synckUnitsViewAndProgram() {
+        int x_algoChess;
+        int y_algoChess;
+        int x;
+        int y;
+
+        for (int i = 0; i < listPieceView.size()-1; i++) {
+
+            x_algoChess = listPieceView.get(i).getUnidadOfPieceView().getUbicacion().getX();
+            y_algoChess = listPieceView.get(i).getUnidadOfPieceView().getUbicacion().getY();
+            x = listPieceView.get(i).getXPosition();
+            y = listPieceView.get(i).getYPosition();
+
+            if ((y != x_algoChess) && (y != y_algoChess)) {
+
+
+                table.getChildren().remove(buttons[x][y]);
+                table.getChildren().remove(buttons[x_algoChess][y_algoChess]);
+                Button b = listPieceView.get(i).createButtonPieceMin(x_algoChess, y_algoChess);
+                b.setStyle("-fx-border-color:" + this.turnOf.getColor());
+                buttons[x_algoChess][y_algoChess] = b;
+                table.add(b, x_algoChess, y_algoChess);
+                createButtonOnMap(x, y);
+            }
+
+        }
     }
 
     PlayerView getTurnOf(){return turnOf;}

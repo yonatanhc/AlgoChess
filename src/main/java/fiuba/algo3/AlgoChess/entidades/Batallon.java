@@ -1,6 +1,5 @@
 package fiuba.algo3.AlgoChess.entidades;
 
-import fiuba.algo3.AlgoChess.acciones.Rango;
 import fiuba.algo3.AlgoChess.acciones.RangoContiguo;
 import fiuba.algo3.AlgoChess.tableroycasilleros.Casillero;
 import fiuba.algo3.AlgoChess.tableroycasilleros.CasilleroOcupadoException;
@@ -52,6 +51,7 @@ public class Batallon {
             }
             catch (ErrorDePosicionException e){}
             catch (CasilleroOcupadoException e){}
+
         }
     }
 

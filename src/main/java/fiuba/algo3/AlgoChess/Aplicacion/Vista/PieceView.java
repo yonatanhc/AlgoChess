@@ -27,8 +27,11 @@ public class PieceView {
     private double playerScale = 1;
     private HashMap<String, String> listaImage;
     private boolean eventMovement;
-    private int lastXPosition;
+
+    private int XPosition;
+    private int YPosition;
     private MapView mapView;
+
 
     public PieceView(Unidad unidad ,MapView mapView) {
         this.mapView = mapView;
@@ -78,6 +81,8 @@ public class PieceView {
         Button button= new Button();
         button.setGraphic(getImageViewMin(this.unidad.getNombreDeUnidad()));
         addEventMovement(button,x,y);
+        XPosition = x;
+        YPosition = y;
         return button;
     }
 
@@ -189,6 +194,8 @@ public class PieceView {
             }
 
         });
+        XPosition = n;
+        YPosition = m;
     }
 
     public void eventCatapulta(){
@@ -208,6 +215,9 @@ public class PieceView {
         mapView.changeShift();
         mapView.deletePieceDeath();
     }
+
+    public int getXPosition(){return XPosition;}
+    public int getYPosition(){return YPosition;}
 
 }
 
