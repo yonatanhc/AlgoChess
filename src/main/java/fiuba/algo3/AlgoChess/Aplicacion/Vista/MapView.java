@@ -283,6 +283,9 @@ public class MapView extends Group {
                 buttons[x_algoChess][y_algoChess] = b;
                 table.add(b, x_algoChess, y_algoChess);
                 createButtonOnMap(x, y);
+                listPieceView.get(i).setXPosition(x_algoChess);
+                listPieceView.get(i).setXPosition(y_algoChess);
+
             }
 
         }
