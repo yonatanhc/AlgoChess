@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/yonatanhc/AlgoChess.svg?branch=master)](https://travis-ci.org/yonatanhc/AlgoChess)
 [![codecov](https://codecov.io/gh/yonatanhc/AlgoChess/branch/master/graph/badge.svg)](https://codecov.io/gh/yonatanhc/AlgoChess)
 
+Informe https://www.overleaf.com/8915945847fknbszjhrhsc
 
 ## Instalación previa
 
