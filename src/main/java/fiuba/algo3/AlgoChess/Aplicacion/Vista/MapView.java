@@ -277,7 +277,7 @@ public class MapView extends Group {
             x = listPieceView.get(i).getXPosition();
             y = listPieceView.get(i).getYPosition();
 
-            if ((y != x_algoChess) || (y != y_algoChess)) {
+            if ((x != x_algoChess) || (y != y_algoChess)) {
 
 
                 table.getChildren().remove(buttons[x][y]);
